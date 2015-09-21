@@ -19,8 +19,8 @@ class Projectile : public Entity
 		Vec2d mDamageRange;
 
 	public:
-		Projectile(Vec3d &position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type = ENTITY_ATTACK_ENEMY);
-		Projectile(Vec3d &position, Vec3d velocity, Animation *animation, Vec2d scale, Vec2d damageRange, entity_types type = ENTITY_ATTACK_ENEMY);
+		Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type = ENTITY_ATTACK_ENEMY);
+		Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec2d scale, Vec2d damageRange, entity_types type = ENTITY_ATTACK_ENEMY);
 		~Projectile();
 
 		Vec2d& getDamageRange() { return mDamageRange; }

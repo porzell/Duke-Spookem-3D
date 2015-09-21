@@ -8,6 +8,7 @@
 #include <rapidxml_utils.hpp>
 
 #include <sstream>
+#include <cstring>
 
 using namespace rapidxml;
 
@@ -24,7 +25,7 @@ ResourceManager::~ResourceManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 bool ResourceManager::load(std::string path)
 {

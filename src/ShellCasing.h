@@ -21,8 +21,8 @@ class ShellCasing : public Entity
 		float rotator;
 
 	public:
-		ShellCasing(Vec3d &position, Vec3d &velocity);
-		ShellCasing(Animation *anim, Vec3d &position, Vec3d &velocity);
+		ShellCasing(Vec3d position, Vec3d velocity);
+		ShellCasing(Animation *anim, Vec3d position, Vec3d velocity);
 		virtual ~ShellCasing();
 		
 		virtual void think(const double elapsedTime);

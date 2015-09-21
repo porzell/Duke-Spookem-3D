@@ -13,7 +13,7 @@ class IceBolt : public Projectile
 	private:
 
 	public:
-		IceBolt(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type);
+		IceBolt(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type);
 		~IceBolt();
 
 		virtual void think(const double elapsedTime);

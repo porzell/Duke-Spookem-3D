@@ -11,7 +11,7 @@ ShaderManager::~ShaderManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 Shader* ShaderManager::get(std::string key)
 {

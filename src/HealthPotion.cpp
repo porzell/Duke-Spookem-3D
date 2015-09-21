@@ -19,7 +19,7 @@ HealthPotion::HealthPotion(Vec3d &position, Vec2d healthRange) : Entity(game->ge
 
 	mpAnim->setScale(Vec2d(0.25f, 0.25f));
 
-	mPosition.Y = -0.8f;
+	mPosition.y = -0.8f;
 	
 	//setSize(0.2);
 }

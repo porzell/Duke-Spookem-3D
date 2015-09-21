@@ -5,7 +5,7 @@
 
 #include "Explosion.h"
 
-StickyGrenade::StickyGrenade(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type, float radius) : Projectile(position, velocity, animation, damageRange, type)
+StickyGrenade::StickyGrenade(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type, float radius) : Projectile(position, velocity, animation, damageRange, type)
 {
 	mBlastRadius = radius;
 

@@ -11,7 +11,7 @@ SpriteManager::~SpriteManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 Sprite* SpriteManager::get(std::string key)
 {

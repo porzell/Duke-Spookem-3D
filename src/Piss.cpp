@@ -11,8 +11,9 @@
 
 #include "Utils.h"
 #include <glm/glm.hpp>
+#include <algorithm>
 
-Piss::Piss(std::string lastPiss, Vec3d &position, Vec3d &velocity, entity_types type) : Projectile(position, velocity, NULL, Vec2d(0,0), type)
+Piss::Piss(std::string lastPiss, Vec3d position, Vec3d velocity, entity_types type) : Projectile(position, velocity, NULL, Vec2d(0,0), type)
 {
 	mLastPiss = lastPiss;
 
@@ -82,7 +83,7 @@ void Piss::draw()
 
 		glDisable(GL_TEXTURE_2D);
 
-		glLineWidth(max(0,10-glm::distance(game->getPlayer()->getPosition(), mPosition)));
+		glLineWidth(std::max<float>(0,10-glm::distance(game->getPlayer()->getPosition(), mPosition)));
 
 		glBegin(GL_LINES);
 
@@ -92,9 +93,9 @@ void Piss::draw()
 		Vec3d lastPiss = piss->getPosition();
 
 		//glVertex3f(mLastPosition.X, mLastPosition.Y, mLastPosition.Z);
-		glVertex3f(lastPiss.X, lastPiss.Y, lastPiss.Z);
+		glVertex3f(lastPiss.x, lastPiss.y, lastPiss.z);
 		glColor3f(1.0f,1.0f,0.0f);
-		glVertex3f(mPosition.X, mPosition.Y, mPosition.Z);
+		glVertex3f(mPosition.x, mPosition.y, mPosition.z);
 
 		glEnd();
 
@@ -161,7 +162,7 @@ void Piss::collide(Entity* other)
 
 			Vec3d vel = other->getPosition() - mPosition;
 
-			vel.setLength(0.1);
+			vel = glm::normalize(vel) * 0.1f;
 
 			//vel.Y = 0.075;
 

@@ -20,7 +20,7 @@ class FlamePuff : public Projectile
 		double mLifeTime;
 
 	public:
-		FlamePuff(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type);
+		FlamePuff(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type);
 		~FlamePuff();
 
 		virtual void think(const double elapsedTime);

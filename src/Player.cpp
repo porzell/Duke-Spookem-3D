@@ -86,8 +86,8 @@ Player::Player() : Entity()
 	mp = 100;
 	size = 2;
 
-	mpSpeaking = nullptr;
-	mpPeeing = nullptr;
+	//mpSpeaking = nullptr;
+	//mpPeeing = nullptr;
 
 	gpEventSystem->addListener(EVENT_MOUSEMOVE, this);
 	gpEventSystem->addListener(EVENT_MOUSEUP, this);
@@ -103,13 +103,13 @@ Player::Player() : Entity()
 
 Player::~Player()
 {
-	if(mpSpeaking)
-		mpSpeaking->drop();
+	//if(mpSpeaking)
+		//mpSpeaking->drop();
 
-	if(mpPeeing)
-	{
-		mpPeeing->drop();
-	}
+	//if(mpPeeing)
+	//{
+		//mpPeeing->drop();
+	//}
 
 	delete mpHandAnim;
 	delete mpLeftHandAnim;
@@ -118,21 +118,21 @@ Player::~Player()
 
 void Player::speak(std::string soundFile, bool shouldInterrupt, bool shouldAddToQueue)
 {
-	if(mpSpeaking == NULL)
-	{
-		mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
-	}
-	else if(mpSpeaking->isFinished() || shouldInterrupt)
-	{
-		mpSpeaking->stop();
-		mpSpeaking->drop();
+	//if(mpSpeaking == NULL)
+	//{
+		//mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
+	//}
+	//else if(mpSpeaking->isFinished() || shouldInterrupt)
+	//{
+		//mpSpeaking->stop();
+		//mpSpeaking->drop();
 
-		mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
-	}
-	else if(shouldAddToQueue)
-	{
-		mQueuedQuips.push(soundFile);
-	}
+		//mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
+	//}
+	//else if(shouldAddToQueue)
+	//{
+		//mQueuedQuips.push(soundFile);
+	//}
 }
 
 void Player::handleKey(bool keyDown, int keycode)
@@ -164,13 +164,13 @@ void Player::handleKey(bool keyDown, int keycode)
 				{
 					Vec3d shotVelocity;
 
-					shotVelocity.X = sin((mAngle.X * PI) / 180);
-					shotVelocity.Y = -sin((mAngle.Y * PI) / 180);
+					shotVelocity.x = sin((mAngle.x * PI) / 180);
+					shotVelocity.y = -sin((mAngle.y * PI) / 180);
 	
 					//Use this line if dealing with a non physics-enabled projectile.
 					//shotVelocity.Y = 0;
 	
-					shotVelocity.Z = -cos((mAngle.X * PI) / 180);
+					shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
 					shotVelocity /= 10;
 
@@ -201,7 +201,7 @@ void Player::handleKey(bool keyDown, int keycode)
 				mSnapchatted = false;
 				mIsSnapchatting = true;
 
-				mSnapchatTimer.start();
+				//mSnapchatTimer.start();
 
 				//if(rand() % 2 == 0)
 					//speak(getQuipSnapchat());
@@ -223,7 +223,7 @@ void Player::handleKey(bool keyDown, int keycode)
 				//if(rand() % 2 == 0)
 					speak(getQuipUnzip(),true);
 
-				mpPeeing = game->getSoundEngine()->play2DSoundKeepLooped(game->getResourceManager()->get("spookem_peeing"), 1.0f, 1.0f);
+				//mpPeeing = game->getSoundEngine()->play2DSoundKeepLooped(game->getResourceManager()->get("spookem_peeing"), 1.0f, 1.0f);
 
 				//std::cout << mpPeeing << std::endl;
 
@@ -237,12 +237,12 @@ void Player::handleKey(bool keyDown, int keycode)
 			{
 				//std::cout << mpPeeing << std::endl;
 
-				if(mpPeeing)
-				{
-					mpPeeing->stop();
-					mpPeeing->drop();
-					mpPeeing = nullptr;
-				}
+				//if(mpPeeing)
+				//{
+					//mpPeeing->stop();
+					//mpPeeing->drop();
+					//mpPeeing = nullptr;
+				//}
 				mLastPiss.clear();
 			}
 
@@ -279,9 +279,9 @@ void Player::handleKey(bool keyDown, int keycode)
 std::vector<std::pair<int, int>> Player::getSections()
 {
 	std::vector<std::pair<int, int>> pos;
-	for(float i = mPosition.X - 0.5f - size/2; i < mPosition.X + 0.5f + size/2; ++i)
+	for(float i = mPosition.x - 0.5f - size/2; i < mPosition.x + 0.5f + size/2; ++i)
 	{
-		for(float j = mPosition.Z - 0.5f - size/2; j < mPosition.Z + 0.5f + size/2; ++j)
+		for(float j = mPosition.z - 0.5f - size/2; j < mPosition.z + 0.5f + size/2; ++j)
 		{
 			pos.push_back(std::pair<int, int>(int(i + 0.5f), int(j + 0.5f)));
 		}
@@ -291,16 +291,16 @@ std::vector<std::pair<int, int>> Player::getSections()
 
 void Player::handleMouse(const Vec2d &delta)
 {
-	mAngle.X += delta.X()/5;
-	mAngle.Y += delta.Y()/5;
+	mAngle.x += delta.X()/5;
+	mAngle.y += delta.Y()/5;
 	
-	if(mAngle.Y > MAX_UPWARD_VIEWANGLE)
+	if(mAngle.y > MAX_UPWARD_VIEWANGLE)
 	{
-		mAngle.Y = MAX_UPWARD_VIEWANGLE;
+		mAngle.y = MAX_UPWARD_VIEWANGLE;
 	}
-	else if(mAngle.Y < MIN_DOWNWARD_VIEWANGLE)
+	else if(mAngle.y < MIN_DOWNWARD_VIEWANGLE)
 	{
-		mAngle.Y = MIN_DOWNWARD_VIEWANGLE;
+		mAngle.y = MIN_DOWNWARD_VIEWANGLE;
 	}
 }
 
@@ -343,46 +343,46 @@ void Player::think()
 		speed = PLAYER_RUN_SPEED;
 
 	GLfloat pitchRadian = /*mAngle.Y * (PI / 180)*/ 0;
-	GLfloat yawRadian = mAngle.X * (PI / 180);
+	GLfloat yawRadian = mAngle.x * (PI / 180);
 
 	Vec3d mnPosition = mPosition;
 
-	mVelocity.set(0,0,0);
+	mVelocity = glm::vec3(0);
 
 	//Add velocity to position.
 	if(mForwardPressed)
 	{
-		mVelocity.X = speed *  sinf( yawRadian ) * cosf( pitchRadian );
-		mVelocity.Y = speed * sinf( pitchRadian );
-		mVelocity.Z = speed *  -cosf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.x = speed *  sinf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.y = speed * sinf( pitchRadian );
+		mVelocity.z = speed *  -cosf( yawRadian ) * cosf( pitchRadian );
 		mnPosition += mVelocity;
 	}
 
 	if(mBackwardPressed)
 	{
-		mVelocity.X = speed *  sinf( yawRadian ) * cosf( pitchRadian );
-		mVelocity.Y = speed * sinf( pitchRadian );
-		mVelocity.Z = speed *  -cosf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.x = speed *  sinf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.y = speed * sinf( pitchRadian );
+		mVelocity.z = speed *  -cosf( yawRadian ) * cosf( pitchRadian );
 		mnPosition -= mVelocity;
 	}
 
 	if(mLeftPressed){
-		mVelocity.X = speed *  cosf( yawRadian ) * cosf( pitchRadian );
-		mVelocity.Z = speed *  sinf( yawRadian ) * cosf( pitchRadian );
-		mnPosition -= mVelocity/2;
+		mVelocity.x = speed *  cosf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.z = speed *  sinf( yawRadian ) * cosf( pitchRadian );
+		mnPosition -= mVelocity * 0.5f;
 	}
 
 	if(mRightPressed){
-		mVelocity.X = speed *  cosf( yawRadian ) * cosf( pitchRadian );
-		mVelocity.Z = speed *  sinf( yawRadian ) * cosf( pitchRadian );
-		mnPosition += mVelocity/2;
+		mVelocity.x = speed *  cosf( yawRadian ) * cosf( pitchRadian );
+		mVelocity.z = speed *  sinf( yawRadian ) * cosf( pitchRadian );
+		mnPosition += mVelocity * 0.5f;
 	}
 	
-	if(game->getCurrentMap()->getTile(mnPosition.X + (mnPosition.X > mPosition.X ? .4 : -.4) , mPosition.Z).type == TYPE_WALL)
-		mnPosition.X = mnPosition.X > mPosition.X ? int(mPosition.X) + 0.6f : int(mPosition.X) + 0.4f;
+	if(game->getCurrentMap()->getTile(mnPosition.x + (mnPosition.x > mPosition.x ? .4 : -.4) , mPosition.z).type == TYPE_WALL)
+		mnPosition.x = mnPosition.x > mPosition.x ? int(mPosition.x) + 0.6f : int(mPosition.x) + 0.4f;
 
-	if(game->getCurrentMap()->getTile(mPosition.X, mnPosition.Z + (mnPosition.Z > mPosition.Z ? .4 : -.4)).type == TYPE_WALL)
-		mnPosition.Z = mnPosition.Z > mPosition.Z ? int(mPosition.Z) + 0.6f : int(mPosition.Z) + 0.4f;
+	if(game->getCurrentMap()->getTile(mPosition.x, mnPosition.z + (mnPosition.z > mPosition.z ? .4 : -.4)).type == TYPE_WALL)
+		mnPosition.z = mnPosition.z > mPosition.z ? int(mPosition.z) + 0.6f : int(mPosition.z) + 0.4f;
 
 	mPosition = mnPosition;
 
@@ -392,17 +392,17 @@ void Player::think()
 			mLeftHandPosition.addY(HAND_SPEED);
 		else
 		{
-			if(!mSnapchatted && mSnapchatTimer.getElapsedTime() >= 1000)
-			{
-				game->getSoundEngine()->play2DSound(game->getResourceManager()->get("camera_shutter"), 1.0f);
+			//if(!mSnapchatted && mSnapchatTimer.getElapsedTime() >= 1000)
+			//{
+				//game->getSoundEngine()->play2DSound(game->getResourceManager()->get("camera_shutter"), 1.0f);
 
-				mSnapchatted = true;
+				//mSnapchatted = true;
 
-				if(rand() % 5 < 4)
-					speak(getQuipSelfie());
+				//if(rand() % 5 < 4)
+					//speak(getQuipSelfie());
 
-				mSnapchatTimer.stop();
-			}
+				//mSnapchatTimer.stop();
+			//}
 
 			//mIsSnapchatting = false;
 		}
@@ -446,7 +446,7 @@ void Player::think()
 		mIsKicking = false;
 	}
 
-	if(mVelocity.getLength() > 0)
+	if(mVelocity.length() > 0)
 	{
 		mViewBob += PI * speed;
 	}
@@ -455,13 +455,13 @@ void Player::think()
 	{
 		Vec3d shotVelocity;
 
-			shotVelocity.X = sin((mAngle.X * PI) / 180);
-			shotVelocity.Y = -sin(((mAngle.Y - 20) * PI) / 180);
+			shotVelocity.x = sin((mAngle.x * PI) / 180);
+			shotVelocity.y = -sin(((mAngle.y - 20) * PI) / 180);
 	
 			//Use this line if dealing with a non physics-enabled projectile.
 			//shotVelocity.Y = 0;
 	
-			shotVelocity.Z = -cos((mAngle.X * PI) / 180);
+			shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
 			shotVelocity /= 16;
 
@@ -477,13 +477,13 @@ void Player::think()
 	{
 		Vec3d shotVelocity;
 
-			shotVelocity.X = sin((mAngle.X * PI) / 180);
-			shotVelocity.Y = -sin(((mAngle.Y - 20) * PI) / 180);
+			shotVelocity.x = sin((mAngle.x * PI) / 180);
+			shotVelocity.y = -sin(((mAngle.y - 20) * PI) / 180);
 	
 			//Use this line if dealing with a non physics-enabled projectile.
 			//shotVelocity.Y = 0;
 	
-			shotVelocity.Z = -cos((mAngle.X * PI) / 180);
+			shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
 			shotVelocity /= 20;
 
@@ -498,22 +498,22 @@ void Player::think()
 	//std::cerr << mPosition.X << ',' << mPosition.Z << '\n';
 
 	//If we're done talking and there are queued quips, then take one out of the queue and say it.
-	if(mpSpeaking && mpSpeaking->isFinished())
-	{
-		//mpSpeaking->stop();
-		//mpSpeaking->drop();
+	//if(mpSpeaking && mpSpeaking->isFinished())
+	//{
+		////mpSpeaking->stop();
+		////mpSpeaking->drop();
 
-		if(!mQueuedQuips.empty())
-		{
-			speak(mQueuedQuips.front());
-			mQueuedQuips.pop();
-		}
-		else
-		{
-			mpSpeaking->drop();
-			mpSpeaking = NULL;
-		}
-	}
+		//if(!mQueuedQuips.empty())
+		//{
+			//speak(mQueuedQuips.front());
+			//mQueuedQuips.pop();
+		//}
+		//else
+		//{
+			//mpSpeaking->drop();
+			//mpSpeaking = NULL;
+		//}
+	//}
 }
 
 void Player::attack(int button)
@@ -525,13 +525,13 @@ void Player::attack(int button)
 
 	Vec3d shotVelocity;
 
-	shotVelocity.X = sin((mAngle.X * PI) / 180);
-	shotVelocity.Y = -sin((mAngle.Y * PI) / 180);
+	shotVelocity.x = sin((mAngle.x * PI) / 180);
+	shotVelocity.y = -sin((mAngle.y * PI) / 180);
 	
 	//Use this line if dealing with a non physics-enabled projectile.
 	//shotVelocity.Y = 0;
 	
-	shotVelocity.Z = -cos((mAngle.X * PI) / 180);
+	shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
 	shotVelocity /= 10;
 
@@ -553,17 +553,17 @@ void Player::attack(int button)
 
 void Player::draw()
 {
-	glRotatef(mAngle.Y,1,0,0);
-	glRotatef(mAngle.X,0,1,0);
-	glTranslatef(-mPosition.X,-mPosition.Y,-mPosition.Z);
+	glRotatef(mAngle.y,1,0,0);
+	glRotatef(mAngle.x,0,1,0);
+	glTranslatef(-mPosition.x,-mPosition.y,-mPosition.z);
 
 	glTranslatef(0,msHeight,0);
 
 	float pos[3];
 
-	pos[0] = mPosition.X;
-	pos[1] = mPosition.Y;
-	pos[2] = mPosition.Z;
+	pos[0] = mPosition.x;
+	pos[1] = mPosition.y;
+	pos[2] = mPosition.z;
 
 	float diffuse[4] = { .6, .6, .6, 1.0 };
 	float specular[4] = { 1, 1, 1, 1 };
@@ -751,6 +751,8 @@ void Player::handleEvent( const Event& theEvent )
 	case EVENT_KEYDOWN:
 		handleKey(true, ((EventKeyDown&)theEvent).getKey());
 		break;
+    default:
+        break;
 	}
 }
 
@@ -1883,12 +1885,12 @@ void Player::writeSave(FILE* outfile, int pos)
 	/*fputc(int(mPosition.X + 0.5f), outfile);
 	fputc(int(mPosition.Z + 0.5f), outfile);*/
 
-	fwrite(&mPosition.X, sizeof(mPosition.X), 1, outfile);
-	fwrite(&mPosition.Z, sizeof(mPosition.Z), 1, outfile);
+	fwrite(&mPosition.x, sizeof(mPosition.x), 1, outfile);
+	fwrite(&mPosition.z, sizeof(mPosition.z), 1, outfile);
 
-	fwrite(&mAngle.X, sizeof(mAngle.X), 1, outfile);
-	fwrite(&mAngle.Y, sizeof(mAngle.Y), 1, outfile);
-	fwrite(&mAngle.Z, sizeof(mAngle.Z), 1, outfile);
+	fwrite(&mAngle.x, sizeof(mAngle.x), 1, outfile);
+	fwrite(&mAngle.y, sizeof(mAngle.y), 1, outfile);
+	fwrite(&mAngle.z, sizeof(mAngle.z), 1, outfile);
 
 	fwrite(&mHealth, sizeof(mHealth), 1, outfile);
 	fwrite(&mp, sizeof(mHealth), 1, outfile);
@@ -1896,15 +1898,15 @@ void Player::writeSave(FILE* outfile, int pos)
 
 void Player::readSave(FILE* infile, int pos)
 {
-	/*mPosition.X = fgetc(infile);
-	mPosition.Z = fgetc(infile);*/
+	/*mPosition.x = fgetc(infile);
+	mPosition.z = fgetc(infile);*/
 
-	fread(&mPosition.X, sizeof(mPosition.X), 1, infile);
-	fread(&mPosition.Z, sizeof(mPosition.Z), 1, infile);
+	fread(&mPosition.x, sizeof(mPosition.x), 1, infile);
+	fread(&mPosition.z, sizeof(mPosition.z), 1, infile);
 
-	fread(&mAngle.X, sizeof(mAngle.X), 1, infile);
-	fread(&mAngle.Y, sizeof(mAngle.Y), 1, infile);
-	fread(&mAngle.Z, sizeof(mAngle.Z), 1, infile);
+	fread(&mAngle.x, sizeof(mAngle.x), 1, infile);
+	fread(&mAngle.y, sizeof(mAngle.y), 1, infile);
+	fread(&mAngle.z, sizeof(mAngle.z), 1, infile);
 
 	fread(&mHealth, sizeof(mHealth), 1, infile);
 	fread(&mp, sizeof(mHealth), 1,infile);

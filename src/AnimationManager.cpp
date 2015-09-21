@@ -17,7 +17,7 @@ AnimationManager::~AnimationManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 Animation* AnimationManager::get(std::string key)
 {

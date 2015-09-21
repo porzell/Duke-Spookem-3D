@@ -25,6 +25,7 @@
 #include "HealthPotion.h"
 
 #include "Grenade.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -566,11 +567,11 @@ void Hitler::throwGrenade()
 {
 	Vec3d playerPos = game->getPlayer()->getPosition() - mPosition;
 
-	playerPos.Y *= 1.1;
+	playerPos.y *= 1.1;
 
 		//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.setLength(0.2);
+	playerPos = glm::normalize(playerPos) * 0.2f;
 
 	//playerPos /= 8;
 
@@ -580,21 +581,21 @@ void Hitler::throwGrenade()
 
 void Hitler::endAttack()
 {
-	if(mpWeaponSound)
-	{
-  		mpWeaponSound->stop();
-		mpWeaponSound->drop();
-		mpWeaponSound = NULL;
+	//if(mpWeaponSound)
+	//{
+          //mpWeaponSound->stop();
+		//mpWeaponSound->drop();
+		//mpWeaponSound = NULL;
 				
-		mWeaponTimer.stop();
-		mShotTimer.stop();
+		//mWeaponTimer.stop();
+		//mShotTimer.stop();
 				
-		Sound *tmp =game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_tail"), mPosition,  1.0f, randomFloat(0.95f, 1.05f));
+		//Sound *tmp =game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_tail"), mPosition,  1.0f, randomFloat(0.95f, 1.05f));
 
-		tmp->setMinDistance(15);
+		//tmp->setMinDistance(15);
 				
-		delete mpAnim;
+		//delete mpAnim;
 
-		mpAnim = New Animation(*game->getAnimationManager()->get("hitler_walk"));
-	}
+		//mpAnim = New Animation(*game->getAnimationManager()->get("hitler_walk"));
+	//}
 }

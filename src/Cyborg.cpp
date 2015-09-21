@@ -23,6 +23,7 @@
 #include "HealthPotion.h"
 
 #include "Grenade.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -116,7 +117,7 @@ void Cyborg::stun(Vec3d startPos)
 {
 	endAttack();
 
-	speak(getDeathSound(), true);
+	//speak(getDeathSound(), true);
 
 	Monster::stun(startPos);
 }
@@ -129,14 +130,14 @@ void Cyborg::kill()
 	
 	mHealth = 0;
 
-	ResourceManager *resources = game->getResourceManager();
+	//ResourceManager *resources = game->getResourceManager();
 
 	if(!mIsDying)
 	{
 		//if(mVoice)
 			//mVoice->stop();
 
-		speak(getDeathSound(), true);
+		//speak(getDeathSound(), true);
 
 		if(rand() % 2 == 0)
 		{
@@ -166,7 +167,7 @@ void Cyborg::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		mDeathTimer.start();
+		//mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -183,7 +184,7 @@ void Cyborg::setFrozen(bool frozen)
 
 	if(mIsFrozen)
 	{
-		speak(getQuoteFreeze());
+        speak(getQuoteFreeze());
 		
 		endAttack();
 	}
@@ -300,36 +301,36 @@ void Cyborg::makeMonsterNoise(bool priority)
 
 void Cyborg::speak(std::string *soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  1.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  1.0f, randomFloat(0.95f, 1.05f));
 		
-		mVoice->setMinDistance(3);
-	}
+		//mVoice->setMinDistance(3);
+	//}
 }
 
-void Cyborg::speak(std::string &soundFile, bool shouldInterrupt)
+void Cyborg::speak(std::string soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
 		
-		mVoice->setMinDistance(1.5);
-	}
+		//mVoice->setMinDistance(1.5);
+	//}
 }
 
 void Cyborg::removeAttachment(Entity *toBeRemoved)
@@ -338,12 +339,12 @@ void Cyborg::removeAttachment(Entity *toBeRemoved)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -353,12 +354,12 @@ void Cyborg::removeAttachment(std::string key)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -370,32 +371,32 @@ void Cyborg::takeDamage(float hp)
 
 void Cyborg::attack()
 {
-	if(!mpWeaponSound)
-	{
+	//if(!mpWeaponSound)
+	//{
 
-		/*if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
-		{
-			throwGrenade();
-		}*/
-		//range.setLength(1.0);
+		//[>if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
+		//{
+			//throwGrenade();
+		//}*/
+		////range.setLength(1.0);
 
-		fireWeapon();
+		//fireWeapon();
 
-		if(rand() % 3 == 0)
-			speak(&getAttackSound());
-		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
+		//if(rand() % 3 == 0)
+			//speak(&getAttackSound());
+		////game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
 
-		mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("plasma_fire1"), mPosition, 1.0f);
+		//mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("plasma_fire1"), mPosition, 1.0f);
 	
-		mpWeaponSound->setMinDistance(6);
+		//mpWeaponSound->setMinDistance(6);
 
-		delete mpAnim;
+		//delete mpAnim;
 
-		if(mIsMech)
-			mpAnim = New Animation(*game->getAnimationManager()->get("cyborg2Shoot"));
-		else
-			mpAnim = New Animation(*game->getAnimationManager()->get("cyborg1Shoot"));
-	}
+		//if(mIsMech)
+			//mpAnim = New Animation(*game->getAnimationManager()->get("cyborg2Shoot"));
+		//else
+			//mpAnim = New Animation(*game->getAnimationManager()->get("cyborg1Shoot"));
+	//}
 }
 
 std::string Cyborg::getAttackSound()
@@ -473,7 +474,7 @@ void Cyborg::fireWeapon()
 
 		//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.setLength(0.15);
+	playerPos = glm::normalize(playerPos) * 0.15f;
 
 	//playerPos /= 8;
 
@@ -485,11 +486,11 @@ void Cyborg::throwGrenade()
 {
 	Vec3d playerPos = game->getPlayer()->getPosition() - mPosition;
 
-	playerPos.Y *= 1.1;
+	playerPos.y *= 1.1;
 
 		//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.setLength(0.2);
+	playerPos = glm::normalize(playerPos) * 0.2f;
 
 	//playerPos /= 8;
 
@@ -499,19 +500,19 @@ void Cyborg::throwGrenade()
 
 void Cyborg::endAttack()
 {
-	if(mpWeaponSound)
-	{
-  		mpWeaponSound->stop();
-		mpWeaponSound->drop();
-		mpWeaponSound = NULL;
+	//if(mpWeaponSound)
+	//{
+          //mpWeaponSound->stop();
+		//mpWeaponSound->drop();
+		//mpWeaponSound = NULL;
 				
-		delete mpAnim;
+		//delete mpAnim;
 
-		if(mIsMech)
-			mpAnim = New Animation(*game->getAnimationManager()->get("cyborg2Walk"));
-		else
-			mpAnim = New Animation(*game->getAnimationManager()->get("cyborg1Walk"));
-	}
+		//if(mIsMech)
+			//mpAnim = New Animation(*game->getAnimationManager()->get("cyborg2Walk"));
+		//else
+			//mpAnim = New Animation(*game->getAnimationManager()->get("cyborg1Walk"));
+	//}
 }
 
 std::string Cyborg::getSoundFireScream()

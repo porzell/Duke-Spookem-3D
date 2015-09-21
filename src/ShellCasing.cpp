@@ -14,7 +14,7 @@ extern Game *game;
 
 const float DAMPING = 0.85f;
 
-ShellCasing::ShellCasing(Vec3d &position, Vec3d &velocity) : Entity(game->getAnimationManager()->get("brass_shell"))
+ShellCasing::ShellCasing(Vec3d position, Vec3d velocity) : Entity(game->getAnimationManager()->get("brass_shell"))
 {
 	
 	mTimeToLive = 1000;
@@ -30,7 +30,7 @@ ShellCasing::ShellCasing(Vec3d &position, Vec3d &velocity) : Entity(game->getAni
 	rotator = randomFloat(-20.0, 20.0);
 }
 
-ShellCasing::ShellCasing(Animation *anim, Vec3d &position, Vec3d &velocity) : Entity(anim)
+ShellCasing::ShellCasing(Animation *anim, Vec3d position, Vec3d velocity) : Entity(anim)
 {
 	
 	mTimeToLive = 1000;

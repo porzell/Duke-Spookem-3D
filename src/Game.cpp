@@ -740,7 +740,7 @@ void Game::handleEvent( const Event& theEvent )
 		case EVENT_GAMELOSE:
 			mpDisplay->setShouldClose(true);
 
-			MessageBox(mpDisplay->getHwnd(),"You died!", "Oh no!", MB_ICONEXCLAMATION);
+			//MessageBox(mpDisplay->getHwnd(),"You died!", "Oh no!", MB_ICONEXCLAMATION);
 
 			break;
 		case EVENT_LOAD:
@@ -770,15 +770,16 @@ std::string Game::getOpenFile()
     
 	char buffer[BUFSIZE] = {0};
 
-    OPENFILENAME ofns = {0};
-    ofns.lStructSize = sizeof( ofns );
-    ofns.lpstrFile = buffer;
-    ofns.nMaxFile = BUFSIZE;
-	ofns.lpstrFilter = "Duke Spookem 3D Save (.sav)\0*.sav\0";
-    ofns.lpstrTitle = "Open Savegame";
-	ofns.lpstrDefExt = "sav";
-	ofns.Flags = OFN_PATHMUSTEXIST|OFN_FILEMUSTEXIST;
-    GetSaveFileName( & ofns );
+    // TODO: Replace all of this
+    //OPENFILENAME ofns = {0};
+    //ofns.lStructSize = sizeof( ofns );
+    //ofns.lpstrFile = buffer;
+    //ofns.nMaxFile = BUFSIZE;
+	//ofns.lpstrFilter = "Duke Spookem 3D Save (.sav)\0*.sav\0";
+    //ofns.lpstrTitle = "Open Savegame";
+	//ofns.lpstrDefExt = "sav";
+	//ofns.Flags = OFN_PATHMUSTEXIST|OFN_FILEMUSTEXIST;
+    //GetSaveFileName( & ofns );
 
     return buffer;
 }
@@ -789,15 +790,16 @@ std::string Game::getSaveFile()
     
 	char buffer[BUFSIZE] = {0};
     
-	OPENFILENAME ofns = {0};
-    ofns.lStructSize = sizeof( ofns );
-    ofns.lpstrFile = buffer;
-    ofns.nMaxFile = BUFSIZE;
-	ofns.lpstrFilter = "Duke Spookem 3D Save (.sav)\0*.sav\0";
-    ofns.lpstrTitle = "Open Savegame";
-	ofns.lpstrDefExt = "sav";
-	ofns.Flags = OFN_PATHMUSTEXIST|OFN_FILEMUSTEXIST;
-    GetSaveFileName( & ofns );
+    // TODO: Replace all of this
+	//OPENFILENAME ofns = {0};
+    //ofns.lStructSize = sizeof( ofns );
+    //ofns.lpstrFile = buffer;
+    //ofns.nMaxFile = BUFSIZE;
+	//ofns.lpstrFilter = "Duke Spookem 3D Save (.sav)\0*.sav\0";
+    //ofns.lpstrTitle = "Open Savegame";
+	//ofns.lpstrDefExt = "sav";
+	//ofns.Flags = OFN_PATHMUSTEXIST|OFN_FILEMUSTEXIST;
+    //GetSaveFileName( & ofns );
     
 	return buffer;
 }
@@ -871,23 +873,23 @@ void Game::playMapMusic()
 	switch(mpMap[current_map]->getTheme())
 	{
 		case THEME_GRAVEYARD:
-			mpSoundEngine->playMusic(*resourceManager->get("music_graveyard"));
+			//mpSoundEngine->playMusic(*resourceManager->get("music_graveyard"));
 			break;
 		case THEME_DUNGEON:
-			mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
+			//mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
 			break;
 		case THEME_NAZI:
-			if(rand() % 2)
-				mpSoundEngine->playMusic(*resourceManager->get("music_nazi1"));
-			else
-				mpSoundEngine->playMusic(*resourceManager->get("music_nazi2"));
-			break;
+			//if(rand() % 2)
+				//mpSoundEngine->playMusic(*resourceManager->get("music_nazi1"));
+			//else
+				//mpSoundEngine->playMusic(*resourceManager->get("music_nazi2"));
+            break;
 		case THEME_TECH:
-			if(rand() % 2)
-				mpSoundEngine->playMusic(*resourceManager->get("music_tech1"));
-			else
-				mpSoundEngine->playMusic(*resourceManager->get("music_tech2"));
-			break;
+			//if(rand() % 2)
+				//mpSoundEngine->playMusic(*resourceManager->get("music_tech1"));
+			//else
+				//mpSoundEngine->playMusic(*resourceManager->get("music_tech2"));
+            break;
 	}
 }
 
@@ -905,7 +907,7 @@ void Game::readSave(FILE *infile, unsigned pos)
 
 void Game::interact()
 {
-	switch(mpMap[current_map]->getTile((int)mpPlayer->getPosition().X, (int)mpPlayer->getPosition().Z).type)
+	switch(mpMap[current_map]->getTile((int)mpPlayer->getPosition().x, (int)mpPlayer->getPosition().z).type)
 	{
 	case TYPE_STAIRS_DOWN:
 		if(current_map < 9)
@@ -1167,22 +1169,22 @@ void Game::createNewGame()
 
 	current_map = 0;
 
-	unsigned w = mpMap[0]->getWidth();
-	unsigned h = mpMap[0]->getHeight();
+	//unsigned w = mpMap[0]->getWidth();
+	//unsigned h = mpMap[0]->getHeight();
 
 	game->getPlayer()->speak(*resourceManager->get("player_intro"));
 
-	mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
+	//mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
 
 	mpPlayer->setPosition(Vec3d(mpMap[0]->getUpStairsX() + 0.5f, 0, mpMap[0]->getUpStairsY() + 0.5f));
 	if(mpMap[0]->getTile(mpMap[0]->getUpStairsX(), mpMap[0]->getUpStairsY()-1).type == TYPE_WALL)
 	{
 		if(mpMap[0]->getTile(mpMap[0]->getUpStairsX()-1, mpMap[0]->getUpStairsY()).type != TYPE_WALL)
-			mpPlayer->setAngle(vec3df(90, 0, 0));
+			mpPlayer->setAngle(Vec3d(90, 0, 0));
 		else if(mpMap[0]->getTile(mpMap[0]->getUpStairsX(), mpMap[0]->getUpStairsY()+1).type != TYPE_WALL)
-			mpPlayer->setAngle(vec3df(180, 0, 0));
+			mpPlayer->setAngle(Vec3d(180, 0, 0));
 		else
-			mpPlayer->setAngle(vec3df(270, 0, 0));
+			mpPlayer->setAngle(Vec3d(270, 0, 0));
 	}
 
 	
@@ -1232,7 +1234,7 @@ void Game::doLoop()
 
 	//Color set to match environmental blue sky.
 	float FogCol[3]={0,0,0};
-	float EnvCol[3]={0.29019607843f,0.34509803921f,0.49019607843f};
+	//float EnvCol[3]={0.29019607843f,0.34509803921f,0.49019607843f};
 	
 	//Set the fog color.
 	glFogfv(GL_FOG_COLOR,FogCol);
@@ -1255,24 +1257,24 @@ void Game::doLoop()
 
 	//******************************************
 
-	Timer gameTimer, drawTimer;
+	//Timer gameTimer, drawTimer;
 
-	drawTimer.start();
+	//drawTimer.start();
 
 	//gameTimer.start();
 
-	unsigned long long lastTick = GetTickCount64();
+	//unsigned long long lastTick = GetTickCount64();
 
 	while(!mShouldEnd)
 	{
 		//if(drawTimer.getElapsedTime() >= 40)
 			mShouldDraw = true;
 
-		gameTimer.start();
+		//gameTimer.start();
 
-		while (GetTickCount64() - lastTick < 8);
+		//while (GetTickCount64() - lastTick < 8);
 
-		lastTick = GetTickCount64();
+		//lastTick = GetTickCount64();
 
 		/*if(!menuStack->empty())
 		{
@@ -1340,10 +1342,10 @@ void Game::doLoop()
 
 				mpMap[current_map]->diffuseGoals();
 
-				mpMap[current_map]->getEntityManager()->think(gameTimer.getElapsedTime());
+				//mpMap[current_map]->getEntityManager()->think(gameTimer.getElapsedTime());
 				mpMap[current_map]->getEntityManager()->runCollisions();
 
-				gameTimer.stop();
+				//gameTimer.stop();
 
 				//if(seeThruEnabled)
 					//glDisable(GL_DEPTH_TEST);
@@ -1362,7 +1364,7 @@ void Game::doLoop()
 					//Set tint.
 					glColor3f(1.0f, 0.0f, 0.0f);
 
-					glVertex3f(mpPlayer->getPosition().X, mpPlayer->getPosition().Y, mpPlayer->getPosition().Z);              // Top Left
+					glVertex3f(mpPlayer->getPosition().x, mpPlayer->getPosition().y, mpPlayer->getPosition().z);              // Top Left
 					glVertex3f(mpMap[current_map]->getDownStairsX(), -1, mpMap[current_map]->getDownStairsY());
 
 					glEnd();
@@ -1374,19 +1376,19 @@ void Game::doLoop()
 				{
 					Vec3d point = mpPlayer->getPosition();
 
-					point.Y -= 0.45;
+					point.y -= 0.45;
 
 					Vec3d mAngle = mpPlayer->getAngle();
 
 					Vec3d shotVelocity;
 
-					shotVelocity.X = sin((mAngle.X * PI) / 180);
-					shotVelocity.Y = -sin((mAngle.Y * PI) / 180);
+					shotVelocity.x = sin((mAngle.x * PI) / 180);
+					shotVelocity.y = -sin((mAngle.y * PI) / 180);
 	
 					//Use this line if dealing with a non physics-enabled projectile.
 					//shotVelocity.Y = 0;
 	
-					shotVelocity.Z = -cos((mAngle.X * PI) / 180);
+					shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
 					shotVelocity /= 20;
 
@@ -1397,15 +1399,15 @@ void Game::doLoop()
 					for(int i = 0; i < 30; ++i)
 					{
 						glColor3f(0.75f, 0.75f, 0);
-						glVertex3f(point.X, point.Y, point.Z);
+						glVertex3f(point.x, point.y, point.z);
 
 						point += shotVelocity + Vec3d(randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f));
 
 
 						glColor3f(0.75f, 0.75f, 0);
-						glVertex3f(point.X, point.Y, point.Z);
+						glVertex3f(point.x, point.y, point.z);
 
-						shotVelocity.Y -= 0.0005;
+						shotVelocity.y -= 0.0005;
 					}
 
 					glEnd();
@@ -1415,7 +1417,7 @@ void Game::doLoop()
 
 			game->drawHUD();
 
-			glBindTexture( GL_TEXTURE_2D, NULL);
+			glBindTexture( GL_TEXTURE_2D, 0);
 		}
 
 		if(mShouldDraw)
@@ -1428,7 +1430,7 @@ void Game::doLoop()
 			mpDisplay->flip();
 
 			mShouldDraw = false;
-			drawTimer.start();
+			//drawTimer.start();
 		}
 	}
 }
@@ -1440,7 +1442,7 @@ void Game::drawBillboard(std::string texture, Vec3d pos)
 
 	glPushMatrix();
 
-	glTranslatef(pos.X, pos.Y, pos.Z);
+	glTranslatef(pos.x, pos.y, pos.z);
 
 	//glTranslatef(tex->getRatio()*0.5f,0,0);  
 

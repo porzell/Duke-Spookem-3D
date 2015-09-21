@@ -30,8 +30,8 @@ class CyborgBullet : public Projectile
 		virtual void think(const double elapsedTime);
 		virtual void collide(Entity* other);
 		
-		virtual void quiet();
-		virtual void unQuiet();
+		//virtual void quiet();
+		//virtual void unQuiet();
 
 		static std::string getRicochetSound();
 

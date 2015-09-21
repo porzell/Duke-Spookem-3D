@@ -5,13 +5,13 @@
 
 #include "Explosion.h"
 
-FlamePuff::FlamePuff(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type) : Projectile(position, velocity, animation, damageRange, type)
+FlamePuff::FlamePuff(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type) : Projectile(position, velocity, animation, damageRange, type)
 {
 	setSize(0.01);
 
 	mpAnim->setScale(Vec2d(getSize(), getSize()));
 
-	mOffset.set(0,0,0);
+	mOffset = Vec3d(0);
 	stuck = NULL;
 
 	mLifeTime = 500.0f;
@@ -27,19 +27,19 @@ void FlamePuff::think(const double elapsedTime)
 	//Run entity think routines.
 	Entity::think(elapsedTime);
 
-	if(mLifeTimer.getElapsedTime() > mLifeTime)
-	{
-		if(stuck)
-		{
-			stuck->removeAttachment(this);
-			//stuck->kill();
-		}
-		else
-		{
-			setShouldDelete(true);
-			//game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
-		}
-	}
+	//if(mLifeTimer.getElapsedTime() > mLifeTime)
+	//{
+		//if(stuck)
+		//{
+			//stuck->removeAttachment(this);
+			////stuck->kill();
+		//}
+		//else
+		//{
+			//setShouldDelete(true);
+			////game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
+		//}
+	//}
 
 	setSize(getSize() + 0.01f);
 
@@ -61,15 +61,15 @@ void FlamePuff::think(const double elapsedTime)
 	//Add velocity to current position.
 	mPosition += mVelocity;
 
-	mVelocity.Y -= 0.001f;
+	mVelocity.y  -= 0.001f;
 
 	//Check if FlamePuff lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).type == TYPE_WALL || mPosition.Y <= -1 + getSize())
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).type == TYPE_WALL || mPosition.y <= -1 + getSize())
 	{
 		//game->getEntityManager()->add(New Explosion(mPosition));
 		//mVelocity.X = -mVelocity.X * 0.8;
 		//mVelocity.Z = -mVelocity.Z * 0.8;
-		mVelocity.set(0,0,0);
+		mVelocity = Vec3d(0);
 		mLifeTime = 4000.0f;
 		//mVelocity = -mVelocity * 0.8;
 		//setShouldDelete(true);

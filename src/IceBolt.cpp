@@ -11,7 +11,7 @@
 
 extern Game *game;
 
-IceBolt::IceBolt(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type) : Projectile(position, velocity, animation, damageRange, type)
+IceBolt::IceBolt(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type) : Projectile(position, velocity, animation, damageRange, type)
 {
 	mpAnim->setScale(Vec2d(0.25,0.25));
 }

@@ -61,7 +61,7 @@ Entity::Entity(Animation *animation, bool shouldDeleteAnim)
 	mHealth = 100;
 }
 
-Entity::Entity(Animation &animation, Vec3d &position)
+Entity::Entity(Animation &animation, Vec3d position)
 {
 	mShouldDeleteAnim = true;
 	//mHasOwner = false;
@@ -77,7 +77,7 @@ Entity::Entity(Animation &animation, Vec3d &position)
 	mHealth = 100;
 }
 
-Entity::Entity(Animation *animation, Vec3d &position)
+Entity::Entity(Animation *animation, Vec3d position)
 {
 	mShouldDeleteAnim = true;
 	//mHasOwner = false;
@@ -98,7 +98,7 @@ Entity::Entity(Animation *animation, Vec3d &position)
 	mHealth = 100;
 }
 
-Entity::Entity(Animation *animation, Vec3d &position, Vec2d &scale)
+Entity::Entity(Animation *animation, Vec3d position, Vec2d scale)
 {
 	mShouldDeleteAnim = true;
 	//mHasOwner = false;
@@ -158,9 +158,9 @@ void Entity::removeAllAttachments()
 vector<pair<int, int>> Entity::getSections()
 {
 	vector<pair<int, int>> pos;
-	for(float i = mPosition.X - 0.5f - size/2; i < mPosition.X + 0.5f + size/2; ++i)
+	for(float i = mPosition.x - 0.5f - size/2; i < mPosition.x + 0.5f + size/2; ++i)
 	{
-		for(float j = mPosition.Z - 0.5f - size/2; j < mPosition.Z + 0.5f + size/2; ++j)
+		for(float j = mPosition.z - 0.5f - size/2; j < mPosition.z + 0.5f + size/2; ++j)
 		{
 			pos.push_back(pair<int, int>(int(i + 0.5f), int(j + 0.5f)));
 		}

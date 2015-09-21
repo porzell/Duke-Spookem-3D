@@ -150,13 +150,13 @@ void Gib::collide(Entity* other)
 
 		mVelocity = mPosition - other->getPosition();
 
-		mVelocity.setLength(0.02);
+		mVelocity = glm::normalize(mVelocity) * 0.02f;
 
-		mVelocity.Y = 0;
+		mVelocity.y = 0;
 
 		mPosition = mPosition + mVelocity;
 
-		mLifeTimer.start();
+		//mLifeTimer.start();
 
 		//mKicked = true;
 
@@ -164,7 +164,7 @@ void Gib::collide(Entity* other)
 	else if(mGibType == GIB_HEAD && mKicked && other->getType() == ENTITY_ENEMY)
 	{
 		//other->spawnGib(0);
-		if(mKickPosition.getDistanceFrom(other->getPosition()) > 1.7)
+		if(glm::distance(mKickPosition, other->getPosition()) > 1.7)
 		{
 			other->spawnGib(0);
 			other->kill();
@@ -198,10 +198,10 @@ void Gib::playGibSound()
 {
 	if(getFrozen() || mGibType == GIB_CIRCUIT)
 	{
-		game->getSoundEngine()->play3DSound(game->getResourceManager()->get("glass_impact" + std::to_string(rand() % 6 + 1)), mPosition, mVelocity.getLength() * 10, randomFloat(0.75,1.25));
+		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("glass_impact" + std::to_string(rand() % 6 + 1)), mPosition, mVelocity.getLength() * 10, randomFloat(0.75,1.25));
 	}
 	else
 	{
-		game->getSoundEngine()->play3DSound(game->getResourceManager()->get("squishsound"), mPosition, mVelocity.getLength() * 10, randomFloat(0.75,1.25));
+		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("squishsound"), mPosition, mVelocity.getLength() * 10, randomFloat(0.75,1.25));
 	}
 }

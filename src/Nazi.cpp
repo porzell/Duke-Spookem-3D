@@ -23,6 +23,7 @@
 #include "HealthPotion.h"
 
 #include "Grenade.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -48,7 +49,7 @@ Nazi::Nazi(Vec3d pos) : Monster(pos)
 		mpAnim = New Animation(*game->getAnimationManager()->get("guardWalk"));
 	
 	mFireTime = 0.0;
-	mpWeaponSound = NULL;
+	//mpWeaponSound = NULL;
 	
 	fireballAnim = game->getAnimationManager()->get("shot");
 }
@@ -66,35 +67,35 @@ void Nazi::think(const double elapsedTime)
 	if(mHealth <= 0)
 		kill();
 
-	if(mpWeaponSound)
-	{
-		Entity::think(elapsedTime);
-		mpWeaponSound->setPosition(mPosition);
+	//if(mpWeaponSound)
+	//{
+		//Entity::think(elapsedTime);
+		//mpWeaponSound->setPosition(mPosition);
 		
-		if(mShotTimer.getElapsedTime() > 106)
-		{
-			fireWeapon();
-			mShotTimer.start();
-		}
+		//if(mShotTimer.getElapsedTime() > 106)
+		//{
+			//fireWeapon();
+			//mShotTimer.start();
+		//}
 		
-		if(mWeaponTimer.getElapsedTime() > mFireTime)
-		{
-			endAttack();
-			//mpAnim->setPaused(false);
-		}
-	}
-	else
-	{	
-		Monster::think(elapsedTime);
+		//if(mWeaponTimer.getElapsedTime() > mFireTime)
+		//{
+			//endAttack();
+			////mpAnim->setPaused(false);
+		//}
+	//}
+	//else
+	//{	
+		//Monster::think(elapsedTime);
 		
-		if(!mIsDying && !mIsFrozen && !mIsStunned)
-		{
-			if(rand() % 250 == 0)
-			{
-				attack();
-			}
-		}
-	}
+		//if(!mIsDying && !mIsFrozen && !mIsStunned)
+		//{
+			//if(rand() % 250 == 0)
+			//{
+				//attack();
+			//}
+		//}
+	//}
 	
 	if(rand() % 2000 == 0)
 	{
@@ -121,7 +122,7 @@ void Nazi::stun(Vec3d startPos)
 {
 	endAttack();
 
-	speak(getDeathSound(), true);
+	//speak(getDeathSound(), true);
 
 	Monster::stun(startPos);
 }
@@ -134,14 +135,14 @@ void Nazi::kill()
 	
 	//mHealth = 0;
 
-	ResourceManager *resources = game->getResourceManager();
+	//ResourceManager *resources = game->getResourceManager();
 
 	if(!mIsDying)
 	{
 		//if(mVoice)
 			//mVoice->stop();
 
-		speak(getDeathSound(), true);
+		//speak(getDeathSound(), true);
 
 		if(rand() % 2 == 0)
 		{
@@ -171,7 +172,7 @@ void Nazi::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		mDeathTimer.start();
+		//mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -301,36 +302,36 @@ void Nazi::makeMonsterNoise(bool priority)
 
 void Nazi::speak(std::string *soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  1.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  1.0f, randomFloat(0.95f, 1.05f));
 		
-		mVoice->setMinDistance(1.5);
-	}
+		//mVoice->setMinDistance(1.5);
+	//}
 }
 
-void Nazi::speak(std::string &soundFile, bool shouldInterrupt)
+void Nazi::speak(std::string soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.95f, 1.05f));
 		
-		mVoice->setMinDistance(1.5);
-	}
+		//mVoice->setMinDistance(1.5);
+	//}
 }
 
 void Nazi::removeAttachment(Entity *toBeRemoved)
@@ -339,12 +340,12 @@ void Nazi::removeAttachment(Entity *toBeRemoved)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -354,12 +355,12 @@ void Nazi::removeAttachment(std::string key)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -371,45 +372,45 @@ void Nazi::takeDamage(float hp)
 
 void Nazi::attack()
 {
-	if(!mpWeaponSound)
-	{
+	//if(!mpWeaponSound)
+	//{
 
-		if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
-		{
-			throwGrenade();
-		}
-		//range.setLength(1.0);
+		//if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
+		//{
+			//throwGrenade();
+		//}
+		////range.setLength(1.0);
 
-		fireWeapon();
+		//fireWeapon();
 
-		speak(&getAttackSound());
-		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
+		//speak(&getAttackSound());
+		////game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
 	
-		Sound *tmp = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_beginfire"), mPosition, 1.0f, randomFloat(0.75f, 1.35f));
+		//Sound *tmp = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_beginfire"), mPosition, 1.0f, randomFloat(0.75f, 1.35f));
 
-		tmp->setMinDistance(6);
+		//tmp->setMinDistance(6);
 
-		mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_fireloop"), mPosition, 1.0f);
+		//mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_fireloop"), mPosition, 1.0f);
 	
-		mpWeaponSound->setMinDistance(6);
+		//mpWeaponSound->setMinDistance(6);
 
-		mpWeaponSound->setIsLooped(true);
+		//mpWeaponSound->setIsLooped(true);
 	
-		mFireTime = randomFloat(10.f, 800.f);
+		//mFireTime = randomFloat(10.f, 800.f);
 
-		mWeaponTimer.start();
-		mShotTimer.start();
-		//mpAnim->setPaused(true);
+		//mWeaponTimer.start();
+		//mShotTimer.start();
+		////mpAnim->setPaused(true);
 
-		//oldAnim = mpAnim;
+		////oldAnim = mpAnim;
 
-		delete mpAnim;
+		//delete mpAnim;
 
-		if(mIsOfficer)
-			mpAnim = New Animation(*game->getAnimationManager()->get("offShoot"));
-		else
-			mpAnim = New Animation(*game->getAnimationManager()->get("guardShoot"));
-	}
+		//if(mIsOfficer)
+			//mpAnim = New Animation(*game->getAnimationManager()->get("offShoot"));
+		//else
+			//mpAnim = New Animation(*game->getAnimationManager()->get("guardShoot"));
+	//}
 }
 
 std::string Nazi::getAttackSound()
@@ -487,7 +488,7 @@ void Nazi::fireWeapon()
 
 		//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.setLength(0.15);
+	playerPos = glm::normalize(playerPos) * 0.15f;
 
 	//playerPos /= 8;
 
@@ -499,11 +500,11 @@ void Nazi::throwGrenade()
 {
 	Vec3d playerPos = game->getPlayer()->getPosition() - mPosition;
 
-	playerPos.Y *= 1.1;
+	playerPos.y *= 1.1;
 
 		//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.setLength(0.2);
+	playerPos = glm::normalize(playerPos) * 0.2f;
 
 	//playerPos /= 8;
 
@@ -513,24 +514,24 @@ void Nazi::throwGrenade()
 
 void Nazi::endAttack()
 {
-	if(mpWeaponSound)
-	{
-  		mpWeaponSound->stop();
-		mpWeaponSound->drop();
-		mpWeaponSound = NULL;
+	//if(mpWeaponSound)
+	//{
+          //mpWeaponSound->stop();
+		//mpWeaponSound->drop();
+		//mpWeaponSound = NULL;
 				
-		mWeaponTimer.stop();
-		mShotTimer.stop();
+		//mWeaponTimer.stop();
+		//mShotTimer.stop();
 				
-		Sound *tmp =game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_tail"), mPosition,  1.0f, randomFloat(0.95f, 1.05f));
+		//Sound *tmp =game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_tail"), mPosition,  1.0f, randomFloat(0.95f, 1.05f));
 
-		tmp->setMinDistance(15);
+		//tmp->setMinDistance(15);
 				
-		delete mpAnim;
+		//delete mpAnim;
 
-		if(mIsOfficer)
-			mpAnim = New Animation(*game->getAnimationManager()->get("offWalk"));
-		else
-			mpAnim = New Animation(*game->getAnimationManager()->get("guardWalk"));
-	}
+		//if(mIsOfficer)
+			//mpAnim = New Animation(*game->getAnimationManager()->get("offWalk"));
+		//else
+			//mpAnim = New Animation(*game->getAnimationManager()->get("guardWalk"));
+	//}
 }

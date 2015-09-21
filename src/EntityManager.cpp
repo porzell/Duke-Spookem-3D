@@ -92,7 +92,7 @@ void EntityManager::runCollisions()
 						continue;
 				}*/
 
-				if(pow((*k)->getPosition().X - (*j)->getPosition().X, 2) + pow((*k)->getPosition().Z - (*j)->getPosition().Z, 2) <= pow((*k)->getSize()/2.0f + (*j)->getSize()/2.0f, 2) && k != j)
+				if(pow((*k)->getPosition().x - (*j)->getPosition().x, 2) + pow((*k)->getPosition().z - (*j)->getPosition().z, 2) <= pow((*k)->getSize()/2.0f + (*j)->getSize()/2.0f, 2) && k != j)
 				{
 					(*j)->collide((*k));
 					(*k)->collide((*j));
@@ -105,7 +105,7 @@ void EntityManager::runCollisions()
 EntityManager::~EntityManager()
 { 
 	clear();
-};
+}
 
 void EntityManager::clear()
 {

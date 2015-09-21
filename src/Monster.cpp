@@ -327,32 +327,32 @@ void Monster::makeMonsterNoise(bool priority)
 
 void Monster::speak(std::string *soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 0.5f, randomFloat(0.75f, 1.35f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 0.5f, randomFloat(0.75f, 1.35f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 0.5f, randomFloat(0.75f, 1.35f));
-	}
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 0.5f, randomFloat(0.75f, 1.35f));
+	//}
 }
 
 void Monster::speak(std::string soundFile, bool shouldInterrupt)
 {
-	if(isSpeaking() == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.75f, 2.0f));
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//if(isSpeaking() == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.75f, 2.0f));
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.75f, 2.0f));
-	}
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 1.0f, randomFloat(0.75f, 2.0f));
+	//}
 }
 
 //Get the filename of a selfie quote.

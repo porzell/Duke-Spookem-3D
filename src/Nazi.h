@@ -65,7 +65,7 @@ class Nazi : public Monster
 		virtual void throwGrenade();
 
 		virtual void speak(std::string *soundFile, bool shouldInterrupt = false);
-		virtual void speak(std::string &soundFile, bool shouldInterrupt = false);
+		virtual void speak(std::string soundFile, bool shouldInterrupt = false);
 		
 		virtual std::string getQuoteFreeze();
 		

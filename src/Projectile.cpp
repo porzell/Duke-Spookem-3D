@@ -5,7 +5,7 @@
 
 #include "Explosion.h"
 
-Projectile::Projectile(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type) : Entity(animation, position)
+Projectile::Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type) : Entity(animation, position)
 {
 	mVelocity = velocity;
 
@@ -15,12 +15,12 @@ Projectile::Projectile(Vec3d &position, Vec3d &velocity, Animation *animation, V
 
 	mDamageRange = damageRange;
 
-	mLifeTimer.start();
+	//mLifeTimer.start();
 	mType = type;
 	size = 0.2;
 }
 
-Projectile::Projectile(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d &scale, Vec2d& damageRange, entity_types type) : Entity(animation, position, scale)
+Projectile::Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec2d scale, Vec2d damageRange, entity_types type) : Entity(animation, position, scale)
 {
 	mVelocity = velocity;
 
@@ -30,7 +30,7 @@ Projectile::Projectile(Vec3d &position, Vec3d &velocity, Animation *animation, V
 
 	mDamageRange = damageRange;
 
-	mLifeTimer.start();
+	//mLifeTimer.start();
 	mType = type;
 	size = 0.2;
 }
@@ -49,10 +49,10 @@ void Projectile::think(const double elapsedTime)
 	mPosition += mVelocity;
 
 	//Check if projectile lifetime is over.
-	if(mLifeTimer.getElapsedTime() > 5000 || game->getCurrentMap()->getTile(int(mPosition.X + 0.5), int(mPosition.Z + 0.5)).type == TYPE_WALL)
-	{
-		setShouldDelete(true);
-	}
+	//if(mLifeTimer.getElapsedTime() > 5000 || game->getCurrentMap()->getTile(int(mPosition.X + 0.5), int(mPosition.Z + 0.5)).type == TYPE_WALL)
+	//{
+		//setShouldDelete(true);
+	//}
 }
 
 void Projectile::draw()

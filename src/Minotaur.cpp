@@ -209,7 +209,7 @@ void Minotaur::attack()
 	game->getEntityManager()->add(New Projectile(mPosition,playerPos,game->getAnimationManager()->get("fireball"),Vec2d(5,10),ENTITY_ATTACK_ENEMY));
 
 	speak(getAttackSound());
-	game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
+	//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
 }
 
 std::string Minotaur::getAttackSound()

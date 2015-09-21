@@ -114,13 +114,13 @@ class Player : public Entity, public EventListener
 		inline bool isPeeing() { return mIsPeeing; }
 
 		inline Vec3d getPosition() { return mPosition; };
-		inline void setPosition(Vec3d &pos) { mPosition = pos; };
+		inline void setPosition(Vec3d pos) { mPosition = pos; };
 
 		inline Vec3d getVelocity() { return mVelocity; };
-		inline void setVelocity(Vec3d &vel) { mVelocity = vel; };
+		inline void setVelocity(Vec3d vel) { mVelocity = vel; };
 
 		inline Vec3d getAngle() { return mAngle; };
-		inline void setAngle(Vec3d &angle) { mAngle = angle; };
+		inline void setAngle(Vec3d angle) { mAngle = angle; };
 
 		void attack(int button);
 

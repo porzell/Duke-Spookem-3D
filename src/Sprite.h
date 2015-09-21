@@ -27,7 +27,7 @@ class Sprite : public Trackable
 		Sprite(Texture *texture, Vec2d location, Vec2d size);
 		Sprite(Texture *texture, Vec2d location, Vec2d size, Vec2d scale);
 
-		~Sprite() {};
+		virtual ~Sprite() {};
 
 		inline Vec2d getSize() { return mSize; };
 		inline Vec2d getScale() { return mScale; };

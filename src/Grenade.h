@@ -21,15 +21,15 @@ class Grenade : public Projectile
 		//Sound *mVoice;
 
 	public:
-		Grenade(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type, float radius);
+		Grenade(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type, float radius);
 		~Grenade();
 
 		virtual void think(const double elapsedTime);
 		virtual void draw();
 		virtual void collide(Entity* other);
 
-		virtual void quiet();
-		virtual void unQuiet();
+		//virtual void quiet();
+		//virtual void unQuiet();
 };
 
 #endif

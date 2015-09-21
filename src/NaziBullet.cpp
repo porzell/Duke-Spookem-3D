@@ -8,10 +8,11 @@
 #include "Game.h"
 #include "ResourceManager.h"
 #include "SoundEngine.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
-NaziBullet::NaziBullet(Vec3d &position, Vec3d &velocity, Animation *anim) : Projectile(position,velocity,anim, Vec2d(0.1,2.0), ENTITY_ATTACK_ENEMY)
+NaziBullet::NaziBullet(Vec3d position, Vec3d velocity, Animation *anim) : Projectile(position,velocity,anim, Vec2d(0.1,2.0), ENTITY_ATTACK_ENEMY)
 {
 	mVelocity = velocity;
 
@@ -35,9 +36,9 @@ void NaziBullet::think(const double elapsedTime)
 	mPosition += mVelocity;
 
 	//Check if NaziBullet lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X + 0.5), int(mPosition.Z + 0.5)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x + 0.5), int(mPosition.z + 0.5)).type == TYPE_WALL)
 	{
-		game->getSoundEngine()->play3DSound(getRicochetSound(), mPosition);
+		//game->getSoundEngine()->play3DSound(getRicochetSound(), mPosition);
 		setShouldDelete(true);
 	}
 }
@@ -48,11 +49,11 @@ void NaziBullet::draw()
 
 	Vec3d move = mVelocity;
 
-	move.setLength(0.5f);
+	move = glm::normalize(move) * 0.5f;
 
 	glPushMatrix();
 
-	glTranslatef(mPosition.X, mPosition.Y, mPosition.Z);
+	glTranslatef(mPosition.x, mPosition.y, mPosition.z);
 
 	glDisable(GL_TEXTURE_2D);
 
@@ -63,7 +64,7 @@ void NaziBullet::draw()
 	glColor3f(1.0f,1.0f,0.0f);
 
 	glVertex3f(0,0,0);
-	glVertex3f(move.X, move.Y, move.Z);
+	glVertex3f(move.x, move.y, move.z);
 
 	glEnd();
 

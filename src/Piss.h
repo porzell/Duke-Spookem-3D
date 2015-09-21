@@ -21,7 +21,7 @@ class Piss : public Projectile
 		double mLifeTime;
 
 	public:
-		Piss(std::string lastPiss, Vec3d &position, Vec3d &velocity, entity_types type);
+		Piss(std::string lastPiss, Vec3d position, Vec3d velocity, entity_types type);
 		~Piss();
 
 		virtual void think(const double elapsedTime);

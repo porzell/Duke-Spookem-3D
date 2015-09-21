@@ -19,7 +19,7 @@ class Map : public Trackable, public ISaveWritable
 public:
 	Map();
 	Map(generation_types gen, unsigned width, unsigned height, int startx = -1, int starty = -1, int level = 0, map_themes theme = THEME_DUNGEON);
-	~Map();
+	virtual ~Map();
 	Tile getTile(int x, int y){if(x <= 0 || y <= 0 || x >= (int)_mpWidth || y >= (int)_mpHeight) return Tile();  return _mpTiles[x][y];}
 	void diffuseGoals();
 	void setGoal(int x, int y, int value){_mpTiles[x][y].goodCreatureGoal = value; /*_mpTiles[x][y].goodCreatureLock = true;*/}

@@ -19,7 +19,7 @@
 Texture::Texture()
 {
 	//Set texture ID to NULL.
-	mTextureID = NULL;
+	mTextureID = 0;
 
 	//mSize will automatically set itself to (0,0).
 	mShouldWrap = 0;
@@ -58,7 +58,7 @@ void Texture::freeTexture()
 	if(mTextureID)
 	{
 		glDeleteTextures( 1, &mTextureID );
-		mTextureID = NULL;
+		mTextureID = 0;
 	}
 }
 
@@ -83,13 +83,13 @@ bool Texture::loadTextureFromPixels32( GLuint* pixels, GLuint width, GLuint heig
 	facilitateWrap();
 
 	//Unbind texture.
-	glBindTexture( GL_TEXTURE_2D, NULL );
+	glBindTexture( GL_TEXTURE_2D, 0);
 
 	//Check for error.
 	GLenum error = glGetError();
 	if( error != GL_NO_ERROR )
 	{
-		printf( "Error loading texture from %p pixels! %s\n", pixels, gluErrorString( error ) );
+		printf( "Error loading texture from %p pixels! %s\n", (void*)pixels, gluErrorString( error ));
 		return false;
 	}
 	return true;
@@ -99,36 +99,39 @@ bool Texture::loadTextureFromPixels32( GLuint* pixels, GLuint width, GLuint heig
 //Code adapted from NeheTutorials.
 bool Texture::loadTextureFromBMP( const char *path )                   // Creates Texture From A Bitmap File
 {
+    // TODO: Replace this
+
 	//Check if there is already a texture, and if so, free it.
-	freeTexture();
+	//freeTexture();
 
-    HBITMAP hBMP;                                                       // Handle Of The Bitmap
-    BITMAP  BMP;                                                        // Bitmap Structure
+    //HBITMAP hBMP;                                                       // Handle Of The Bitmap
+    //BITMAP  BMP;                                                        // Bitmap Structure
  
-    glGenTextures(1, &mTextureID);                                           // Create The Texture
-    hBMP=(HBITMAP)LoadImage(GetModuleHandle(NULL), path, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_LOADFROMFILE );
+    //glGenTextures(1, &mTextureID);                                           // Create The Texture
+    //hBMP=(HBITMAP)LoadImage(GetModuleHandle(NULL), path, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_LOADFROMFILE );
  
-    if (!hBMP)                                                          // Does The Bitmap Exist?
-        return false;                                                   // If Not Return False
+    //if (!hBMP)                                                          // Does The Bitmap Exist?
+        //return false;                                                   // If Not Return False
  
-    GetObject(hBMP, sizeof(BMP), &BMP);                                 // Get The Object
-                                                                        // hBMP:        Handle To Graphics Object
-                                                                        // sizeof(BMP): Size Of Buffer For Object Information
-                                                                        // &BMP:        Buffer For Object Information
+    //GetObject(hBMP, sizeof(BMP), &BMP);                                 // Get The Object
+                                                                        //// hBMP:        Handle To Graphics Object
+                                                                        //// sizeof(BMP): Size Of Buffer For Object Information
+                                                                        //// &BMP:        Buffer For Object Information
  
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);                              // Pixel Storage Mode (Word Alignment / 4 Bytes)
+    //glPixelStorei(GL_UNPACK_ALIGNMENT, 4);                              // Pixel Storage Mode (Word Alignment / 4 Bytes)
  
-    // Typical Texture Generation Using Data From The Bitmap
-    glBindTexture(GL_TEXTURE_2D, mTextureID);                                // Bind To The Texture ID
+    //// Typical Texture Generation Using Data From The Bitmap
+    //glBindTexture(GL_TEXTURE_2D, mTextureID);                                // Bind To The Texture ID
 
-    setFilters();
-	facilitateWrap();
+    //setFilters();
+	//facilitateWrap();
 
-    glTexImage2D(GL_TEXTURE_2D, 0, 3, BMP.bmWidth, BMP.bmHeight, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, BMP.bmBits);
+    //glTexImage2D(GL_TEXTURE_2D, 0, 3, BMP.bmWidth, BMP.bmHeight, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, BMP.bmBits);
  
-    DeleteObject(hBMP);                                                 // Delete The Object
+    //DeleteObject(hBMP);                                                 // Delete The Object
  
-    return true;                                                        // Loading Was Successful
+    //return true;                                                        // Loading Was Successful
+    return false;
 }
 
 
@@ -145,9 +148,7 @@ bool Texture::loadTextureFromPNG(const char *path)
 
 	png_byte header[8];
 
-	FILE *fp;
-	
-	fopen_s(&fp, path, "rb");
+	FILE *fp = fopen(path, "rb");
 	if (fp == 0)
 	{
 		perror(path);
@@ -289,7 +290,7 @@ bool Texture::loadTextureFromPNG(const char *path)
 	mTextureID = texture;
 
 	//Unbind texture.
-	glBindTexture( GL_TEXTURE_2D, NULL );
+	glBindTexture( GL_TEXTURE_2D, 0);
 
 	//Check for error.
 	GLenum error = glGetError();

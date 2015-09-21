@@ -18,7 +18,7 @@ extern Game *game;
 
 const float GRENADE_DAMPING = 0.9f;
 
-Grenade::Grenade(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type, float radius) : Projectile(position, velocity, animation, damageRange, type)
+Grenade::Grenade(Vec3d position, Vec3d velocity, Animation *animation, Vec2d damageRange, entity_types type, float radius) : Projectile(position, velocity, animation, damageRange, type)
 {
 	mBlastRadius = radius;
 
