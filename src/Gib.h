@@ -17,7 +17,7 @@ class Gib : public Entity
 {
 	protected:
 		double mTimeToLive;
-		Timer mLifeTimer;
+		//Timer mLifeTimer;
 
 		Vec3d mVelocity;
 
@@ -30,7 +30,7 @@ class Gib : public Entity
 		Vec3d mKickPosition;
 
 	public:
-		Gib(Animation *anim, Vec3d &position, Vec3d &velocity, bool frozen = false, GIB_TYPE type = GIB_DEFAULT);
+		Gib(Animation *anim, Vec3d &position, Vec3d velocity, bool frozen = false, GIB_TYPE type = GIB_DEFAULT);
 		virtual ~Gib();
 
 		//Get the type of gib.

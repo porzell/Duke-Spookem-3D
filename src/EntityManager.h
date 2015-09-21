@@ -25,7 +25,7 @@ class EntityManager : public Trackable, public ISaveWritable
 
 	public:
 		EntityManager();
-		~EntityManager();
+		virtual ~EntityManager();
 
 		void clear();
 

@@ -66,7 +66,7 @@ class Entity : public Trackable, public ISaveWritable
 		Entity(Animation *animation, Vec3d &position);
 
 		//Creates an entity with a provided Animation, position, and scale.
-		Entity(Animation *animation, Vec3d &position, Vec2d &scale);
+		Entity(Animation *animation, Vec3d &position, Vec2d scale);
 
 		Entity(const Entity& entity);
 

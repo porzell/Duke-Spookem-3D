@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __FONT_METRICS_H	//For some reason, _FONT_METRICS_H is already defined :S
 #define __FONT_METRICS_H
 

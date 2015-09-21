@@ -33,13 +33,13 @@ class MenuItem : public EventListener
 		inline bool isEnabled() { return mEnabled; };
 
 		inline Vec2d getPosition() { return mPosition; };
-		inline void setPosition(Vec2d &position) { mPosition = position; };
+		inline void setPosition(Vec2d position) { mPosition = position; };
 
 		//Get Menu position.
 		inline Vec2d getMenuPosition() { return mMenuPosition; };
 
 		//Set Menu position.
-		inline void setMenuPosition(Vec2d &position) { mMenuPosition = position; };
+		inline void setMenuPosition(Vec2d position) { mMenuPosition = position; };
 
 		virtual void draw();
 

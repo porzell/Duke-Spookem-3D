@@ -25,7 +25,7 @@ ShellCasing::ShellCasing(Vec3d &position, Vec3d &velocity) : Entity(game->getAni
 	
 	//mpAnim->setScale(Vec2d(0.15f, 0.15f));
 
-	mLifeTimer.start();
+	//mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 }
@@ -39,7 +39,7 @@ ShellCasing::ShellCasing(Animation *anim, Vec3d &position, Vec3d &velocity) : En
 
 	mVelocity = velocity;
 
-	mLifeTimer.start();
+	//mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 }
@@ -55,19 +55,19 @@ void ShellCasing::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if ShellCasing lifetime is over.
-	if(mLifeTimer.getElapsedTime() > mTimeToLive)
-	{
-		setShouldDelete(true);
-	}
+	//if(mLifeTimer.getElapsedTime() > mTimeToLive)
+	//{
+		//setShouldDelete(true);
+	//}
 
-	mVelocity.Y -= 0.001;
+	mVelocity.y -= 0.001;
 
-	if(mPosition.Y < -0.9f)
+	if(mPosition.y < -0.9f)
 	{
-		mVelocity.Y = -mVelocity.Y;
+		mVelocity.y = -mVelocity.y;
 		mVelocity *= DAMPING;
 
-		if(abs(mVelocity.Y) > 0.01f)
+		if(abs(mVelocity.y) > 0.01f)
 			playShellCasingSound();
 
 		if(rotator < 0)
@@ -88,22 +88,22 @@ void ShellCasing::think(const double elapsedTime)
 		}
 	}
 
-	if(game->getCurrentMap()->getTile(int(mPosition.X + mVelocity.X), int(mPosition.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x + mVelocity.x), int(mPosition.z)).type == TYPE_WALL)
 	{
-		mVelocity.X = -mVelocity.X;
+		mVelocity.x = -mVelocity.x;
 
 		mVelocity *= DAMPING;
 
-		if(abs(mVelocity.X) > 0.01f)
+		if(abs(mVelocity.x) > 0.01f)
 			playShellCasingSound();
 	}
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z + mVelocity.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z + mVelocity.z)).type == TYPE_WALL)
 	{
-		mVelocity.Z = -mVelocity.Z;
+		mVelocity.z = -mVelocity.z;
 
 		mVelocity *= DAMPING;
 
-		if(abs(mVelocity.Z) > 0.01f)
+		if(abs(mVelocity.z) > 0.01f)
 			playShellCasingSound();
 	}
 
@@ -115,9 +115,9 @@ void ShellCasing::think(const double elapsedTime)
 
 void ShellCasing::draw()
 {
-	Color c(1.0f,convertScale(mLifeTimer.getElapsedTime(), 0.0f, mTimeToLive, 0.0f, 1.0f),0.0f);
+	//Color c(1.0f,convertScale(mLifeTimer.getElapsedTime(), 0.0f, mTimeToLive, 0.0f, 1.0f),0.0f);
 
-	mpAnim->setTint(c);
+	//mpAnim->setTint(c);
 
 	Entity::draw();
 	/*Vec3d move = mVelocity;

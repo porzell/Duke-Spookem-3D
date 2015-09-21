@@ -8,6 +8,7 @@ Last update: 2006/11/12 (Geometry Shader Support)
 
 #include "glsl.h"
 
+#include <cstring>
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -67,7 +68,7 @@ namespace cwc
 {
 //-----------------------------------------------------------------------------
 // Error, Warning and Info Strings
-char* aGLSLStrings[] = {
+static const char* aGLSLStrings[] = {
         "[e00] GLSL is not available!",
         "[e01] Not a valid program object!",
         "[e02] Not a valid object!",
@@ -80,7 +81,7 @@ char* aGLSLStrings[] = {
 //-----------------------------------------------------------------------------      
  
 // GL ERROR CHECK
-   int CheckGLError(char *file, int line)
+   int CheckGLError(const char *file, int line)
    {
 	   GLenum glErr;
 	   int    retCode = 0;
@@ -361,7 +362,7 @@ return false;
 //----------------------------------------------------------------------------- 
 // Compiler Log: Ausgabe der Compiler Meldungen in String
 
-char* glShader::getLinkerLog(void)
+const char* glShader::getLinkerLog(void)
 {    
 if (!useGLSL) return aGLSLStrings[0];
  
@@ -1348,7 +1349,7 @@ unsigned long getFileLength(ifstream& file)
 {
     if(!file.good()) return 0;
     
-    unsigned long pos=file.tellg();
+    //unsigned long pos=file.tellg();
     file.seekg(0,ios::end);
     unsigned long len = file.tellg();
     file.seekg(ios::beg);
@@ -1358,7 +1359,7 @@ unsigned long getFileLength(ifstream& file)
 
 
 //----------------------------------------------------------------------------- 
-int glShaderObject::load(char* filename)
+int glShaderObject::load(const char* filename)
 {
    ifstream file;
 	file.open(filename, ios::in);
@@ -1411,7 +1412,7 @@ void glShaderObject::loadFromMemory(const char* program)
 
 // ----------------------------------------------------------------------------
 // Compiler Log: Ausgabe der Compiler Meldungen in String
-char* glShaderObject::getCompilerLog(void)
+const char* glShaderObject::getCompilerLog(void)
 {    
 if (!useGLSL) return aGLSLStrings[0];
  
@@ -1576,7 +1577,7 @@ void glShaderManager::SetVerticesOut(int nVerticesOut)
 }
 
 // ----------------------------------------------------------------------------
-glShader* glShaderManager::loadfromFile(char* vertexFile, char* fragmentFile) 
+glShader* glShaderManager::loadfromFile(const char* vertexFile, const char* fragmentFile) 
 {
    glShader* o = new glShader();
    o->UsesGeometryShader(false);

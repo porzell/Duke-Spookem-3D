@@ -34,6 +34,7 @@ Game *game;
 
 extern EventSystem* gpEventSystem;
 
+#ifdef WINDOWS
 int CALLBACK WinMain(
   _In_  HINSTANCE hInstance,
   _In_  HINSTANCE hPrevInstance,
@@ -67,6 +68,7 @@ int CALLBACK WinMain(
 
 	return 0;
 }
+#endif
 
 
 int main(int argc, char** argv)
@@ -93,7 +95,7 @@ int main(int argc, char** argv)
 
 	gMemoryTracker.reportAllocations(std::cout);
 
-	system("pause");
+	//system("pause");
 
 	return 0;
 }

@@ -9,6 +9,7 @@
 #include "ResourceManager.h"
 
 #include "Utils.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -16,7 +17,7 @@ const float GIB_DAMPING = 0.6f;
 
 
 
-Gib::Gib(Animation *anim, Vec3d &position, Vec3d &velocity, bool frozen, GIB_TYPE type) : Entity(anim)
+Gib::Gib(Animation *anim, Vec3d &position, Vec3d velocity, bool frozen, GIB_TYPE type) : Entity(anim)
 {
 	mGibType = type;
 	
@@ -28,7 +29,7 @@ Gib::Gib(Animation *anim, Vec3d &position, Vec3d &velocity, bool frozen, GIB_TYP
 	
 	mpAnim->setScale(Vec2d(0.15f, 0.15f));
 
-	mLifeTimer.start();
+	//mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 
@@ -51,17 +52,17 @@ void Gib::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Gib lifetime is over.
-	if(mLifeTimer.getElapsedTime() > mTimeToLive)
-	{
-		setShouldDelete(true);
-	}
+	//if(mLifeTimer.getElapsedTime() > mTimeToLive)
+	//{
+		//setShouldDelete(true);
+	//}
 
-	if(mPosition.Y < -0.8f)
+	if(mPosition.y < -0.8f)
 	{
-		mVelocity.Y = -mVelocity.Y;
+		mVelocity.y = -mVelocity.y;
 		mVelocity *= GIB_DAMPING;
 
-		if(abs(mVelocity.Y) > 0.01f)
+		if(abs(mVelocity.y) > 0.01f)
 			playGibSound();
 
 		if(rotator < 0)
@@ -84,26 +85,26 @@ void Gib::think(const double elapsedTime)
 		mKicked = false;
 	}
 	else
-		mVelocity.Y -= 0.001;
+		mVelocity.y -= 0.001;
 
-	if(game->getCurrentMap()->getTile(int(mPosition.X + mVelocity.X), int(mPosition.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x + mVelocity.x), int(mPosition.z)).type == TYPE_WALL)
 	{
-		mVelocity.X = -mVelocity.X;
+		mVelocity.x = -mVelocity.x;
 
 		mVelocity *= GIB_DAMPING;
 
-		if(abs(mVelocity.X) > 0.01f)
+		if(abs(mVelocity.x) > 0.01f)
 			playGibSound();
 
 		mKicked = false;
 	}
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z + mVelocity.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z + mVelocity.z)).type == TYPE_WALL)
 	{
-		mVelocity.Z = -mVelocity.Z;
+		mVelocity.z = -mVelocity.z  ;
 
 		mVelocity *= GIB_DAMPING;
 
-		if(abs(mVelocity.Z) > 0.01f)
+		if(abs(mVelocity.z) > 0.01f)
 			playGibSound();
 
 		mKicked = false;
@@ -128,13 +129,13 @@ void Gib::collide(Entity* other)
 	
 		mVelocity = mPosition - other->getPosition();
 
-		mVelocity.setLength(0.15);
+		mVelocity = glm::normalize(mVelocity) * 0.15f;
 
-		mVelocity.Y = 0.05;
+		mVelocity.y = 0.05;
 
 		mPosition = mPosition + mVelocity;
 
-		mLifeTimer.start();
+		//mLifeTimer.start();
 
 		mKicked = true;
 		

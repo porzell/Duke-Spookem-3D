@@ -416,7 +416,7 @@ void Game::initResources()
 
 	{
 		unsigned int count = 0;
-		unsigned int dimension = 80;
+		//unsigned int dimension = 80;
 		for(int y = 0; y < 5; ++y)
 		{
 			for(int x = 0; x < 5; ++x)
@@ -657,10 +657,10 @@ void Game::initResources()
 
 	circuitBoardAnim->setScale(Vec2d(0.1f,0.1f));
 
-	Animation *cyborg1_leg = animationManager->add("cyborg1_leg", New Animation(spriteManager->add("cyborg1_leg", New Sprite(cyborg1, Vec2d(107,607), Vec2d(25,66)))));
-	Animation *cyborg1_head = animationManager->add("cyborg1_head", New Animation(spriteManager->add("cyborg1_head", New Sprite(cyborg1, Vec2d(548,537), Vec2d(18,16)))));
-	Animation *cyborg1_torso = animationManager->add("cyborg1_torso", New Animation(spriteManager->add("cyborg1_torso", New Sprite(cyborg1, Vec2d(123,21), Vec2d(26,43)))));
-	Animation *cyborg1_arm = animationManager->add("cyborg1_arm", New Animation(spriteManager->add("cyborg1_arm", New Sprite(cyborg1, Vec2d(584,11), Vec2d(43,26)))));
+	//Animation *cyborg1_leg = animationManager->add("cyborg1_leg", New Animation(spriteManager->add("cyborg1_leg", New Sprite(cyborg1, Vec2d(107,607), Vec2d(25,66)))));
+	//Animation *cyborg1_head = animationManager->add("cyborg1_head", New Animation(spriteManager->add("cyborg1_head", New Sprite(cyborg1, Vec2d(548,537), Vec2d(18,16)))));
+	//Animation *cyborg1_torso = animationManager->add("cyborg1_torso", New Animation(spriteManager->add("cyborg1_torso", New Sprite(cyborg1, Vec2d(123,21), Vec2d(26,43)))));
+	//Animation *cyborg1_arm = animationManager->add("cyborg1_arm", New Animation(spriteManager->add("cyborg1_arm", New Sprite(cyborg1, Vec2d(584,11), Vec2d(43,26)))));
 
 
 	animationManager->add("cyborg1Walk", cyborg1Walk);
@@ -713,14 +713,14 @@ void Game::initResources()
 	//shaderManager->add("shader", New Shader("vertexshader.txt","fragmentshader.txt"));
 
 	//cwc::glShader *shader = shaderManager->loadfromFile("SimpleLightShader.vsh", "SimpleLightShader.fsh");
-	cwc::glShader *shader = shaderManager->loadfromFile("vertexshader.txt","fragmentshader.txt");
+	//cwc::glShader *shader = shaderManager->loadfromFile("vertexshader.txt","fragmentshader.txt");
 
 
-	Texture *puddle = textureManager->add("pee_puddle", New Texture(*game->getResourceManager()->get("puddle_texture")));
+	//Texture *puddle = textureManager->add("pee_puddle", New Texture(*game->getResourceManager()->get("puddle_texture")));
 
-	Sprite *puddle_sprite = spriteManager->add("pee_puddle", New Sprite(puddle, Vec2d(0,0), Vec2d(41,17)));
+	//Sprite *puddle_sprite = spriteManager->add("pee_puddle", New Sprite(puddle, Vec2d(0,0), Vec2d(41,17)));
 
-	Animation *puddleAnim = animationManager->add("pee_puddle", New Animation(puddle_sprite));
+	//Animation *puddleAnim = animationManager->add("pee_puddle", New Animation(puddle_sprite));
 
 	//puddleAnim->setScale(Vec2d(1.0f,1.0f));
 

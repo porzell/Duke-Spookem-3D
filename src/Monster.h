@@ -22,17 +22,17 @@ class Monster : public Entity
 		bool mIsAlerted;
 		bool mIsFleeing;
 		bool mIsDying;
-		Timer mDeathTimer;
+		//Timer mDeathTimer;
 		float mRotation;
 		Vec3d playerPos;
 
-		Timer mFreezeTimer;
+		//Timer mFreezeTimer;
 
 		MONSTER_TYPE mMonsterType;
 
 		Vec3d mVelocity;
 
-		Sound *mVoice;
+		//Sound *mVoice;
 
 	public:
 		Monster(Vec3d pos);
@@ -60,7 +60,7 @@ class Monster : public Entity
 
 		virtual void makeMonsterNoise(bool priority = false);
 
-		virtual bool isSpeaking() { if(mVoice) return !mVoice->isFinished(); else return false; }
+		//virtual bool isSpeaking() { if(mVoice) return !mVoice->isFinished(); else return false; }
 
 		virtual void speak(std::string *soundFile, bool shouldInterrupt = false);
 		virtual void speak(std::string soundFile, bool shouldInterrupt = false);
@@ -75,7 +75,7 @@ class Monster : public Entity
 		
 		virtual void attack();
 
-		inline MONSTER_TYPE Monster::getMonsterType() { return mMonsterType; }
+		inline MONSTER_TYPE getMonsterType() { return mMonsterType; }
 };
 
 #endif

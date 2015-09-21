@@ -1,11 +1,12 @@
 #include "Shader.h"
 
-#include <string>
+//#include <string>
+#include <cstring>
 #include <fstream>
 
 Shader::Shader()
 {
-	mShaderID = NULL;
+	mShaderID = 0;
 }
 
 Shader::~Shader()

@@ -14,31 +14,32 @@
 #include "Gib.h"
 
 #include "Utils.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
 Kick::Kick(Vec3d &position) : Entity(NULL, position)
 {
-	mLifeTimer.start();
+	//mLifeTimer.start();
 
 	setSize(2);
 
 	mType = ENTITY_PLAYER_KICK;
 
-	mVoice = NULL;
+	//mVoice = NULL;
 
 	mHasHitHeadGib = false;
 }
 
 Kick::~Kick()
 {
-	if(mVoice)
-	{
-		//mVoice->stop();
-		mVoice->drop();
+	//if(mVoice)
+	//{
+		////mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = NULL;
-	}
+		//mVoice = NULL;
+	//}
 }
 
 void Kick::think(const double elapsedTime)
@@ -47,8 +48,8 @@ void Kick::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Kick lifetime is over.
-	if(mLifeTimer.getElapsedTime() > 100)
-		setShouldDelete(true);
+	//if(mLifeTimer.getElapsedTime() > 100)
+		//setShouldDelete(true);
 }
 
 void Kick::draw()
@@ -60,8 +61,8 @@ void Kick::collide(Entity* other)
 {
 	if(other->getType() == ENTITY_GIB)
 	{
-		if(!mVoice)
-			mVoice = game->getSoundEngine()->play2DSoundKeep(game->getResourceManager()->get("kick"));
+		//if(!mVoice)
+			//mVoice = game->getSoundEngine()->play2DSoundKeep(game->getResourceManager()->get("kick"));
 
 		if(other->getType() == ENTITY_GIB)
 		{
@@ -79,8 +80,8 @@ void Kick::collide(Entity* other)
 		//We now know the other entity is a Monster.
 		Monster *monster = (Monster*)other;
 
-		if(!mVoice)
-			mVoice = game->getSoundEngine()->play2DSoundKeep(game->getResourceManager()->get("kick"));
+		//if(!mVoice)
+			//mVoice = game->getSoundEngine()->play2DSoundKeep(game->getResourceManager()->get("kick"));
 
 		//other->spawnGib(0);
 
@@ -113,9 +114,10 @@ void Kick::collide(Entity* other)
 
 			Vec3d vel = other->getPosition() - mPosition;
 
-			vel.setLength(0.25);
+			//vel.setLength(0.25);
+            vel = glm::normalize(vel) * 0.25f;
 
-			vel.Y = 0.075;
+			vel.y = 0.075;
 
 			((Monster*)other)->stun(vel);
 

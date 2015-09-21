@@ -48,8 +48,8 @@ class SwampMonster : public Monster
 		
 		virtual void attack();
 
-		virtual void quiet() { if(mVoice) mVoice->setIsPaused(true); }
-		virtual void unQuiet() { if(mVoice) mVoice->setIsPaused(false); }
+		//virtual void quiet() { if(mVoice) mVoice->setIsPaused(true); }
+		//virtual void unQuiet() { if(mVoice) mVoice->setIsPaused(false); }
 };
 
 #endif

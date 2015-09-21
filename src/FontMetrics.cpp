@@ -1,7 +1,3 @@
-#pragma once
-#ifndef _FONT_METRICS_H
-#define _FONT_METRICS_H
-
 #include "FontMetrics.h"
 
 #include <fstream>
@@ -10,6 +6,7 @@
 #include <rapidxml_utils.hpp>
 
 #include <sstream>
+#include <cstring>
 
 using namespace rapidxml;
 
@@ -75,10 +72,10 @@ bool FontMetrics::loadFromXML(std::string &xmlPath)
 	{
 		xml_node<> *x, *y, *width, *height;
 
-		xml_attribute<> *key, *path;
+		xml_attribute<> *key;//, *path; // Unused?
 
 		key = node->first_attribute("key");
-		path = node->first_attribute("path");
+		//path = node->first_attribute("path");
 
 		x = node->first_node("x");
 		y = node->first_node("y");
@@ -108,5 +105,3 @@ bool FontMetrics::loadFromXML(std::string &xmlPath)
 
 	return true;
 }
-
-#endif

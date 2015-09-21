@@ -21,6 +21,7 @@
 #include "Gib.h"
 
 #include "HealthPotion.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -62,12 +63,12 @@ void SwampMonster::kill()
 
 	mHealth = 0;
 
-	ResourceManager *resources = game->getResourceManager();
+	//ResourceManager *resources = game->getResourceManager();
 
 	if(!mIsDying)
 	{
-		if(mVoice)
-			mVoice->stop();
+		//if(mVoice)
+			//mVoice->stop();
 
 		makeMonsterNoise(true);
 
@@ -100,7 +101,7 @@ void SwampMonster::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		mDeathTimer.start();
+		//mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -165,12 +166,12 @@ void SwampMonster::removeAttachment(Entity *toBeRemoved)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -180,12 +181,12 @@ void SwampMonster::removeAttachment(std::string key)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -201,7 +202,7 @@ void SwampMonster::attack()
 
 	//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.normalize();
+	playerPos = glm::normalize(playerPos);
 
 	playerPos /= 8;
 

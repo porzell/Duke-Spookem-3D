@@ -13,7 +13,7 @@ extern Game *game;
 class NaziBullet : public Projectile
 {
 	public:
-		NaziBullet::NaziBullet(Vec3d &position, Vec3d &velocity, Animation *anim);
+		NaziBullet(Vec3d position, Vec3d velocity, Animation *anim);
 		~NaziBullet();
 
 		Vec2d& getDamageRange() { return mDamageRange; }

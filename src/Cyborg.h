@@ -8,7 +8,7 @@
 
 #include "Color.h"
 
-typedef irrklang::ISound Sound;
+//typedef irrklang::ISound Sound;
 
 class Cyborg : public Monster
 {
@@ -20,7 +20,7 @@ class Cyborg : public Monster
 		
 		Color mShotColor;
 		
-		Sound *mpWeaponSound;
+		//Sound *mpWeaponSound;
 
 		bool mIsMech;
 
@@ -68,8 +68,8 @@ class Cyborg : public Monster
 		virtual std::string getAttackSound();
 		virtual std::string getDeathSound();
 
-		virtual void quiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(true); if(mVoice) mVoice->setIsPaused(true); }
-		virtual void unQuiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(false); if(mVoice) mVoice->setIsPaused(false); }
+		//virtual void quiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(true); if(mVoice) mVoice->setIsPaused(true); }
+		//virtual void unQuiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(false); if(mVoice) mVoice->setIsPaused(false); }
 };
 
 #endif

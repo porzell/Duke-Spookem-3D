@@ -23,20 +23,20 @@ Sprite::Sprite(Texture *texture)
 	mSize = Vec2d(mpTexture->getWidth(), mpTexture->getHeight());
 }
 
-Sprite::Sprite(Texture *texture, Vec2d &scale)
+Sprite::Sprite(Texture *texture, Vec2d scale)
 {
 	mpTexture = texture;
 	mScale = scale;
 }
 
-Sprite::Sprite(Texture *texture, Vec2d &location, Vec2d &size)
+Sprite::Sprite(Texture *texture, Vec2d location, Vec2d size)
 {
 	mpTexture = texture;
 	mTexPosition = location;
 	mSize = size;
 }
 
-Sprite::Sprite(Texture *texture, Vec2d &location, Vec2d &size, Vec2d &scale)
+Sprite::Sprite(Texture *texture, Vec2d location, Vec2d size, Vec2d scale)
 {
 	mpTexture = texture;
 	mTexPosition = location;
@@ -56,7 +56,7 @@ void Sprite::draw(Vec3d &location)
 
 	glPushMatrix();
 
-	glTranslatef(location.X, location.Y, location.Z);
+	glTranslatef(location.x, location.y, location.z );
 
 	glPushMatrix();
 
@@ -125,7 +125,7 @@ void Sprite::drawScaled(Vec3d &location, Vec2d &scale)
 
 	glPushMatrix();
 
-	glTranslatef(location.X, location.Y, location.Z);
+	glTranslatef(location.x, location.y, location.z);
 
 	glPushMatrix();
 
@@ -194,7 +194,7 @@ void Sprite::drawScaledTinted(Vec3d &location, Vec2d &scale, Color &color)
 
 	glPushMatrix();
 
-	glTranslatef(location.X, location.Y, location.Z);
+	glTranslatef(location.x, location.y, location.z);
 
 	glPushMatrix();
 
@@ -265,7 +265,7 @@ void Sprite::drawScaledTintedRotated(Vec3d &location, Vec2d &scale, Color &color
 
 	glPushMatrix();
 
-	glTranslatef(location.X, location.Y, location.Z);
+	glTranslatef(location.x, location.y, location.z);
 
 	glPushMatrix();
 

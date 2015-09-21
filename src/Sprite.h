@@ -23,9 +23,9 @@ class Sprite : public Trackable
 	public:
 		Sprite();
 		Sprite(Texture *texture);
-		Sprite(Texture *texture, Vec2d &scale);
-		Sprite(Texture *texture, Vec2d &location, Vec2d &size);
-		Sprite::Sprite(Texture *texture, Vec2d &location, Vec2d &size, Vec2d &scale);
+		Sprite(Texture *texture, Vec2d scale);
+		Sprite(Texture *texture, Vec2d location, Vec2d size);
+		Sprite(Texture *texture, Vec2d location, Vec2d size, Vec2d scale);
 
 		~Sprite() {};
 

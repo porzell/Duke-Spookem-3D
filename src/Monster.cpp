@@ -28,7 +28,7 @@ const float MONSTER_DAMPING = 0.5f;
 
 Monster::Monster(Vec3d pos) : Entity()
 {
-	mVoice = NULL;
+	//mVoice = NULL;
 
 	mPosition = pos;
 	playerPos = mPosition;
@@ -61,12 +61,12 @@ Monster::Monster(Vec3d pos) : Entity()
 
 Monster::~Monster()
 {
-	if(mVoice)
-	{
-		mVoice->stop();
-		mVoice->drop();
-		mVoice = NULL;
-	}
+	//if(mVoice)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
+		//mVoice = NULL;
+	//}
 
 	//Entity base class destructor will delete mpAnim for us.
 
@@ -106,21 +106,21 @@ void Monster::think(const double elapsedTime)
 
 	if(mIsStunned)
 	{
-		if(mPosition.Y > -0.5)
+		if(mPosition.y > -0.5)
 		{
-			mVelocity.Y -= 0.005;
+			mVelocity.y -= 0.005;
 			mPosition += mVelocity;
 
-			if(game->getCurrentMap()->getTile(int(mPosition.X + mVelocity.X), int(mPosition.Z)).type == TYPE_WALL)
+			if(game->getCurrentMap()->getTile(int(mPosition.x + mVelocity.z), int(mPosition.z)).type == TYPE_WALL)
 			{
-				mVelocity.X = -mVelocity.X;
+				mVelocity.x = -mVelocity.x;
 
 				mVelocity *= MONSTER_DAMPING;
 
 			}
-			if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z + mVelocity.Z)).type == TYPE_WALL)
+			if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z + mVelocity.z)).type == TYPE_WALL)
 			{
-				mVelocity.Z = -mVelocity.Z;
+				mVelocity.z = -mVelocity.z;
 
 				mVelocity *= MONSTER_DAMPING;
 			}
@@ -129,80 +129,80 @@ void Monster::think(const double elapsedTime)
 		else
 		{
 			mIsStunned = false;
-			mPosition.Y = -0.5;
+			mPosition.y = -0.5;
 		}
 	}
 
 	if(mIsDying)
 	{
-		if(mDeathTimer.getElapsedTime() >= 500)
-			mShouldDelete = true;
+		//if(mDeathTimer.getElapsedTime() >= 500)
+			//mShouldDelete = true;
 
 		return;
 	}
 
 	if(mIsFrozen)
 	{
-		if(mFreezeTimer.getElapsedTime() < 5000)
-		{
-			return;
-		}
-		else
-			setFrozen(false);
+		//if(mFreezeTimer.getElapsedTime() < 5000)
+		//{
+			//return;
+		//}
+		//else
+			//setFrozen(false);
 	}
 
 	if(mIsFleeing)
 	{
-		Vec2d motion = Vec2d(playerPos.X-mPosition.X,playerPos.Z-mPosition.Z);
+		Vec2d motion = Vec2d(playerPos.x-mPosition.x,playerPos.z-mPosition.z);
 
 		motion.normalize();
 
 		motion /= 35;
 	
-		if((playerPos.X - mPosition.X) + (playerPos.Z - mPosition.Z) < 0.3)
+		if((playerPos.x - mPosition.x) + (playerPos.z - mPosition.z) < 0.3)
 		{
-			int goalStr = game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).goodCreatureGoal;
+			int goalStr = game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).goodCreatureGoal;
 			playerPos = mPosition;
 			for(int i = -1; i < 2; ++i)
 				for(int j = -1; j < 2; ++j)
-					if(game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).type != TYPE_WALL && goalStr < game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal && game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal < 100)
+					if(game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).type != TYPE_WALL && goalStr < game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal && game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal < 100)
 					{
-						goalStr = game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal;
-						playerPos.X = mPosition.X + i;
-						playerPos.Z = mPosition.Z + j;
+						goalStr = game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal;
+						playerPos.x = mPosition.x + i;
+						playerPos.z = mPosition.z + j;
 					}
 		}
 
-		game->getCurrentMap()->setGoal(int(playerPos.X), int(playerPos.Z), 0);
-		game->getCurrentMap()->setGoal(int(mPosition.X), int(mPosition.Z), 0);
+		game->getCurrentMap()->setGoal(int(playerPos.x), int(playerPos.z), 0);
+		game->getCurrentMap()->setGoal(int(mPosition.x), int(mPosition.z), 0);
 
 		//Increase position of monster.
 		mPosition -= Vec3d(motion.X(),0,motion.Y());
 	}
 	else
 	{
-		Vec2d motion = Vec2d(playerPos.X-mPosition.X,playerPos.Z-mPosition.Z);
+		Vec2d motion = Vec2d(playerPos.x-mPosition.x,playerPos.z-mPosition.z);
 
 		motion.normalize();
 
 		motion /= 50;
 	
-		if((playerPos.X - mPosition.X) + (playerPos.Z - mPosition.Z) < 0.3)
+		if((playerPos.x - mPosition.x) + (playerPos.z - mPosition.z) < 0.3)
 		{
-			int goalStr = game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).goodCreatureGoal;
+			int goalStr = game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).goodCreatureGoal;
 			playerPos = mPosition;
 			for(int i = -1; i < 2; ++i)
 				for(int j = -1; j < 2; ++j)
-					if(game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).type != TYPE_WALL && goalStr < game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal && game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal < 100)
+					if(game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).type != TYPE_WALL && goalStr < game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal && game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal < 100)
 					{
-						goalStr = game->getCurrentMap()->getTile(i + int(mPosition.X), j + int(mPosition.Z)).goodCreatureGoal;
-						playerPos.X = mPosition.X + i;
-						playerPos.Z = mPosition.Z + j;
+						goalStr = game->getCurrentMap()->getTile(i + int(mPosition.x), j + int(mPosition.z)).goodCreatureGoal;
+						playerPos.x = mPosition.x + i;
+						playerPos.z = mPosition.z + j;
 					}
 		}
 
-		game->getCurrentMap()->setGoal(int(playerPos.X), int(playerPos.Z), 0);
-		game->getCurrentMap()->setGoal(int(mPosition.X), int(mPosition.Z), 0);
+		game->getCurrentMap()->setGoal(int(playerPos.x), int(playerPos.z), 0);
+		game->getCurrentMap()->setGoal(int(mPosition.x), int(mPosition.z), 0);
 
 		//Increase position of monster.
 		mPosition += Vec3d(motion.X(),0,motion.Y());
@@ -219,8 +219,8 @@ void Monster::think(const double elapsedTime)
 		makeMonsterNoise();
 	}*/
 
-	if(mVoice)
-		mVoice->setPosition(mPosition);
+	//if(mVoice)
+		//mVoice->setPosition(mPosition);
 }
 
 void Monster::collide(Entity* other)
@@ -237,12 +237,12 @@ void Monster::kill()
 
 void Monster::shutUp()
 {
-	if(mVoice)
-	{
-		mVoice->stop();
-		mVoice->drop();
-		mVoice = NULL;
-	}
+	//if(mVoice)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
+		//mVoice = NULL;
+	//}
 }
 
 void Monster::setFrozen(bool frozen)
@@ -251,7 +251,7 @@ void Monster::setFrozen(bool frozen)
 
 	if(mIsFrozen)
 	{
-		mFreezeTimer.start();
+		//mFreezeTimer.start();
 
 		if(mpAnim)
 		{
@@ -261,11 +261,11 @@ void Monster::setFrozen(bool frozen)
 
 		shutUp();
 
-		game->getSoundEngine()->play3DSound(*game->getResourceManager()->get("freeze" + std::to_string(rand() % 5 + 1)), mPosition);
+		//game->getSoundEngine()->play3DSound(*game->getResourceManager()->get("freeze" + std::to_string(rand() % 5 + 1)), mPosition);
 	}
 	else
 	{
-		mFreezeTimer.stop();
+		//mFreezeTimer.stop();
 
 		if(mpAnim)
 		{
@@ -294,7 +294,7 @@ void Monster::addAttachment(Entity *attachment)
 		{
 			speak(getSoundFireScream());
 
-			mVoice->setIsLooped(true);
+			//mVoice->setIsLooped(true);
 
 			/*if(rand() % 2)
 				mIsFleeing = true;*/

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _GAME_H
 #define _GAME_H
 
@@ -155,7 +154,7 @@ class Game : public EventListener, public ISaveWritable
 
 		void interact();
 
-		void Game::populateMap(int level);
+		void populateMap(int level);
 
 		inline Display* getDisplay() { return mpDisplay; }; 
 		inline InputManager* getInput() { return mpInput; };

@@ -11,7 +11,7 @@ StickyGrenade::StickyGrenade(Vec3d &position, Vec3d &velocity, Animation *animat
 
 	mpAnim->setScale(Vec2d(0.25,0.25));
 
-	mOffset.set(0,0,0);
+	mOffset = Vec3d(0);
 	stuck = NULL;
 
 	mLifeTime = 2000.0f;
@@ -27,26 +27,26 @@ void StickyGrenade::think(const double elapsedTime)
 	//Run entity think routines.
 	Entity::think(elapsedTime);
 
-	if(mLifeTimer.getElapsedTime() > mLifeTime)
-	{
-		if(stuck)
-		{
-			stuck->removeAttachment(this);
-			//stuck->kill();
-		}
-		else
-		{
-			setShouldDelete(true);
-			game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
-		}
-	}
+	//if(mLifeTimer.getElapsedTime() > mLifeTime)
+	//{
+		//if(stuck)
+		//{
+			//stuck->removeAttachment(this);
+			////stuck->kill();
+		//}
+		//else
+		//{
+			//setShouldDelete(true);
+			//game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
+		//}
+	//}
 
 	if(stuck)
 	{
-		Vec3d tmp = stuck->getPosition();
-		tmp.Y = mPosition.Y;
+		//Vec3d tmp = stuck->getPosition();
+		//tmp.y = mPosition.y;
 
-		mPosition = (stuck->getPosition() + mOffset).getInterpolated(tmp, 0.85f);
+		//mPosition = (stuck->getPosition() + mOffset).getInterpolated(tmp, 0.85f); // TODO: Replace this
 
 		stuck->takeDamage(0.1f);
 		return;
@@ -55,24 +55,24 @@ void StickyGrenade::think(const double elapsedTime)
 	//Add velocity to current position.
 	mPosition += mVelocity;
 
-	mVelocity.Y -= 0.001f;
+	mVelocity.y -= 0.001f;
 
-	if(mPosition.Y < -1)
+	if(mPosition.y < -1)
 	{
 		//mVelocity.Y = -mVelocity.Y;
 
 		//mVelocity *= 0.8;
 
-		mVelocity.set(0,0,0);
+		mVelocity = Vec3d(0);
 	}
 
 	//Check if StickyGrenade lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).type == TYPE_WALL)
 	{
 		//game->getEntityManager()->add(New Explosion(mPosition));
 		//mVelocity.X = -mVelocity.X * 0.8;
 		//mVelocity.Z = -mVelocity.Z * 0.8;
-		mVelocity.set(0,0,0);
+		mVelocity = Vec3d(0);
 		//mVelocity = -mVelocity * 0.8;
 		//setShouldDelete(true);
 	}
@@ -109,11 +109,11 @@ void StickyGrenade::collide(Entity* other)
 
 			mLifeTime = 3000.0f * (other->getAttachments()->size()/2 + 1);
 
-			mVelocity.set(0,0,0);
+			mVelocity = Vec3d(0);
 
 			mOffset = mPosition - stuck->getPosition();
 
-			mLifeTimer.start();
+			//mLifeTimer.start();
 
 			mpAnim->setScale(Vec2d(0.25f, 0.50f));
 

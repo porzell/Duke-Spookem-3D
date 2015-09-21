@@ -7,7 +7,7 @@
 #include "Game.h"
 #include "AnimationManager.h"
 
-typedef irrklang::ISound Sound;
+//typedef irrklang::ISound Sound;
 
 extern Game *game;
 
@@ -16,8 +16,8 @@ class Kick : public Entity
 	private:
 		bool mHasHitHeadGib;
 
-		Timer mLifeTimer;
-		Sound *mVoice;
+		//Timer mLifeTimer;
+		//Sound *mVoice;
 
 	public:
 		Kick(Vec3d &position);

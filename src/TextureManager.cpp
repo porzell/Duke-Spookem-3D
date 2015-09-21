@@ -11,7 +11,7 @@ TextureManager::~TextureManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 Texture* TextureManager::get(std::string key)
 {

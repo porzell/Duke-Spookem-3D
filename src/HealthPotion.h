@@ -16,7 +16,7 @@ class HealthPotion : public Entity
 		Vec2d mHealthRange;
 
 	public:
-		HealthPotion::HealthPotion(Vec3d &position, Vec2d& healthRange = Vec2d(10.0f, 20.f));
+		HealthPotion(Vec3d &position, Vec2d healthRange = Vec2d(10.0f, 20.f));
 		~HealthPotion();
 
 		virtual void think(const double elapsedTime);

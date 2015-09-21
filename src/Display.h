@@ -92,8 +92,9 @@ class Display : public Trackable
 		void think();
 
 
-		inline HWND getHwnd() { return GetForegroundWindow(); };
-		inline HDC getHdc() { return GetDC( getHwnd() ); };
+        // TODO: Figure this shit out
+		//inline HWND getHwnd() { return GetForegroundWindow(); }
+		//inline HDC getHdc() { return GetDC( getHwnd() ); }
 
 		//Set a function to be treated as a keyboard callback.
 		void setKeyboardCallback(GLFWkeyfun callback);

@@ -5,10 +5,10 @@
 
 #include <map>
 #include "Trackable.h"
+#include "Event.h"
 
 class Event;
 class EventListener;
-enum EventType;
 
 using namespace std;
 

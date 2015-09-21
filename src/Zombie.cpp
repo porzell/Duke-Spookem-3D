@@ -21,6 +21,7 @@
 #include "Gib.h"
 
 #include "HealthPotion.h"
+#include <glm/glm.hpp>
 
 extern Game *game;
 
@@ -62,12 +63,12 @@ void Zombie::kill()
 
 	mHealth = 0;
 
-	ResourceManager *resources = game->getResourceManager();
+	//ResourceManager *resources = game->getResourceManager();
 
 	if(!mIsDying)
 	{
-		if(mVoice)
-			mVoice->stop();
+		//if(mVoice)
+			//mVoice->stop();
 
 		makeMonsterNoise(true);
 
@@ -100,7 +101,7 @@ void Zombie::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		mDeathTimer.start();
+		//mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -164,12 +165,12 @@ void Zombie::removeAttachment(Entity *toBeRemoved)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -179,12 +180,12 @@ void Zombie::removeAttachment(std::string key)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -200,7 +201,7 @@ void Zombie::attack()
 
 	//Vec2d angle(atan2(playerPos.X-mPosition.X, playerPos.Z-mPosition.Z));
 
-	playerPos.normalize();
+    glm::normalize(playerPos);
 
 	playerPos /= 8;
 
@@ -209,7 +210,7 @@ void Zombie::attack()
 	game->getEntityManager()->add(New Projectile(mPosition,playerPos,game->getAnimationManager()->get("fireball"),Vec2d(5,10),ENTITY_ATTACK_ENEMY));
 
 	speak(getAttackSound());
-	game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
+	//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
 }
 
 std::string Zombie::getAttackSound()

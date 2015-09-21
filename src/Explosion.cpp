@@ -17,8 +17,8 @@ extern Game *game;
 
 Explosion::Explosion(Vec3d &position) : Entity(game->getAnimationManager()->get("fireball"), position)
 {
-	mLifeTimer.start();
-	game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f, randomFloat(0.75, 1.25));
+	//mLifeTimer.start();
+	//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f, randomFloat(0.75, 1.25));
 
 	mDamageRange.set(100,100);
 
@@ -28,8 +28,8 @@ Explosion::Explosion(Vec3d &position) : Entity(game->getAnimationManager()->get(
 Explosion::Explosion(Vec3d &position, GLfloat scale) : Entity(game->getAnimationManager()->get("fireball"), position, Vec2d(scale, scale))
 {
 	setSize(scale);
-	mLifeTimer.start();
-	game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f * scale, randomFloat(0.75, 1.25));
+	//mLifeTimer.start();
+	//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f * scale, randomFloat(0.75, 1.25));
 
 	mDamageRange.set(100,100);
 
@@ -39,8 +39,8 @@ Explosion::Explosion(Vec3d &position, GLfloat scale) : Entity(game->getAnimation
 Explosion::Explosion(Vec3d &position, GLfloat scale, Vec2d damageRange) : Entity(game->getAnimationManager()->get("fireball"), position, Vec2d(scale, scale))
 {
 	setSize(int(scale));
-	mLifeTimer.start();
-	game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f * scale, randomFloat(0.75, 1.25));
+	//mLifeTimer.start();
+	//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("grenade_explode"),mPosition, 2.0f * scale, randomFloat(0.75, 1.25));
 
 	mDamageRange = damageRange;
 
@@ -58,8 +58,8 @@ void Explosion::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Explosion lifetime is over.
-	if(mLifeTimer.getElapsedTime() > 1000)
-		setShouldDelete(true);
+	//if(mLifeTimer.getElapsedTime() > 1000)
+		//setShouldDelete(true);
 }
 
 void Explosion::draw()

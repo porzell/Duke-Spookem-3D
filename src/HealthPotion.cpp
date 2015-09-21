@@ -11,7 +11,7 @@
 
 extern Game *game;
 
-HealthPotion::HealthPotion(Vec3d &position, Vec2d &healthRange) : Entity(game->getAnimationManager()->get("healthPotion"), position)
+HealthPotion::HealthPotion(Vec3d &position, Vec2d healthRange) : Entity(game->getAnimationManager()->get("healthPotion"), position)
 {
 	mHealthRange = healthRange;
 

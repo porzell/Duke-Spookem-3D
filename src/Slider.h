@@ -43,7 +43,7 @@ class Slider : public MenuItem
 		void checkListeners();
 
 	public:
-		Slider(float length = 100.f, Vec2d &valueScale = Vec2d(0,1), bool callOnMove = false, float defaultpos = 0.0f, Color backcolor = Color(0.4f, 0.4f, 0.4f), Color forecolor = Color(1.0f, 1.0f, 1.0f), Color selectcolor = Color(0.75f,0.4f,0.4f));
+		Slider(float length = 100.f, Vec2d valueScale = Vec2d(0,1), bool callOnMove = false, float defaultpos = 0.0f, Color backcolor = Color(0.4f, 0.4f, 0.4f), Color forecolor = Color(1.0f, 1.0f, 1.0f), Color selectcolor = Color(0.75f,0.4f,0.4f));
 		~Slider();
 
 		//Draw Slider onto a buffer.
@@ -63,7 +63,7 @@ class Slider : public MenuItem
 		inline int getHeight() { return mDimensions.Y(); };
 
 		//Check if point is within Slider bounds.
-		bool isWithinBounds(Vec2d &point);
+		bool isWithinBounds(Vec2d point);
 		
 		//Get value of slider on provided scale.
 		float getValue();

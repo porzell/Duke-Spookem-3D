@@ -50,7 +50,7 @@ Hitler::Hitler(Vec3d pos) : Monster(pos)
 	mpAnim = New Animation(*game->getAnimationManager()->get("hitler_walk"));
 	
 	mFireTime = 0.0;
-	mpWeaponSound = NULL;
+	//mpWeaponSound = NULL;
 	
 	if(!fireballAnim)
 		fireballAnim = game->getAnimationManager()->get("shot");
@@ -72,35 +72,35 @@ void Hitler::think(const double elapsedTime)
 	if(mHealth <= 0)
 		kill();
 
-	if(mpWeaponSound)
-	{
-		Entity::think(elapsedTime);
-		mpWeaponSound->setPosition(mPosition);
+	//if(mpWeaponSound)
+	//{
+		//Entity::think(elapsedTime);
+		//mpWeaponSound->setPosition(mPosition);
 		
-		if(mShotTimer.getElapsedTime() > 106/4)
-		{
-			fireWeapon();
-			mShotTimer.start();
-		}
+		//if(mShotTimer.getElapsedTime() > 106/4)
+		//{
+			//fireWeapon();
+			//mShotTimer.start();
+		//}
 		
-		if(mWeaponTimer.getElapsedTime() > mFireTime)
-		{
-			endAttack();
-			//mpAnim->setPaused(false);
-		}
-	}
-	else
-	{	
-		Monster::think(elapsedTime);
+		//if(mWeaponTimer.getElapsedTime() > mFireTime)
+		//{
+			//endAttack();
+			////mpAnim->setPaused(false);
+		//}
+	//}
+	//else
+	//{	
+		//Monster::think(elapsedTime);
 		
-		if(!mIsDying && !mIsFrozen && !mIsStunned)
-		{
-			if(rand() % 50 == 0)
-			{
-				attack();
-			}
-		}
-	}
+		//if(!mIsDying && !mIsFrozen && !mIsStunned)
+		//{
+			//if(rand() % 50 == 0)
+			//{
+				//attack();
+			//}
+		//}
+	//}
 	
 	if(rand() % 100 == 0)
 	{
@@ -133,10 +133,10 @@ void Hitler::collide(Entity* other)
 		p->setVelocity(-p->getVelocity());
 	}
 
-	if(other->getType() == ENTITY_PLAYER_KICK)
-	{
-		game->getSoundEngine()->play3DSound(game->getResourceManager()->get("metal_bump"), mPosition, 1.0f, randomFloat(0.8f,1.2f));
-	}
+	//if(other->getType() == ENTITY_PLAYER_KICK)
+	//{
+		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("metal_bump"), mPosition, 1.0f, randomFloat(0.8f,1.2f));
+	//}
 }
 
 void Hitler::stun(Vec3d startPos)
@@ -156,7 +156,7 @@ void Hitler::kill()
 	
 	mHealth = 0;
 
-	ResourceManager *resources = game->getResourceManager();
+	//ResourceManager *resources = game->getResourceManager();
 
 	if(!mIsDying)
 	{
@@ -166,12 +166,12 @@ void Hitler::kill()
 		speak(std::string(),true);
 
 
-		Sound *die = game->getSoundEngine()->play3DSoundKeep(getDeathSound(), mPosition, 1.0, randomFloat(0.8f,1.2f));
+		//Sound *die = game->getSoundEngine()->play3DSoundKeep(getDeathSound(), mPosition, 1.0, randomFloat(0.8f,1.2f));
 
-		ISoundEffectControl *fx = die->getSoundEffectControl();
+		//ISoundEffectControl *fx = die->getSoundEffectControl();
 
-		fx->enableCompressorSoundEffect(5.f);
-		fx->enableChorusSoundEffect(50.f,100.f);
+		//fx->enableCompressorSoundEffect(5.f);
+		//fx->enableChorusSoundEffect(50.f,100.f);
 
 
 		if(rand() % 3 == 0)
@@ -198,7 +198,7 @@ void Hitler::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		mDeathTimer.start();
+		//mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -249,65 +249,65 @@ void Hitler::makeMonsterNoise(bool priority)
 
 void Hitler::speak(std::string *soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
 
-		ISoundEffectControl *fx = mVoice->getSoundEffectControl();
+		//ISoundEffectControl *fx = mVoice->getSoundEffectControl();
 
-		fx->enableCompressorSoundEffect(5.f);
-		fx->enableChorusSoundEffect(50.f,100.f);
+		//fx->enableCompressorSoundEffect(5.f);
+		//fx->enableChorusSoundEffect(50.f,100.f);
 
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  4.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition,  4.0f, randomFloat(0.95f, 1.05f));
 		
-		mVoice->setMinDistance(2);
+		//mVoice->setMinDistance(2);
 
-		ISoundEffectControl *fx = mVoice->getSoundEffectControl();
+		//ISoundEffectControl *fx = mVoice->getSoundEffectControl();
 
-		fx->enableCompressorSoundEffect(5.f);
-		fx->enableChorusSoundEffect(50.f,100.f);
-		//fx->enableDistortionSoundEffect(-5.0f,75.0f,8000.f);
-	}
+		//fx->enableCompressorSoundEffect(5.f);
+		//fx->enableChorusSoundEffect(50.f,100.f);
+		////fx->enableDistortionSoundEffect(-5.0f,75.0f,8000.f);
+	//}
 }
 
-void Hitler::speak(std::string &soundFile, bool shouldInterrupt)
+void Hitler::speak(std::string soundFile, bool shouldInterrupt)
 {
-	if(mVoice == NULL)
-	{
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
+	//if(mVoice == NULL)
+	//{
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
 
-		if(!mVoice)
-			return;
+		//if(!mVoice)
+			//return;
 
-		ISoundEffectControl *fx = mVoice->getSoundEffectControl();
+		//ISoundEffectControl *fx = mVoice->getSoundEffectControl();
 
-		fx->enableCompressorSoundEffect(10.f);
-		fx->enableChorusSoundEffect(50.f,100.f);
-	}
-	else if(mVoice->isFinished() || shouldInterrupt)
-	{
-		mVoice->stop();
-		mVoice->drop();
+		//fx->enableCompressorSoundEffect(10.f);
+		//fx->enableChorusSoundEffect(50.f,100.f);
+	//}
+	//else if(mVoice->isFinished() || shouldInterrupt)
+	//{
+		//mVoice->stop();
+		//mVoice->drop();
 
-		mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
+		//mVoice = game->getSoundEngine()->play3DSoundKeep(soundFile, mPosition, 4.0f, randomFloat(0.95f, 1.05f));
 
-		if(!mVoice)
-			return;
+		//if(!mVoice)
+			//return;
 		
-		mVoice->setMinDistance(2);
+		//mVoice->setMinDistance(2);
 
-		ISoundEffectControl *fx = mVoice->getSoundEffectControl();
+		//ISoundEffectControl *fx = mVoice->getSoundEffectControl();
 
-		fx->enableCompressorSoundEffect(10.f);
-		fx->enableChorusSoundEffect(50.f,100.f);
-		//fx->enableDistortionSoundEffect(-5.0f,75.0f,8000.f);
-	}
+		//fx->enableCompressorSoundEffect(10.f);
+		//fx->enableChorusSoundEffect(50.f,100.f);
+		////fx->enableDistortionSoundEffect(-5.0f,75.0f,8000.f);
+	//}
 }
 
 void Hitler::removeAttachment(Entity *toBeRemoved)
@@ -316,12 +316,12 @@ void Hitler::removeAttachment(Entity *toBeRemoved)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -331,12 +331,12 @@ void Hitler::removeAttachment(std::string key)
 
 	if(mAttachments.size() < 1)
 	{
-		if(mVoice)
-		{
-			mVoice->stop();
-			mVoice->drop();
-			mVoice = NULL;
-		}
+		//if(mVoice)
+		//{
+			//mVoice->stop();
+			//mVoice->drop();
+			//mVoice = NULL;
+		//}
 	}
 }
 
@@ -348,42 +348,42 @@ void Hitler::takeDamage(float hp)
 
 void Hitler::attack()
 {
-	if(!mpWeaponSound)
-	{
+	//if(!mpWeaponSound)
+	//{
 
-		if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
-		{
-			throwGrenade();
-		}
-		//range.setLength(1.0);
+		//if(rand() % 5 == 0 && mPosition.getDistanceFrom(game->getPlayer()->getPosition()) >= 5)
+		//{
+			//throwGrenade();
+		//}
+		////range.setLength(1.0);
 
-		fireWeapon();
+		//fireWeapon();
 
-		speak(&getAttackSound());
-		//game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
+		//speak(&getAttackSound());
+		////game->getSoundEngine()->play3DSound(game->getResourceManager()->get("flame_attack"),mPosition);
 	
-		Sound *tmp = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_beginfire"), mPosition, 1.0f, randomFloat(0.75f, 1.35f));
+		//Sound *tmp = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_beginfire"), mPosition, 1.0f, randomFloat(0.75f, 1.35f));
 
-		tmp->setMinDistance(6);
+		//tmp->setMinDistance(6);
 
-		mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_fireloop"), mPosition, 1.0f, 4.0f);
+		//mpWeaponSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("mp40_fireloop"), mPosition, 1.0f, 4.0f);
 	
-		mpWeaponSound->setMinDistance(6);
+		//mpWeaponSound->setMinDistance(6);
 
-		mpWeaponSound->setIsLooped(true);
+		//mpWeaponSound->setIsLooped(true);
 	
-		mFireTime = randomFloat(10.f, 800.f);
+		//mFireTime = randomFloat(10.f, 800.f);
 
-		mWeaponTimer.start();
-		mShotTimer.start();
-		//mpAnim->setPaused(true);
+		//mWeaponTimer.start();
+		//mShotTimer.start();
+		////mpAnim->setPaused(true);
 
-		//oldAnim = mpAnim;
+		////oldAnim = mpAnim;
 
-		delete mpAnim;
+		//delete mpAnim;
 
-		mpAnim = New Animation(*game->getAnimationManager()->get("hitler_shoot"));
-	}
+		//mpAnim = New Animation(*game->getAnimationManager()->get("hitler_shoot"));
+	//}
 }
 
 std::string Hitler::getAttackSound()
@@ -494,7 +494,7 @@ void Hitler::fireWeapon()
 
 	Vec3d playerPos = game->getPlayer()->getPosition();
 	
-	playerPos.Y = mPosition.Y;
+	playerPos.y = mPosition.y;
 	
 	playerPos -= mPosition;
 
@@ -502,10 +502,12 @@ void Hitler::fireWeapon()
 
 	Vec3d change = playerPos;
 
+    /* TODO: Replace this with proper matrix math stuff
 	change.rotateXYBy(90.0,change);
 	change.setLength(0.60f);
 
 	playerPos.setLength(0.15);
+    */
 
 	//playerPos.Y += 0.1f;
 
@@ -516,7 +518,7 @@ void Hitler::fireWeapon()
 	NaziBullet *b3 = New NaziBullet((mPosition - change) + Vec3d(0,-0.2,0),playerPos,NULL);
 	NaziBullet *b4 = New NaziBullet((mPosition + change) + Vec3d(0,-0.2,0),playerPos,NULL);*/
 
-	mPosition.Y += 0.1f;
+	mPosition.y += 0.1f;
 
 	NaziBullet *b;
 	
@@ -539,15 +541,15 @@ void Hitler::fireWeapon()
 			break;
 	}
 
-	mPosition.Y -= 0.1f;
+	mPosition.y -= 0.1f;
 
 	Vec3d vel = (mPosition - b->getPosition());
 
-	vel.Y = -vel.Z;
+	vel.y = -vel.z;
 
-	vel.setLength(0.05f);
+	vel = glm::normalize(vel) * 0.05f;
 
-	vel.Y = 0;
+	vel.y = 0;
 
 	ShellCasing *g = New ShellCasing(shellCasingAnim, b->getPosition(), vel);
 

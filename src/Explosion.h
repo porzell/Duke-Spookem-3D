@@ -12,7 +12,7 @@ extern Game *game;
 class Explosion : public Entity
 {
 	private:
-		Timer mLifeTimer;
+		//Timer mLifeTimer;
 		Vec2d mDamageRange;
 		float mDamage;
 

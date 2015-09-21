@@ -17,7 +17,7 @@ FontManager::~FontManager()
 	}
 
 	itemMap.clear();
-};
+}
 
 Font* FontManager::get(std::string key)
 {

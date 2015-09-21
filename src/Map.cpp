@@ -33,7 +33,7 @@ Map::Map()
 	_isVisited = false;
 }
 
-Map::Map(generation_types gen, unsigned width, unsigned height, int startx, int starty, int level, map_themes theme) : _mpWidth(width), _mpHeight(height), _level(level), _theme(theme)
+Map::Map(generation_types gen, unsigned width, unsigned height, int startx, int starty, int level, map_themes theme) : _mpWidth(width), _mpHeight(height), _theme(theme), _level(level)
 {
 	entityManager = New EntityManager();
 	//init the tilemap
@@ -309,7 +309,7 @@ void Map::diffuseGoals()
 		}
 	}
 	Vec3d position = game->getPlayer()->getPosition();
-	_mpTiles[int(position.X + 0.5)][int(position.Z + 0.5)].goodCreatureGoal = game->getPlayer()->getSneaking() ? 60 : 100;
+	_mpTiles[int(position.x + 0.5)][int(position.z + 0.5)].goodCreatureGoal = game->getPlayer()->getSneaking() ? 60 : 100;
 
 	for(unsigned i = 1; i < _mpWidth - 1; ++i)
 	{
@@ -443,7 +443,7 @@ void Map::drawSky()
 	glPushMatrix();
 	glLoadIdentity();
 
-	Vec2d bounds = game->getDisplay()->getDimensions();
+	//Vec2d bounds = game->getDisplay()->getDimensions();
 
 	gluOrtho2D(0,1,-1,1);
 
@@ -458,7 +458,7 @@ void Map::drawSky()
 	glColor4f(1,1,1,1);
 
 
-	float newScroll = scroll + game->getPlayer()->getAngle().X/360;
+	float newScroll = scroll + game->getPlayer()->getAngle().x/360;
 			
 	//GLfloat angle = mpPlayer->getVelocity().X;
 
@@ -520,8 +520,8 @@ void Map::draw()
 	Texture *downstairsTex = game->getTextureManager()->get("downstairs");
 	Texture *upstairsTex = game->getTextureManager()->get("upstairs");
 
-	Texture *normalTex = game->getTextureManager()->get("normal_texture");
-	Texture *heightTex = game->getTextureManager()->get("height_texture");
+	//Texture *normalTex = game->getTextureManager()->get("normal_texture");
+	//Texture *heightTex = game->getTextureManager()->get("height_texture");
 
 	scroll += 0.0025f;
 

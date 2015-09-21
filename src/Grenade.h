@@ -18,7 +18,7 @@ class Grenade : public Projectile
 		GLfloat mBlastRadius;
 		int ttl;
 		float rotator;
-		Sound *mVoice;
+		//Sound *mVoice;
 
 	public:
 		Grenade(Vec3d &position, Vec3d &velocity, Animation *animation, Vec2d& damageRange, entity_types type, float radius);

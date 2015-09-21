@@ -57,7 +57,7 @@ class Menu : public EventListener
 		inline Vec2d getPosition() { return mPosition; };
 
 		//Set control position.
-		inline void setPosition(Vec2d &position) { mPosition = position; updateControlPositions(); };
+		inline void setPosition(Vec2d position) { mPosition = position; updateControlPositions(); };
 
 		//Draw the menu.
 		virtual void draw();

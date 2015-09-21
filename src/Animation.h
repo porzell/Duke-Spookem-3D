@@ -40,7 +40,7 @@ class Animation : public Trackable
 		
 		Animation(const Animation& animation);
 
-		~Animation();
+		virtual ~Animation();
 
 
 		//DEPRECATED
@@ -106,7 +106,7 @@ class Animation : public Trackable
 		inline void setPingPong(bool pingpong) { mPingPong = pingpong; };
 
 		//Set animation tint.
-		inline void setTint(Color &tint) { mTint = tint; };
+		inline void setTint(Color tint) { mTint = tint; };
 
 		//Set animation scale.
 		inline void setScale(Vec2d scale) { mScale = scale; };

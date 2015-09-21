@@ -28,15 +28,15 @@ void IceBolt::think(const double elapsedTime)
 	//Add velocity to current position.
 	mPosition += mVelocity;
 
-	mVelocity.Y -= 0.0005;
+	mVelocity.y -= 0.0005;
 
-	if(mPosition.Y < -1)
+	if(mPosition.y < -1)
 	{
 		setShouldDelete(true);
 	}
 
 	//Check if IceBolt lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).type == TYPE_WALL)
 	{
 		setShouldDelete(true);
 	}

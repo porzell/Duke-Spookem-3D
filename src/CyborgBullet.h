@@ -12,16 +12,16 @@
 
 extern Game *game;
 
-typedef irrklang::ISound Sound;
+//typedef irrklang::ISound Sound;
 
 class CyborgBullet : public Projectile
 {
 	private:
 		Color mColor;
-		Sound *mpSound;
+		//Sound *mpSound;
 	
 	public:
-		CyborgBullet::CyborgBullet(Vec3d &position, Vec3d &velocity, Color &color);
+		CyborgBullet(Vec3d &position, Vec3d &velocity, Color &color);
 		~CyborgBullet();
 
 		Vec2d& getDamageRange() { return mDamageRange; }

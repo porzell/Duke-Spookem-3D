@@ -10,12 +10,13 @@
 #include "Puddle.h"
 
 #include "Utils.h"
+#include <glm/glm.hpp>
 
 Piss::Piss(std::string lastPiss, Vec3d &position, Vec3d &velocity, entity_types type) : Projectile(position, velocity, NULL, Vec2d(0,0), type)
 {
 	mLastPiss = lastPiss;
 
-	mOffset.set(0,0,0);
+	mOffset = Vec3d(0);
 
 	mLifeTime = 1000.0f;
 
@@ -31,11 +32,11 @@ void Piss::think(const double elapsedTime)
 	//Run entity think routines.
 	Entity::think(elapsedTime);
 
-	if(mLifeTimer.getElapsedTime() > mLifeTime)
-	{
-			setShouldDelete(true);
-			//game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
-	}
+	//if(mLifeTimer.getElapsedTime() > mLifeTime)
+	//{
+			//setShouldDelete(true);
+			////game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
+	//}
 
 	/*if(stuck)
 	{
@@ -53,17 +54,17 @@ void Piss::think(const double elapsedTime)
 	//Add velocity to current position.
 	mPosition += mVelocity;
 
-	mVelocity.Y -= 0.001f;
+	mVelocity.y -= 0.001f;
 
 	mVelocity += Vec3d(randomFloat(-0.001,0.001), randomFloat(-0.001,0.001), randomFloat(-0.001,0.001));
 
 	//Check if Piss lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X), int(mPosition.Z)).type == TYPE_WALL || mPosition.Y <= -1 + getSize())
+	if(game->getCurrentMap()->getTile(int(mPosition.x), int(mPosition.z)).type == TYPE_WALL || mPosition.y <= -1 + getSize())
 	{
 		game->getEntityManager()->add(New Puddle(mPosition, ENTITY_PLAYER_DECAPITATABLE));
 		//mVelocity.X = -mVelocity.X * 0.8;
 		//mVelocity.Z = -mVelocity.Z * 0.8;
-		mVelocity.set(0,0,0);
+		mVelocity = Vec3d(0);
 		//mVelocity = -mVelocity * 0.8;
 		setShouldDelete(true);
 
@@ -81,7 +82,7 @@ void Piss::draw()
 
 		glDisable(GL_TEXTURE_2D);
 
-		glLineWidth(max(0,10-(game->getPlayer()->getPosition().getDistanceFrom(mPosition))));
+		glLineWidth(max(0,10-glm::distance(game->getPlayer()->getPosition(), mPosition)));
 
 		glBegin(GL_LINES);
 

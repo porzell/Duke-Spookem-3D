@@ -21,7 +21,7 @@
 
 extern Game *game;
 
-Slider::Slider(float length, Vec2d &valueScale, bool callOnMove, float defaultpos, Color backcolor, Color forecolor, Color selectcolor)
+Slider::Slider(float length, Vec2d valueScale, bool callOnMove, float defaultpos, Color backcolor, Color forecolor, Color selectcolor)
 {
 	mLength = length;
 	mValueScale = valueScale;
@@ -267,7 +267,7 @@ void Slider::handleEvent( const Event& theEvent )
 	}
 }
 
-bool Slider::isWithinBounds(Vec2d &point)
+bool Slider::isWithinBounds(Vec2d point)
 {
 	point.setY(game->getDisplay()->getDimensions().Y() - point.Y());
 

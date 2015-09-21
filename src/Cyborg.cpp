@@ -48,7 +48,7 @@ Cyborg::Cyborg(Vec3d pos) : Monster(pos)
 	else
 		mpAnim = New Animation(*game->getAnimationManager()->get("cyborg1Walk"));
 	
-	mpWeaponSound = NULL;
+	//mpWeaponSound = NULL;
 	
 	mShotColor.r = randomFloat(0.25,1);
 	mShotColor.g = randomFloat(0.25,1);
@@ -68,28 +68,28 @@ void Cyborg::think(const double elapsedTime)
 	if(mHealth <= 0)
 		kill();
 
-	if(mpWeaponSound)
-	{
-		Entity::think(elapsedTime);
-		mpWeaponSound->setPosition(mPosition);
+	//if(mpWeaponSound)
+	//{
+		//Entity::think(elapsedTime);
+		//mpWeaponSound->setPosition(mPosition);
 		
-		if(mpWeaponSound->isFinished())
-		{
-			endAttack();
-		}
-	}
-	else
-	{	
-		Monster::think(elapsedTime);
+		//if(mpWeaponSound->isFinished())
+		//{
+			//endAttack();
+		//}
+	//}
+	//else
+	//{	
+		//Monster::think(elapsedTime);
 		
-		if(!mIsFrozen && !mIsStunned)
-		{
-			if(rand() % 450 == 0)
-			{
-				attack();
-			}
-		}
-	}
+		//if(!mIsFrozen && !mIsStunned)
+		//{
+			//if(rand() % 450 == 0)
+			//{
+				//attack();
+			//}
+		//}
+	//}
 	
 	if(rand() % 500 == 0)
 	{

@@ -39,7 +39,7 @@ OptionsMenu::OptionsMenu() : Menu(game->getDisplay()->getWidth()/3, game->getDis
 	Caption *difficultyCaption = New Caption(*game->getFontManager()->get("century_gothic"), "Hardness");
 	Caption *toggleGibsCaption = New Caption(*game->getFontManager()->get("century_gothic"), game->getAllowGibs() ? "Gibs: Lots of Gibs" : "Gibs: No Gibs");
 	Caption *dukeQuipsVolumeCaption = New Caption(*game->getFontManager()->get("century_gothic"), "Duke Quips Volume: " + std::to_string(int(game->getPlayer()->getVoiceVolume() * 100)) + "%");
-	Caption *musicVolumeCaption = New Caption(*game->getFontManager()->get("century_gothic"), "Music Volume: " + std::to_string(int(game->getSoundEngine()->getMusicVolume() * 100)) + "%");
+	//Caption *musicVolumeCaption = New Caption(*game->getFontManager()->get("century_gothic"), "Music Volume: " + std::to_string(int(game->getSoundEngine()->getMusicVolume() * 100)) + "%");
 
 	toggleGibsButton->setPosition(Vec2d((getWidth() - toggleGibsButton->getWidth())/2, getHeight()/10));
 	toggleGibsCaption->setPosition(Vec2d((getWidth() - toggleGibsCaption->getWidth())/2, 2*getHeight()/10));
@@ -50,9 +50,9 @@ OptionsMenu::OptionsMenu() : Menu(game->getDisplay()->getWidth()/3, game->getDis
 	dukeQuipsVolumeCaption->setPosition(Vec2d((getWidth() - dukeQuipsVolumeCaption->getWidth())/2, 4*getHeight()/10));
 
 	musicVolumeSlider->setPosition(Vec2d((getWidth() - musicVolumeSlider->getWidth())/2, 5*getHeight()/10));
-	musicVolumeSlider->setValue(game->getSoundEngine()->getMusicVolume());
+	//musicVolumeSlider->setValue(game->getSoundEngine()->getMusicVolume());
 
-	musicVolumeCaption->setPosition(Vec2d((getWidth() - musicVolumeCaption->getWidth())/2, 6*getHeight()/10));
+    //musicVolumeCaption->setPosition(Vec2d((getWidth() - musicVolumeCaption->getWidth())/2, 6*getHeight()/10));
 	
 	difficultyCaption->setPosition(Vec2d((getWidth() - difficultyCaption->getWidth())/2, 9.5*getHeight()/10));
 	difficultySlider->setPosition(Vec2d((getWidth() - difficultySlider->getWidth())/2, 8.5*getHeight()/10));
@@ -67,7 +67,7 @@ OptionsMenu::OptionsMenu() : Menu(game->getDisplay()->getWidth()/3, game->getDis
 	addItem("DifficultyCaption", difficultyCaption);
 	addItem("AllowGibsCaption", toggleGibsCaption);
 	addItem("VoiceVolumeCaption", dukeQuipsVolumeCaption);
-	addItem("MusicVolumeCaption", musicVolumeCaption);
+	//addItem("MusicVolumeCaption", musicVolumeCaption);
 
 	setPosition((game->getDisplay()->getDimensions() - getDimensions()) / 2);
 
@@ -104,24 +104,24 @@ void OptionsMenu::handleEvent( const Event& theEvent )
 			}
 			else if(control == mItems["VoiceVolumeSlider"])
 			{
-				Slider *slider = ((Slider*)control);
+				//Slider *slider = ((Slider*)control);
 
-				if(!redraw)
-					game->getPlayer()->setVoiceVolume(slider->getValue());
+				//if(!redraw)
+					//game->getPlayer()->setVoiceVolume(slider->getValue());
 
 				((Caption*)mItems["VoiceVolumeCaption"])->setText("Duke Quips Volume: " + std::to_string(int(game->getPlayer()->getVoiceVolume() * 100)) + "%");
 
-				if(!redraw && slider->wasJustReleased() && !game->getPlayer()->isSpeaking())
-					game->getPlayer()->speak(game->getPlayer()->getQuipKill(), true);
+				//if(!redraw && slider->wasJustReleased() && !game->getPlayer()->isSpeaking())
+					//game->getPlayer()->speak(game->getPlayer()->getQuipKill(), true);
 			}
 			else if(control == mItems["MusicVolumeSlider"])
 			{
-				Slider *slider = ((Slider*)control);
+				//Slider *slider = ((Slider*)control);
 
-				if(!redraw)
-					game->getSoundEngine()->setMusicVolume(slider->getValue());
+				//if(!redraw)
+					//game->getSoundEngine()->setMusicVolume(slider->getValue());
 
-				((Caption*)mItems["MusicVolumeCaption"])->setText("Music Volume: " + std::to_string(int(game->getSoundEngine()->getMusicVolume() * 100)) + "%");
+				//((Caption*)mItems["MusicVolumeCaption"])->setText("Music Volume: " + std::to_string(int(game->getSoundEngine()->getMusicVolume() * 100)) + "%");
 			}
 			else if(control == mItems["DifficultySlider"])
 			{

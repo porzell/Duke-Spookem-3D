@@ -34,98 +34,98 @@ SoundEngine::~SoundEngine()
 #endif
 }
 
-Sound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play2D(path.c_str(),false,true,true,ESM_AUTO_DETECT,true);
+//Sound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play2D(path.c_str(),false,true,true,ESM_AUTO_DETECT,true);
 
-	if(!sound)
-		return NULL;
-
-	
-
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
-
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
-
-	return sound;
-
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
-
-	//sound->drop();
-
-	//sound->setIsLooped(true);
-
-	/*Sound *out = New Sound();
-
-	out->setSoundPtr(sound);*/
-#endif
-}
-
-Sound* SoundEngine::play2DSoundKeep(std::string *path, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play2D(path->c_str(),false,true,true,ESM_AUTO_DETECT,true);
-
-	if(!sound)
-		return NULL;
+	//if(!sound)
+		//return NULL;
 
 	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
 
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
 
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
 
-	return sound;
+	//return sound;
 
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	//sound->drop();
+	////sound->drop();
 
-	//sound->setIsLooped(true);
+	////sound->setIsLooped(true);
 
-	/*Sound *out = New Sound();
+	//[>Sound *out = New Sound();
 
-	out->setSoundPtr(sound);*/
-#endif
-}
+	//out->setSoundPtr(sound);*/
+//#endif
+//}
 
-Sound* SoundEngine::play2DSoundKeepLooped(std::string *path, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play2D(path->c_str(),true,true,true,ESM_AUTO_DETECT,true);
+//Sound* SoundEngine::play2DSoundKeep(std::string *path, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play2D(path->c_str(),false,true,true,ESM_AUTO_DETECT,true);
 
-	if(!sound)
-		return NULL;
+	//if(!sound)
+		//return NULL;
 
 	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
 
 
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
 
-	return sound;
+	//return sound;
 
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	//sound->drop();
+	////sound->drop();
 
-	//sound->setIsLooped(true);
+	////sound->setIsLooped(true);
 
-	/*Sound *out = New Sound();
+	//[>Sound *out = New Sound();
 
-	out->setSoundPtr(sound);*/
-#endif
-}
+	//out->setSoundPtr(sound);*/
+//#endif
+//}
+
+//Sound* SoundEngine::play2DSoundKeepLooped(std::string *path, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play2D(path->c_str(),true,true,true,ESM_AUTO_DETECT,true);
+
+	//if(!sound)
+		//return NULL;
+
+	
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
+
+
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
+
+	//return sound;
+
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+
+	////sound->drop();
+
+	////sound->setIsLooped(true);
+
+	//[>Sound *out = New Sound();
+
+	//out->setSoundPtr(sound);*/
+//#endif
+//}
 
 void SoundEngine::play2DSound(std::string path, float volume, float speed)
 {
@@ -192,153 +192,153 @@ void SoundEngine::play2DSound(std::string *path, float volume, float speed)
 #endif
 }
 
-void SoundEngine::play3DSound(std::string path, Vec3d &vector, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play3D(path.c_str(),vector,false,true,true,ESM_AUTO_DETECT,true);
+//void SoundEngine::play3DSound(std::string path, Vec3d &vector, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play3D(path.c_str(),vector,false,true,true,ESM_AUTO_DETECT,true);
 
-	//Something went wrong...
-	if(!sound)
-		return; //NULL;
-
-	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
-	
-
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
-
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
-
-	//Pretty much similar to delete only it cleans itself up somehow.
-	sound->drop();
-
-	/*Sound *out = New Sound();
-
-	out->setSoundPtr(sound);*/
-
-	sound = NULL;
-
-	return; //out;
-#endif
-}
-
-void SoundEngine::play3DSound(std::string *path, Vec3d &vector, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play3D(path->c_str(),vector,false,true,true,ESM_AUTO_DETECT,true);
-
-	//Something went wrong...
-	if(!sound)
-		return; //NULL;
+	////Something went wrong...
+	//if(!sound)
+		//return; //NULL;
 
 	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
 	
 
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
 
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	//Pretty much similar to delete only it cleans itself up somehow.
-	sound->drop();
-
-	/*Sound *out = New Sound();
-
-	out->setSoundPtr(sound);*/
-
-	sound = NULL;
-
-	return; //out;
-#endif
-}
-
-Sound* SoundEngine::play3DSoundKeep(std::string *path, Vec3d &pos, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play3D(path->c_str(), pos, false,true,true,ESM_AUTO_DETECT,true);
-
-	if(!sound)
-		return NULL;
-
-	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
-	
-
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
-
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
-
-	return sound;
-
+	////Pretty much similar to delete only it cleans itself up somehow.
 	//sound->drop();
 
-	//sound->setIsLooped(true);
+	//[>Sound *out = New Sound();
 
-	/*Sound *out = New Sound();
+	//out->setSoundPtr(sound);*/
 
-	out->setSoundPtr(sound);*/
-#endif
-}
+	//sound = NULL;
 
-Sound* SoundEngine::play3DSoundKeep(std::string path, Vec3d &pos, float volume, float speed)
-{
-#if defined(_WIN32)
-	ISound *sound = mpSoundEngine->play3D(path.c_str(), pos, false,true,true,ESM_AUTO_DETECT,true);
+	//return; //out;
+//#endif
+//}
 
-	if(!sound)
-		return NULL;
+//void SoundEngine::play3DSound(std::string *path, Vec3d &vector, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play3D(path->c_str(),vector,false,true,true,ESM_AUTO_DETECT,true);
+
+	////Something went wrong...
+	//if(!sound)
+		//return; //NULL;
 
 	
-	sound->setVolume(volume);
-	sound->setPlaybackSpeed(speed);
-	sound->setIsPaused(false);
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
+	
 
-	//Enable super awesome Reverb sound effect.
-	setFx(sound);
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
 
-	//fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	return sound;
-
+	////Pretty much similar to delete only it cleans itself up somehow.
 	//sound->drop();
 
-	//sound->setIsLooped(true);
+	//[>Sound *out = New Sound();
 
-	/*Sound *out = New Sound();
+	//out->setSoundPtr(sound);*/
 
-	out->setSoundPtr(sound);*/
-#endif
-}
+	//sound = NULL;
 
-void SoundEngine::playMusic(std::string path, bool loop)
-{
+	//return; //out;
+//#endif
+//}
 
-	if(mpMusic)
-	{
-		mpMusic->stop();
-		mpMusic->drop();
-	}
+//Sound* SoundEngine::play3DSoundKeep(std::string *path, Vec3d &pos, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play3D(path->c_str(), pos, false,true,true,ESM_AUTO_DETECT,true);
 
-	mpMusic = mpSoundEngine->play2D(path.c_str(),loop,false,true,ESM_AUTO_DETECT,true);
+	//if(!sound)
+		//return NULL;
 
-	if(!mpMusic)
-		return;
+	
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
+	
 
-	mpMusic->setVolume(mMusicVolume);
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
 
-	//SoundEffectControl* fx = 0;
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	return;
-}
+	//return sound;
+
+	////sound->drop();
+
+	////sound->setIsLooped(true);
+
+	//[>Sound *out = New Sound();
+
+	//out->setSoundPtr(sound);*/
+//#endif
+//}
+
+//Sound* SoundEngine::play3DSoundKeep(std::string path, Vec3d &pos, float volume, float speed)
+//{
+//#if defined(_WIN32)
+	//ISound *sound = mpSoundEngine->play3D(path.c_str(), pos, false,true,true,ESM_AUTO_DETECT,true);
+
+	//if(!sound)
+		//return NULL;
+
+	
+	//sound->setVolume(volume);
+	//sound->setPlaybackSpeed(speed);
+	//sound->setIsPaused(false);
+
+	////Enable super awesome Reverb sound effect.
+	//setFx(sound);
+
+	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+
+	//return sound;
+
+	////sound->drop();
+
+	////sound->setIsLooped(true);
+
+	//[>Sound *out = New Sound();
+
+	//out->setSoundPtr(sound);*/
+//#endif
+//}
+
+//void SoundEngine::playMusic(std::string path, bool loop)
+//{
+
+	//if(mpMusic)
+	//{
+		//mpMusic->stop();
+		//mpMusic->drop();
+	//}
+
+	//mpMusic = mpSoundEngine->play2D(path.c_str(),loop,false,true,ESM_AUTO_DETECT,true);
+
+	//if(!mpMusic)
+		//return;
+
+	//mpMusic->setVolume(mMusicVolume);
+
+	////SoundEffectControl* fx = 0;
+
+	//return;
+//}
 
 void SoundEngine::think()
 {
@@ -362,9 +362,9 @@ void SoundEngine::think()
 } 
 
 
-void SoundEngine::setFx(Sound *sound)
-{
-	//ISoundEffectControl *fx = sound->getSoundEffectControl();
+//void SoundEngine::setFx(Sound *sound)
+//{
+	////ISoundEffectControl *fx = sound->getSoundEffectControl();
 
-	//fx->enableWavesReverbSoundEffect(0.0F, 0.f,2000,0.4);
-}
+	////fx->enableWavesReverbSoundEffect(0.0F, 0.f,2000,0.4);
+//}

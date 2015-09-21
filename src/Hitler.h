@@ -6,7 +6,7 @@
 
 #include "Timer.h"
 
-typedef irrklang::ISound Sound;
+//typedef irrklang::ISound Sound;
 
 class Hitler : public Monster
 {
@@ -15,10 +15,10 @@ class Hitler : public Monster
 		static Animation *msTorsoGib;
 		static Animation *msLegGib;
 		static Animation *msArmGib;*/
-		Timer mWeaponTimer;
-		Timer mShotTimer;
+		//Timer mWeaponTimer;
+		//Timer mShotTimer;
 		
-		Sound *mpWeaponSound;
+		//Sound *mpWeaponSound;
 		
 		float mFireTime;
 
@@ -64,14 +64,14 @@ class Hitler : public Monster
 		virtual void throwGrenade();
 
 		virtual void speak(std::string *soundFile, bool shouldInterrupt = false);
-		virtual void speak(std::string &soundFile, bool shouldInterrupt = false);
+		virtual void speak(std::string soundFile, bool shouldInterrupt = false);
 		
 		virtual std::string getAttackSound();
 		virtual std::string getYellSound();
 		virtual std::string getDeathSound();
 
-		virtual void quiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(true); if(mVoice) mVoice->setIsPaused(true); }
-		virtual void unQuiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(false); if(mVoice) mVoice->setIsPaused(false); }
+		//virtual void quiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(true); if(mVoice) mVoice->setIsPaused(true); }
+		//virtual void unQuiet() { if(mpWeaponSound) mpWeaponSound->setIsPaused(false); if(mVoice) mVoice->setIsPaused(false); }
 };
 
 #endif

@@ -23,15 +23,15 @@ CyborgBullet::CyborgBullet(Vec3d &position, Vec3d &velocity, Color &color) : Pro
 	mVelocity.Z = -cos((velocity.X * PI) / 180);*/
 	size = 0.75;
 
-	mpSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("laser_beam"), mPosition, 1.0, randomFloat(0.5,2.0));
+	//mpSound = game->getSoundEngine()->play3DSoundKeep(game->getResourceManager()->get("laser_beam"), mPosition, 1.0, randomFloat(0.5,2.0));
 
-	mpSound->setIsLooped(true);
+	//mpSound->setIsLooped(true);
 }
 
 CyborgBullet::~CyborgBullet()
 {
-	mpSound->stop();
-	mpSound->drop();
+	//mpSound->stop();
+	//mpSound->drop();
 }
 
 void CyborgBullet::think(const double elapsedTime)
@@ -43,13 +43,13 @@ void CyborgBullet::think(const double elapsedTime)
 	mPosition += mVelocity;
 
 	//Check if CyborgBullet lifetime is over.
-	if(game->getCurrentMap()->getTile(int(mPosition.X + 0.5), int(mPosition.Z + 0.5)).type == TYPE_WALL)
+	if(game->getCurrentMap()->getTile(int(mPosition.x + 0.5), int(mPosition.z + 0.5)).type == TYPE_WALL)
 	{
-		game->getSoundEngine()->play3DSound(getRicochetSound(), mPosition, 1.0, randomFloat(0.5,2.0));
+		//game->getSoundEngine()->play3DSound(getRicochetSound(), mPosition, 1.0, randomFloat(0.5,2.0));
 		setShouldDelete(true);
 	}
 
-	mpSound->setPosition(mPosition);
+	//mpSound->setPosition(mPosition);
 }
 
 void CyborgBullet::draw()
@@ -58,7 +58,7 @@ void CyborgBullet::draw()
 
 	glPushMatrix();
 
-	glTranslatef(mPosition.X, mPosition.Y, mPosition.Z);
+	glTranslatef(mPosition.x, mPosition.y, mPosition.z);
 
 	glDisable(GL_TEXTURE_2D);
 
@@ -69,7 +69,7 @@ void CyborgBullet::draw()
 	mColor.setActiveColor();
 
 	glVertex3f(0,0,0);
-	glVertex3f(mVelocity.X, mVelocity.Y, mVelocity.Z);
+	glVertex3f(mVelocity.x, mVelocity.y, mVelocity.z);
 
 	glEnd();
 
@@ -88,8 +88,8 @@ void CyborgBullet::collide(Entity* other)
 		other->setFrozen(false);
 }
 
-void CyborgBullet::quiet() { if(mpSound) mpSound->setIsPaused(true); if(mpSound) mpSound->setIsPaused(true); }
-void CyborgBullet::unQuiet() { if(mpSound) mpSound->setIsPaused(false); if(mpSound) mpSound->setIsPaused(false); }
+//void CyborgBullet::quiet() { if(mpSound) mpSound->setIsPaused(true); if(mpSound) mpSound->setIsPaused(true); }
+//void CyborgBullet::unQuiet() { if(mpSound) mpSound->setIsPaused(false); if(mpSound) mpSound->setIsPaused(false); }
 
 std::string CyborgBullet::getRicochetSound()
 {

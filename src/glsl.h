@@ -63,11 +63,11 @@ namespace cwc
                   glShaderObject();
       virtual     ~glShaderObject();
         
-      int         load(char* filename);                     //!< \brief Loads a shader file. \param filename The name of the ASCII file containing the shader. \return returns 0 if everything is ok.\n -1: File not found\n -2: Empty File\n -3: no memory
+      int         load(const char* filename);                     //!< \brief Loads a shader file. \param filename The name of the ASCII file containing the shader. \return returns 0 if everything is ok.\n -1: File not found\n -2: Empty File\n -3: no memory
       void        loadFromMemory(const char* program);      //!< \brief Load program from null-terminated char array. \param program Address of the memory containing the shader program.
        
       bool        compile(void);                            //!< compile program
-      char*       getCompilerLog(void);                     //!< get compiler messages
+      const char*       getCompilerLog(void);                     //!< get compiler messages
       GLint       getAttribLocation(char* attribName);      //!< \brief Retrieve attribute location. \return Returns attribute location. \param attribName Specify attribute name.  
     
    protected:
@@ -129,7 +129,7 @@ namespace cwc
       GLuint     GetProgramObject(){return ProgramObject;}
 
       bool       link(void);                        //!< Link all Shaders
-      char*      getLinkerLog(void);                //!< Get Linker Messages \return char pointer to linker messages. Memory of this string is available until you link again or destroy this class.
+      const char*      getLinkerLog(void);                //!< Get Linker Messages \return char pointer to linker messages. Memory of this string is available until you link again or destroy this class.
 
       void       begin();                           //!< use Shader. OpenGL calls will go through vertex, geometry and/or fragment shaders.
       void       end();                             //!< Stop using this shader. OpenGL calls will go through regular pipeline.
@@ -284,7 +284,7 @@ namespace cwc
        virtual ~glShaderManager();
 
        // Regular GLSL (Vertex+Fragment Shader)
-       glShader* loadfromFile(char* vertexFile, char* fragmentFile);    //!< load vertex/fragment shader from file. If you specify 0 for one of the shaders, the fixed function pipeline is used for that part. \param vertexFile Vertex Shader File. \param fragmentFile Fragment Shader File.
+       glShader* loadfromFile(const char* vertexFile, const char* fragmentFile);    //!< load vertex/fragment shader from file. If you specify 0 for one of the shaders, the fixed function pipeline is used for that part. \param vertexFile Vertex Shader File. \param fragmentFile Fragment Shader File.
        glShader* loadfromMemory(const char* vertexMem, const char* fragmentMem); //!< load vertex/fragment shader from memory. If you specify 0 for one of the shaders, the fixed function pipeline is used for that part.
        
        // With Geometry Shader (Vertex+Geomentry+Fragment Shader)
