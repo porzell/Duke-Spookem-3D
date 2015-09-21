@@ -1,2 +1,6 @@
 # Ignore Vim undo files
 *.un~
+
+# Ignore generated dirs
+obj
+bin
