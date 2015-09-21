@@ -1,5 +1,6 @@
 #include "Texture.h"
 
+#ifdef WINDOWS
 //Needed for PNG loading functions.
 #include <libpng/png.h>
 
@@ -10,6 +11,10 @@
 #include <gl/GLU.h>
 
 #pragma comment(lib, "libpng16.lib") // link statically with libpng16.lib
+#else
+#include <GL/glu.h>
+#include <png.h>
+#endif
 
 Texture::Texture()
 {

@@ -21,7 +21,9 @@ We certify that this assignment is entirely our own work.
 
 #include "Size.h"
 
+#ifdef WINDOWS
 #include <Windows.h>
+#endif
 
 //#include "Overlay.h"
 

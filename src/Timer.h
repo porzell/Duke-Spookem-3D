@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TIMER_H
+#define TIMER_H
+#ifdef WINDOWS
 #include <windows.h>
 #include "Trackable.h"
 
@@ -38,3 +40,6 @@ private:
 	double calcDifferenceInMS( LARGE_INTEGER from, LARGE_INTEGER to ) const;
 
 };
+#endif
+// TODO: Implement with c++11 timers
+#endif

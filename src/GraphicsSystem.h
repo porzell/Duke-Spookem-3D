@@ -1,8 +1,7 @@
-#pragma once
 #ifndef _GRAPHICS_SYSTEM_H
 #define _GRAPHICS_SYSTEM_H
 
-#include <GLFW/glfw3.h>
+#include "GLincludes.h"
 #include <string>
 
 #include "Trackable.h"

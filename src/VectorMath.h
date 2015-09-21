@@ -4,10 +4,9 @@
 
 #include "Vec2d.h"
 
-#include <irrKlang.h>
+// TODO: Replace this
+//#include <irrKlang.h>
 
-//#define Vec3d irrklang::vec3df
-
-typedef irrklang::vec3df Vec3d;
+//typedef irrklang::vec3df Vec3d;
 
 #endif

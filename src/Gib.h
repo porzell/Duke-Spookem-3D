@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _Gib_H
 #define _Gib_H
 

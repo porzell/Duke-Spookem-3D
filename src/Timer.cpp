@@ -1,5 +1,6 @@
 #include "Timer.h"
 
+#ifdef WINDOWS
 Timer::Timer()
 :mElapsedTime(0.0)
 ,mPaused(true)
@@ -88,3 +89,4 @@ double Timer::calcDifferenceInMS( LARGE_INTEGER from, LARGE_INTEGER to ) const
 	difference *= mFactor;
 	return difference * 1000;
 }
+#endif

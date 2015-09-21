@@ -2,7 +2,7 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-#include "GLIncludes.h"
+#include "GLincludes.h"
 
 //#define DEBUG_LOG_WINDOW
 
@@ -28,7 +28,7 @@
 
 #include "Header.h"
 #include "VectorMath.h"
-#include <irrKlang.h>
+//#include <irrKlang.h>
 
 class InputManager;
 class AudioSystem;
@@ -63,7 +63,7 @@ class Game : public EventListener, public ISaveWritable
 		//Timer mDanceTimer;
 
 		InputManager *mpInput;
-		SoundEngine *mpSoundEngine;
+        SoundEngine *mpSoundEngine;
 
 		Player *mpPlayer;
 

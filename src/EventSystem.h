@@ -1,6 +1,7 @@
 //Taken from Professor Lawson's example.
 
-#pragma once
+#ifndef EVENT_SYSTEM_H
+#define EVENT_SYSTEM_H
 
 #include <map>
 #include "Trackable.h"
@@ -31,3 +32,4 @@ private:
 };
 
 extern EventSystem* gpEventSystem;
+#endif

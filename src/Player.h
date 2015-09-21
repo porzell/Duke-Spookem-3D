@@ -10,9 +10,9 @@
 
 #include <queue>
 
-#include <irrKlang.h>
+//#include <irrKlang.h>
 
-using namespace irrklang;
+//using namespace irrklang;
 
 //#include "EventSystem.h"
 //#include "EventListener.h"
@@ -29,7 +29,7 @@ using namespace irrklang;
 
 #include "Piss.h"
 
-typedef irrklang::ISound Sound;
+//typedef irrklang::ISound Sound;
 
 extern Game *game;
 
@@ -69,8 +69,8 @@ class Player : public Entity, public EventListener
 		bool mIsPeeing;
 		bool mIsFlamethrowing;
 
-		Sound *mpSpeaking;
-		Sound *mpPeeing;
+		//Sound *mpSpeaking;
+		//Sound *mpPeeing;
 
 		//FPS HUD stuff.
 		Animation *mpHandAnim;

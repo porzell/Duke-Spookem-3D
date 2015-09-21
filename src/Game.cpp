@@ -36,8 +36,13 @@
 
 #include "Utils.h"
 
+#ifdef WINDOWS
 #include <Windows.h>
 #include <gl/GLU.h>
+#else
+#include <GL/glew.h>
+#include <GL/glu.h>
+#endif
 
 #include "EventSystem.h"
 

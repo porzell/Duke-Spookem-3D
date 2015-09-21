@@ -326,7 +326,7 @@ bool GLSLAPI HasShaderModel4(void); //!< Returns true if Shader Model 4 is suppo
 #define checkGL2  HasOpenGL2Support
 //----------------------------------------------------------------------------
 
-};
+}
 
 #endif // A_GLSL_H
 

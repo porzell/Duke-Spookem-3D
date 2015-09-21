@@ -1,11 +1,12 @@
-#pragma once
 #ifndef _FONT_H
 #define _FONT_H
 
 #include "Trackable.h"
 
+#ifdef WINDOWS
 #include <windows.h>                      // Header File For Windows
 #include <math.h>                     // Header File For Windows Math Library     ( ADD )
+#endif
 #include <stdio.h>                        // Header File For Standard Input/Output    ( ADD )
 #include <stdarg.h>                       // Header File For Variable Argument Routines   ( ADD )
 #include "GLincludes.h"

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _DISPLAY_H
 #define _DISPLAY_H
 
@@ -10,7 +9,9 @@
 #include "Size.h"
 #include "VectorMath.h"
 
+#ifdef WINDOWS
 #include <Windows.h>
+#endif
 
 //class Texture;
 
