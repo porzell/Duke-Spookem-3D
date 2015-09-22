@@ -110,11 +110,12 @@ static const char* aGLSLStrings[] = {
       if (extensions_init) return true;
       extensions_init = true;
 
+      glewExperimental = 1;
       GLenum err = glewInit();
 
       if (GLEW_OK != err)
       {
-         cout << "Error:" << glewGetErrorString(err) << endl;
+         cerr << "Error: " << glewGetErrorString(err) << endl;
          extensions_init = false;
          return false;
       }

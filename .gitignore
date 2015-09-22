@@ -1,6 +1,18 @@
 # Ignore Vim undo files
 *.un~
 
-# Ignore generated dirs
+# Ignore generated files
 obj
 bin
+duke-spookem-3d
+
+# Ignore resources
+resources
+sound
+textures
+Metrics.xml
+MetricsDOS.xml
+Texture.png
+TextureDOS.png
+height.png
+normal.png

@@ -73,7 +73,6 @@ Game::Game()
 
 	resourceManager = New ResourceManager();
 	textureManager = New TextureManager();
-	shaderManager = new cwc::glShaderManager();
 	animationManager = New AnimationManager();
 	spriteManager = New SpriteManager();
 	fontManager = New FontManager();
@@ -154,7 +153,10 @@ void Game::init()
 	mPaused = false;
 
 	mpDisplay->init(1366, 768, "hello", false);
-	mpDisplay->setTitle("Duke Spookum 3D");
+	mpDisplay->setTitle("Duke Spookem 3D");
+
+    // Moved because it was acting up, as usual
+	shaderManager = new cwc::glShaderManager();
 
 	//Trap the cursor.
 	mpDisplay->shouldTrapCursor(true);
