@@ -80,17 +80,17 @@ void Cyborg::think(const double elapsedTime)
 		//}
 	//}
 	//else
-	//{	
-		//Monster::think(elapsedTime);
-		
-		//if(!mIsFrozen && !mIsStunned)
-		//{
-			//if(rand() % 450 == 0)
-			//{
-				//attack();
-			//}
-		//}
-	//}
+    {	
+        Monster::think(elapsedTime);
+        
+        if(!mIsFrozen && !mIsStunned)
+        {
+            if(rand() % 450 == 0)
+            {
+                attack();
+            }
+        }
+    }
 	
 	if(rand() % 500 == 0)
 	{

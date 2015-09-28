@@ -1259,6 +1259,7 @@ void Game::doLoop()
     gameTimer.start();
 
     //unsigned long long lastTick = GetTickCount64();
+    double time = glfwGetTime();
 
 	while(!mShouldEnd)
 	{
@@ -1268,24 +1269,22 @@ void Game::doLoop()
         gameTimer.start();
 
         //while (GetTickCount64() - lastTick < 8);
+        while(glfwGetTime() - time < 1 / 60.0);
 
         //lastTick = GetTickCount64();
+        time = glfwGetTime();
 
-		/*if(!menuStack->empty())
-		{
-			mPaused = true;
-		}
-		else
-			mPaused = false;
-		*/
+        if(!menuStack->empty())
+        {
+            mPaused = true;
+        }
+        else
+            mPaused = false;
+        
 		if(!mPaused)
 		{
 
 		}
-
-		//These two should think even if game is paused.
-		//mpInput->think();
-		//menuStack->think();
 
 		//Get window to update.
 		mpDisplay->think();
@@ -1337,10 +1336,10 @@ void Game::doLoop()
 
 				mpMap[current_map]->diffuseGoals();
 
-				//mpMap[current_map]->getEntityManager()->think(gameTimer.getElapsedTime());
+                mpMap[current_map]->getEntityManager()->think(gameTimer.getElapsedTime());
 				mpMap[current_map]->getEntityManager()->runCollisions();
 
-				//gameTimer.stop();
+                gameTimer.stop();
 
 				//if(seeThruEnabled)
 					//glDisable(GL_DEPTH_TEST);

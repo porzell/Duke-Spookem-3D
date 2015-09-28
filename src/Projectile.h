@@ -13,7 +13,7 @@ class Projectile : public Entity
 {
 	protected:
 		Entity *mpOwner;
-		//Timer mLifeTimer;
+        Timer mLifeTimer;
 		Vec3d mVelocity;
 
 		Vec2d mDamageRange;

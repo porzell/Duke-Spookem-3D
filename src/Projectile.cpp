@@ -15,7 +15,7 @@ Projectile::Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec
 
 	mDamageRange = damageRange;
 
-	//mLifeTimer.start();
+    mLifeTimer.start();
 	mType = type;
 	size = 0.2;
 }
@@ -30,7 +30,7 @@ Projectile::Projectile(Vec3d position, Vec3d velocity, Animation *animation, Vec
 
 	mDamageRange = damageRange;
 
-	//mLifeTimer.start();
+    mLifeTimer.start();
 	mType = type;
 	size = 0.2;
 }
@@ -49,10 +49,10 @@ void Projectile::think(const double elapsedTime)
 	mPosition += mVelocity;
 
 	//Check if projectile lifetime is over.
-	//if(mLifeTimer.getElapsedTime() > 5000 || game->getCurrentMap()->getTile(int(mPosition.X + 0.5), int(mPosition.Z + 0.5)).type == TYPE_WALL)
-	//{
-		//setShouldDelete(true);
-	//}
+    if(mLifeTimer.getElapsedTime() > 5000 || game->getCurrentMap()->getTile(int(mPosition.x + 0.5), int(mPosition.z + 0.5)).type == TYPE_WALL)
+    {
+        setShouldDelete(true);
+    }
 }
 
 void Projectile::draw()

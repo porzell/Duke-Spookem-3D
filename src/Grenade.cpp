@@ -48,11 +48,11 @@ void Grenade::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Grenade lifetime is over.
-	//if(mLifeTimer.getElapsedTime() > ttl)
-	//{
-		//game->getEntityManager()->add(New Explosion(mPosition,3.0f));
-		//setShouldDelete(true);
-	//}
+    if(mLifeTimer.getElapsedTime() > ttl)
+    {
+        game->getEntityManager()->add(New Explosion(mPosition,3.0f));
+        setShouldDelete(true);
+    }
 
 	mVelocity.y -= 0.001;
 
