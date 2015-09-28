@@ -3,8 +3,6 @@
 
 #include <GL/glew.h>
 
-#include "glsl.h"
-
 #define GLFW_DLL
 #include <GLFW/glfw3.h>
 

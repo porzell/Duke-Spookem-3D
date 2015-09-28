@@ -76,7 +76,7 @@ Game::Game()
 	animationManager = New AnimationManager();
 	spriteManager = New SpriteManager();
 	fontManager = New FontManager();
-	//entityManager = New EntityManager();
+    entityManager = New EntityManager();
 	/*overlayManager = New OverlayManager();
 	keyManager = New KeyManager();
 	sampleManager = New SampleManager();
@@ -100,11 +100,10 @@ Game::~Game()
 	delete menuStack;
 
 	delete textureManager;
-	delete shaderManager;
 	delete spriteManager;
 	delete animationManager;
 	delete fontManager;
-	//delete entityManager;
+    delete entityManager;
 
 	cleanupMaps();
 
@@ -146,17 +145,12 @@ void Game::init()
 	//mpAudio = New AudioSystem();
 	mpDisplay = New Display();
 
-	//mpInput = New Input();
-
 	//mpMusic = NULL;
 
 	mPaused = false;
 
 	mpDisplay->init(1366, 768, "hello", false);
 	mpDisplay->setTitle("Duke Spookem 3D");
-
-    // Moved because it was acting up, as usual
-	shaderManager = new cwc::glShaderManager();
 
 	//Trap the cursor.
 	mpDisplay->shouldTrapCursor(true);
@@ -1230,7 +1224,6 @@ void Game::doLoop()
 	glEnable(GL_MULTISAMPLE);
 
 	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_TEXTURE_2D);
 
 	glEnable(GL_FOG);
 
@@ -1259,24 +1252,24 @@ void Game::doLoop()
 
 	//******************************************
 
-	//Timer gameTimer, drawTimer;
+    Timer gameTimer, drawTimer;
 
-	//drawTimer.start();
+    drawTimer.start();
 
-	//gameTimer.start();
+    gameTimer.start();
 
-	//unsigned long long lastTick = GetTickCount64();
+    //unsigned long long lastTick = GetTickCount64();
 
 	while(!mShouldEnd)
 	{
-		//if(drawTimer.getElapsedTime() >= 40)
+        if(drawTimer.getElapsedTime() >= 40)
 			mShouldDraw = true;
 
-		//gameTimer.start();
+        gameTimer.start();
 
-		//while (GetTickCount64() - lastTick < 8);
+        //while (GetTickCount64() - lastTick < 8);
 
-		//lastTick = GetTickCount64();
+        //lastTick = GetTickCount64();
 
 		/*if(!menuStack->empty())
 		{
@@ -1432,7 +1425,7 @@ void Game::doLoop()
 			mpDisplay->flip();
 
 			mShouldDraw = false;
-			//drawTimer.start();
+            drawTimer.start();
 		}
 	}
 }

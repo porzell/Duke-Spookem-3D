@@ -70,7 +70,6 @@ class Game : public EventListener, public ISaveWritable
 
 
 		TextureManager *textureManager;
-		cwc::glShaderManager *shaderManager;
 		SpriteManager *spriteManager;
 		AnimationManager *animationManager;
 		EntityManager *entityManager;
@@ -156,27 +155,26 @@ class Game : public EventListener, public ISaveWritable
 
 		void populateMap(int level);
 
-		inline Display* getDisplay() { return mpDisplay; }; 
-		inline InputManager* getInput() { return mpInput; };
-		inline Player* getPlayer() { return mpPlayer; };
+		inline Display* getDisplay() { return mpDisplay; } 
+		inline InputManager* getInput() { return mpInput; }
+		inline Player* getPlayer() { return mpPlayer; }
 
-		inline MenuStack* getMenuStack() { return menuStack; };
+		inline MenuStack* getMenuStack() { return menuStack; }
 
-		inline SoundEngine* getSoundEngine() { return mpSoundEngine; };
-		inline TextureManager* getTextureManager() { return textureManager; };
-		inline cwc::glShaderManager* getShaderManager() { return shaderManager; };
-		inline Map* getCurrentMap() { return mpMap[current_map]; };
-		inline AnimationManager* getAnimationManager() { return animationManager; };
-		inline SpriteManager* getSpriteManager() { return spriteManager; };
+		inline SoundEngine* getSoundEngine() { return mpSoundEngine; }
+		inline TextureManager* getTextureManager() { return textureManager; }
+		inline Map* getCurrentMap() { return mpMap[current_map]; }
+		inline AnimationManager* getAnimationManager() { return animationManager; }
+		inline SpriteManager* getSpriteManager() { return spriteManager; }
 		EntityManager* getEntityManager();
-		inline ResourceManager* getResourceManager() { return resourceManager; };
-		inline FontManager* getFontManager() { return fontManager; };
+		inline ResourceManager* getResourceManager() { return resourceManager; }
+		inline FontManager* getFontManager() { return fontManager; }
 
 		float getHardness(){return mHardness;}
 		void setHardness(float h){mHardness = h;}
 
 		inline bool hasGameStarted() { return mGameStarted; }
-		inline bool isEnding() { return mShouldEnd; };
+		inline bool isEnding() { return mShouldEnd; }
 
 		virtual void handleEvent( const Event& theEvent);
 

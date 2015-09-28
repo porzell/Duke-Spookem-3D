@@ -99,9 +99,9 @@ bool Display::init(int width, int height, std::string title, bool fullscreen)
 
 	try
 	{
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE);
 		mpDisplay = glfwCreateWindow(width, height, title.c_str(), mFullscreen ? glfwGetPrimaryMonitor() : NULL, NULL);
 
 		//9/3/2014 - Fix for some display creation errors on a machine.

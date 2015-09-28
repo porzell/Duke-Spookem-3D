@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-#ifdef WINDOWS
+#ifdef _WIN32
 Timer::Timer()
 :mElapsedTime(0.0)
 ,mPaused(true)
@@ -88,5 +88,82 @@ double Timer::calcDifferenceInMS( LARGE_INTEGER from, LARGE_INTEGER to ) const
 	double difference = (double)(to.QuadPart - from.QuadPart) / (double)mTimerFrequency.QuadPart;
 	difference *= mFactor;
 	return difference * 1000;
+}
+#elif __linux
+using namespace std::chrono;
+
+Timer::Timer()
+:mFactor(1.0)
+,mLastFactor(1.0)
+,mPaused(true)
+{
+    mElapsedTime = 0;
+}
+
+Timer::~Timer()
+{
+}
+
+void Timer::start()
+{
+    mStartTime = high_resolution_clock::now();
+
+    mElapsedTime = 0;
+
+    pause( false );//unpause
+}
+
+void Timer::stop()
+{
+    mEndTime = high_resolution_clock::now();
+    mElapsedTime = calcDifferenceInMS(mStartTime, mEndTime);
+} 
+
+void Timer::pause( bool shouldPause )
+{
+    if( shouldPause && !mPaused )//want to pause and we are not currently paused
+    {
+	mPaused = true;
+	mEndTime = high_resolution_clock::now();
+	mElapsedTime += calcDifferenceInMS(mStartTime, mEndTime);
+    }
+    else if( !shouldPause && mPaused )//want to unpause and we are paused
+    {
+	mPaused = false;
+	mStartTime = high_resolution_clock::now();
+    }
+}
+
+double Timer::getElapsedTime() const
+{
+    if(mPaused)
+	return mElapsedTime;
+    else
+	return calcDifferenceInMS(mStartTime, high_resolution_clock::now());
+}
+
+void Timer::sleepUntilElapsed( double ms )
+{
+    high_resolution_clock::time_point currentTime, lastTime;
+    currentTime = high_resolution_clock::now();
+    double timeToSleep = ms - calcDifferenceInMS(mStartTime, currentTime);
+    while( timeToSleep > 0.0 )
+    {
+	lastTime = currentTime;
+	currentTime = high_resolution_clock::now();
+	double timeElapsed = calcDifferenceInMS( lastTime, currentTime );
+	timeToSleep -= timeElapsed;
+	if( timeToSleep > 10.0 )//if we are going to be in this loop for a long time
+	{
+	    struct timespec delay;
+	    delay.tv_nsec = 10000000;
+	    nanosleep(&delay, NULL);
+	}
+    }
+}
+
+double Timer::calcDifferenceInMS( high_resolution_clock::time_point from, high_resolution_clock::time_point to ) const
+{
+    return duration_cast<milliseconds>(to - from).count();
 }
 #endif
