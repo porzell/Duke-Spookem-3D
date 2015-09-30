@@ -27,19 +27,19 @@ void FlamePuff::think(const double elapsedTime)
 	//Run entity think routines.
 	Entity::think(elapsedTime);
 
-	//if(mLifeTimer.getElapsedTime() > mLifeTime)
-	//{
-		//if(stuck)
-		//{
-			//stuck->removeAttachment(this);
-			////stuck->kill();
-		//}
-		//else
-		//{
-			//setShouldDelete(true);
-			////game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
-		//}
-	//}
+    if(mLifeTimer.getElapsedTime() > mLifeTime)
+    {
+        if(stuck)
+        {
+            stuck->removeAttachment(this);
+            //stuck->kill();
+        }
+        else
+        {
+            setShouldDelete(true);
+            //game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
+        }
+    }
 
 	setSize(getSize() + 0.01f);
 

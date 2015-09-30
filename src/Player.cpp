@@ -47,7 +47,7 @@ float Player::msHeight = 0.25f;
 
 const float HAND_SPEED = 40.0f;
 
-const float MAX_HP = 100.0f;
+const float MAX_HP = 1000.0f;
 
 Player::Player() : Entity()
 {
@@ -82,7 +82,7 @@ Player::Player() : Entity()
 	mLeftHandPosition = Vec2d(0,-mpLeftHandAnim->getCurrentDimensions().Y());
 	mLegPosition = Vec2d(350, game->getDisplay()->getDimensions().Y() - mpLegAnim->getCurrentDimensions().Y());
 
-	mHealth = 100;
+	mHealth = MAX_HP;
 	mp = 100;
 	size = 2;
 
@@ -663,10 +663,10 @@ void Player::drawHUD()
 		glVertex2f(210, 10);
 		glVertex2f(210, 60);
 		glVertex2f(10, 60);
-		glColor3f(1 - (mHealth/100.0f), mHealth > 90 ? 1 : mHealth / 100.0f, mHealth > 90 ? (mHealth - 90) / 10.0f : 0);
+		glColor3f(1 - (mHealth/MAX_HP), mHealth > MAX_HP * 0.9f ? 1 : mHealth / MAX_HP, mHealth > MAX_HP * 0.9f ? (mHealth - (MAX_HP * 0.9f)) / 10.0f : 0);
 		glVertex2f(10, 10);
-		glVertex2f(10 + (mHealth * 2), 10);
-		glVertex2f(10 + (mHealth * 2), 60);
+		glVertex2f(10 + ((mHealth / MAX_HP) * 200), 10);
+		glVertex2f(10 + ((mHealth / MAX_HP) * 200), 60);
 		glVertex2f(10, 60);
 		glEnd();
 
