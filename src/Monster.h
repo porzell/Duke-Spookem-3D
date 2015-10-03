@@ -22,11 +22,11 @@ class Monster : public Entity
 		bool mIsAlerted;
 		bool mIsFleeing;
 		bool mIsDying;
-		//Timer mDeathTimer;
+        Timer mDeathTimer;
 		float mRotation;
 		Vec3d playerPos;
 
-		//Timer mFreezeTimer;
+        Timer mFreezeTimer;
 
 		MONSTER_TYPE mMonsterType;
 

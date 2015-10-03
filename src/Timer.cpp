@@ -136,9 +136,9 @@ void Timer::pause( bool shouldPause )
 
 double Timer::getElapsedTime() const
 {
-    if(mPaused)
+    if(mPaused) {
 	return mElapsedTime;
-    else
+    }else
 	return calcDifferenceInMS(mStartTime, high_resolution_clock::now());
 }
 

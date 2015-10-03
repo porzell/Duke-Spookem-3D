@@ -1263,7 +1263,7 @@ void Game::doLoop()
 
 	while(!mShouldEnd)
 	{
-        if(drawTimer.getElapsedTime() >= 40)
+        if(drawTimer.getElapsedTime() >= 30)
 			mShouldDraw = true;
 
         gameTimer.start();
@@ -1366,46 +1366,47 @@ void Game::doLoop()
 					glEnable(GL_TEXTURE_2D);
 				}
 
-				if(mpPlayer->isPeeing())
-				{
-					Vec3d point = mpPlayer->getPosition();
+                // Pee code needs to be redone
+				//if(mpPlayer->isPeeing())
+				//{
+					//Vec3d point = mpPlayer->getPosition();
 
-					point.y -= 0.45;
+					//point.y -= 0.45;
 
-					Vec3d mAngle = mpPlayer->getAngle();
+					//Vec3d mAngle = mpPlayer->getAngle();
 
-					Vec3d shotVelocity;
+					//Vec3d shotVelocity;
 
-					shotVelocity.x = sin((mAngle.x * PI) / 180);
-					shotVelocity.y = -sin((mAngle.y * PI) / 180);
+					//shotVelocity.x = sin((mAngle.x * PI) / 180);
+					//shotVelocity.y = -sin((mAngle.y * PI) / 180);
 	
-					//Use this line if dealing with a non physics-enabled projectile.
-					//shotVelocity.Y = 0;
+					////Use this line if dealing with a non physics-enabled projectile.
+					////shotVelocity.Y = 0;
 	
-					shotVelocity.z = -cos((mAngle.x * PI) / 180);
+					//shotVelocity.z = -cos((mAngle.x * PI) / 180);
 
-					shotVelocity /= 20;
+					//shotVelocity /= 20;
 
-					//glDisable( GL_DEPTH_TEST );
+					////glDisable( GL_DEPTH_TEST );
 
-					glBegin(GL_LINES);
+					//glBegin(GL_LINES);
 
-					for(int i = 0; i < 30; ++i)
-					{
-						glColor3f(0.75f, 0.75f, 0);
-						glVertex3f(point.x, point.y, point.z);
+					//for(int i = 0; i < 30; ++i)
+					//{
+						//glColor3f(0.75f, 0.75f, 0);
+						//glVertex3f(point.x, point.y, point.z);
 
-						point += shotVelocity + Vec3d(randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f));
+						//point += shotVelocity + Vec3d(randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f), randomFloat(0.0f,0.001f));
 
 
-						glColor3f(0.75f, 0.75f, 0);
-						glVertex3f(point.x, point.y, point.z);
+						//glColor3f(0.75f, 0.75f, 0);
+						//glVertex3f(point.x, point.y, point.z);
 
-						shotVelocity.y -= 0.0005;
-					}
+						//shotVelocity.y -= 0.0005;
+					//}
 
-					glEnd();
-				}
+					//glEnd();
+				//}
 
 			}
 

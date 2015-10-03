@@ -52,9 +52,6 @@ void Zombie::think(const double elapsedTime)
 
 void Zombie::collide(Entity* other)
 {
-	if(other->getType() == ENTITY_ATTACK_PLAYER){
-		//mShouldDelete = true;
-	}
 }
 
 void Zombie::kill()
@@ -101,7 +98,8 @@ void Zombie::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		//mDeathTimer.start();
+        fprintf(stderr, "Starting death timer\n");
+        mDeathTimer.start();
 
 		delete mpAnim;
 

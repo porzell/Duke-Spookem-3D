@@ -135,20 +135,22 @@ void Monster::think(const double elapsedTime)
 
 	if(mIsDying)
 	{
-		//if(mDeathTimer.getElapsedTime() >= 500)
-			//mShouldDelete = true;
+        if(mDeathTimer.getElapsedTime() >= 500)
+            mShouldDelete = true;
+        else
+            fprintf(stderr, "TIME: %f\n", mDeathTimer.getElapsedTime());
 
 		return;
 	}
 
 	if(mIsFrozen)
 	{
-		//if(mFreezeTimer.getElapsedTime() < 5000)
-		//{
-			//return;
-		//}
-		//else
-			//setFrozen(false);
+        if(mFreezeTimer.getElapsedTime() < 5000)
+        {
+            return;
+        }
+        else
+            setFrozen(false);
 	}
 
 	if(mIsFleeing)
@@ -225,9 +227,6 @@ void Monster::think(const double elapsedTime)
 
 void Monster::collide(Entity* other)
 {
-	if(other->getType() == ENTITY_ATTACK_PLAYER){
-		//mShouldDelete = true;
-	}
 }
 
 void Monster::kill()
@@ -251,7 +250,7 @@ void Monster::setFrozen(bool frozen)
 
 	if(mIsFrozen)
 	{
-		//mFreezeTimer.start();
+        mFreezeTimer.start();
 
 		if(mpAnim)
 		{
@@ -265,7 +264,7 @@ void Monster::setFrozen(bool frozen)
 	}
 	else
 	{
-		//mFreezeTimer.stop();
+        mFreezeTimer.stop();
 
 		if(mpAnim)
 		{
@@ -277,7 +276,7 @@ void Monster::setFrozen(bool frozen)
 
 void Monster::spawnGib(float velocity)
 {
-	//game->getEntityManager()->add(New Gib(mPosition, Vec3d(randomFloat(0.0f,0.075f),randomFloat(0.0f,0.075f),0), mMonsterType, mIsFrozen));
+    //game->getEntityManager()->add(New Gib(mPosition, Vec3d(randomFloat(0.0f,0.075f),randomFloat(0.0f,0.075f),0), mMonsterType, mIsFrozen));
 
 }
 
@@ -430,9 +429,6 @@ void Monster::removeAttachment(std::string key)
 void Monster::takeDamage(float hp)
 {
 	Entity::takeDamage(hp);
-
-	if(mHealth <= 0)
-		mIsDying = true;
 	//makeMonsterNoise();
 }
 
