@@ -1,3 +1,5 @@
+#ifndef SOUND_H
+#define SOUND_H
 #include <AL/al.h>
 #include <AL/alc.h>
 #include <ogg/ogg.h>
@@ -23,6 +25,7 @@ public:
     virtual bool getLoaded() = 0;
     virtual void setVolume(float volume) = 0;
     virtual float getVolume() = 0;
+    virtual bool isFinished() = 0;
     //SoundEffectControl* fx = 0;
     virtual void cleanup() = 0;
     virtual void play() = 0;
@@ -42,6 +45,7 @@ public:
     virtual bool getLoaded() { return m_loaded; }
     virtual void setVolume(float volume) { m_volume = volume; alSourcef(m_source, AL_GAIN, volume); }
     virtual float getVolume() { return m_volume; }
+    virtual bool isFinished() { ALenum state; alGetSourcei(m_source, AL_SOURCE_STATE, &state); return state != AL_PLAYING; }
     virtual void cleanup();
     virtual void play();
     virtual void pause();
@@ -65,6 +69,7 @@ public:
     virtual bool getLoaded() { return m_loaded; }
     virtual void setVolume(float volume) { m_volume = volume; alSourcef(m_source, AL_GAIN, volume); }
     virtual float getVolume() { return m_volume; }
+    virtual bool isFinished() { ALenum state; alGetSourcei(m_source, AL_SOURCE_STATE, &state); return state != AL_PLAYING; }
     virtual void cleanup();
     virtual void play();
     virtual void pause();
@@ -85,3 +90,4 @@ protected:
     vorbis_info*    vorbisInfo;    // some formatting data
     vorbis_comment* vorbisComment; // user comments
 };
+#endif

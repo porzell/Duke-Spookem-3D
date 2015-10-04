@@ -29,36 +29,37 @@ SoundEngine::~SoundEngine()
         alcCloseDevice(mpDevice);
 }
 
-//Sound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed)
-//{
-//#if defined(_WIN32)
-	//ISound *sound = mpSoundEngine->play2D(path.c_str(),false,true,true,ESM_AUTO_DETECT,true);
+ISound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed)
+{
+    ISound *sound = new SoundEffect();
 
-	//if(!sound)
-		//return NULL;
+    if(!sound)
+        return NULL;
 
-	
+    sound->load(path.c_str(), SoundFile::OGG, true);
 
-	//sound->setVolume(volume);
-	//sound->setPlaybackSpeed(speed);
-	//sound->setIsPaused(false);
+    
 
-	////Enable super awesome Reverb sound effect.
-	//setFx(sound);
+    sound->setVolume(volume);
+    sound->play();
+    //sound->setPlaybackSpeed(speed);
+    //sound->setIsPaused(false);
 
-	//return sound;
+    //Enable super awesome Reverb sound effect.
+    //setFx(sound);
 
-	////fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
+    return sound;
 
-	////sound->drop();
+    //fx->enableWavesReverbSoundEffect(0,0,99,0.001000000047F);
 
-	////sound->setIsLooped(true);
+    //sound->drop();
 
-	//[>Sound *out = New Sound();
+    //sound->setIsLooped(true);
 
-	//out->setSoundPtr(sound);*/
-//#endif
-//}
+    //[>Sound *out = New Sound();
+
+    //out->setSoundPtr(sound);*/
+}
 
 //Sound* SoundEngine::play2DSoundKeep(std::string *path, float volume, float speed)
 //{

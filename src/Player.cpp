@@ -118,21 +118,22 @@ Player::~Player()
 
 void Player::speak(std::string soundFile, bool shouldInterrupt, bool shouldAddToQueue)
 {
-	//if(mpSpeaking == NULL)
-	//{
-		//mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
-	//}
-	//else if(mpSpeaking->isFinished() || shouldInterrupt)
-	//{
-		//mpSpeaking->stop();
-		//mpSpeaking->drop();
+    fprintf(stderr, "Speaking %s\n", soundFile.c_str());
+    if(mpSpeaking == NULL)
+    {
+        mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
+    }
+    else if(mpSpeaking->isFinished() || shouldInterrupt)
+    {
+        mpSpeaking->cleanup();
+        delete mpSpeaking;
 
-		//mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
-	//}
-	//else if(shouldAddToQueue)
-	//{
-		//mQueuedQuips.push(soundFile);
-	//}
+        mpSpeaking = game->getSoundEngine()->play2DSoundKeep(soundFile, mVoiceVolume);
+    }
+    else if(shouldAddToQueue)
+    {
+        mQueuedQuips.push(soundFile);
+    }
 }
 
 void Player::handleKey(bool keyDown, int keycode)
@@ -201,10 +202,10 @@ void Player::handleKey(bool keyDown, int keycode)
 				mSnapchatted = false;
 				mIsSnapchatting = true;
 
-				//mSnapchatTimer.start();
+                mSnapchatTimer.start();
 
-				//if(rand() % 2 == 0)
-					//speak(getQuipSnapchat());
+                //if(rand() % 2 == 0)
+                    //speak(getQuipSnapchat());
 			}
 			else
 			{
@@ -392,19 +393,19 @@ void Player::think()
 			mLeftHandPosition.addY(HAND_SPEED);
 		else
 		{
-			//if(!mSnapchatted && mSnapchatTimer.getElapsedTime() >= 1000)
-			//{
-				//game->getSoundEngine()->play2DSound(game->getResourceManager()->get("camera_shutter"), 1.0f);
+            if(!mSnapchatted && mSnapchatTimer.getElapsedTime() >= 1000)
+            {
+                game->getSoundEngine()->play2DSound(game->getResourceManager()->get("camera_shutter"), 1.0f);
 
-				//mSnapchatted = true;
+                mSnapchatted = true;
 
-				//if(rand() % 5 < 4)
-					//speak(getQuipSelfie());
+                if(rand() % 5 < 4)
+                    speak(getQuipSelfie());
 
-				//mSnapchatTimer.stop();
-			//}
+                mSnapchatTimer.stop();
+            }
 
-			//mIsSnapchatting = false;
+            mIsSnapchatting = false;
 		}
 
 		//Make attack hand go down.

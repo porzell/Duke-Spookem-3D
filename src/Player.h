@@ -7,6 +7,7 @@
 #include "Trackable.h"
 
 #include "Game.h"
+#include "Sound.h"
 
 #include <queue>
 
@@ -60,7 +61,7 @@ class Player : public Entity, public EventListener
 
 		bool mWalkPressed;
 
-		//Timer mSnapchatTimer;
+        Timer mSnapchatTimer;
 
 		bool mIsSnapchatting;
 		bool mSnapchatted;
@@ -69,8 +70,8 @@ class Player : public Entity, public EventListener
 		bool mIsPeeing;
 		bool mIsFlamethrowing;
 
-		//Sound *mpSpeaking;
-		//Sound *mpPeeing;
+        ISound *mpSpeaking = NULL;
+        ISound *mpPeeing;
 
 		//FPS HUD stuff.
 		Animation *mpHandAnim;
@@ -172,9 +173,9 @@ class Player : public Entity, public EventListener
 		std::string getQuipThaw();
 
 		inline float getVoiceVolume() { return mVoiceVolume; }
-		//inline void setVoiceVolume(float volume) { mVoiceVolume = volume; if(mpSpeaking) mpSpeaking->setVolume(mVoiceVolume); }
+        inline void setVoiceVolume(float volume) { mVoiceVolume = volume; if(mpSpeaking) mpSpeaking->setVolume(mVoiceVolume); }
 
-		//inline bool isSpeaking() { return mpSpeaking; };
+        inline bool isSpeaking() { return mpSpeaking; };
 
 		friend class InputManager;
 

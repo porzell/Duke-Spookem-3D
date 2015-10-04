@@ -137,8 +137,6 @@ void Monster::think(const double elapsedTime)
 	{
         if(mDeathTimer.getElapsedTime() >= 500)
             mShouldDelete = true;
-        else
-            fprintf(stderr, "TIME: %f\n", mDeathTimer.getElapsedTime());
 
 		return;
 	}

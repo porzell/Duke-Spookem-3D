@@ -27,8 +27,8 @@ class SoundEngine : public Trackable
 		void play2DSound(std::string *path, float volume = 0.5f, float speed = 1.0f);
 
 		//Plays a 2D Sound based on path.
-		//Sound* play2DSoundKeep(std::string path, float volume = 0.5f, float speed = 1.0f);
-		//Sound* play2DSoundKeep(std::string *path, float volume = 0.5f, float speed = 1.0f);
+        ISound* play2DSoundKeep(std::string path, float volume = 0.5f, float speed = 1.0f);
+        ISound* play2DSoundKeep(std::string *path, float volume = 0.5f, float speed = 1.0f);
 
 		//Sound* play2DSoundKeepLooped(std::string *path, float volume, float speed = 1.0f);
 
