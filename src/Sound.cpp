@@ -10,8 +10,10 @@ SoundEffect::SoundEffect()
 }
 
 // TODO: Rewrite all of this
-bool SoundEffect::load(const char* file, SoundFile format)
+bool SoundEffect::load(const char* file, SoundFile format, bool relative)
 {
+    if(m_loaded)
+        cleanup();
     alGenSources(1, &m_source);
     alGenBuffers(1, &m_buffer);
     alSourcef (m_source, AL_PITCH, 1);
@@ -19,6 +21,7 @@ bool SoundEffect::load(const char* file, SoundFile format)
     alSource3f(m_source, AL_POSITION, 0, 0, 0);
     alSource3f(m_source, AL_VELOCITY, 0, 0, 0);
     alSourcei (m_source, AL_LOOPING, AL_FALSE);
+    alSourcei (m_source, AL_SOURCE_RELATIVE, relative ? AL_TRUE : AL_FALSE);
     
     FILE* infile = fopen(file, "rb");
     if(!infile) {
@@ -94,6 +97,9 @@ bool SoundEffect::load(const char* file, SoundFile format)
     alSourcei(m_source, AL_BUFFER, m_buffer);
     
     free(input_buffer);
+
+    m_loaded = true;
+
     return true;
 }
 
@@ -101,6 +107,8 @@ void SoundEffect::cleanup()
 {
     alDeleteSources(1, &m_source);
     alDeleteBuffers(1, &m_buffer);
+
+    m_loaded = false;
 }
 
 void SoundEffect::play()
@@ -118,15 +126,17 @@ void SoundEffect::stop()
     alSourceStop(m_source);
 }
 
-bool SoundStream::load(const char* file, SoundFile format)
+bool SoundStream::load(const char* file, SoundFile format, bool relative)
 {
+    if(m_loaded)
+        cleanup();
 	alGenBuffers(2, m_buffers);
     alGenSources(1, &m_source);
     alSource3f(m_source, AL_POSITION,        0.0, 0.0, 0.0);
     alSource3f(m_source, AL_VELOCITY,        0.0, 0.0, 0.0);
     alSource3f(m_source, AL_DIRECTION,       0.0, 0.0, 0.0);
     alSourcef (m_source, AL_ROLLOFF_FACTOR,  0.0          );
-    alSourcei (m_source, AL_SOURCE_RELATIVE, AL_TRUE      );
+    alSourcei (m_source, AL_SOURCE_RELATIVE, relative ? AL_TRUE : AL_FALSE);
 
     int result;
     
@@ -151,6 +161,8 @@ bool SoundStream::load(const char* file, SoundFile format)
         m_format = AL_FORMAT_MONO16;
     else
         m_format = AL_FORMAT_STEREO16;
+
+    m_loaded = true;
     
     return true;
 }
@@ -162,11 +174,25 @@ void SoundStream::cleanup()
     alDeleteBuffers(2, m_buffers);
  
     ov_clear(&oggStream);
+
+    m_loaded = false;
 }
 
 void SoundStream::play()
 {
-    fprintf(stderr, "SoundStream::play is unimplemented!");
+    ALenum state;
+    alGetSourcei(m_source, AL_SOURCE_STATE, &state);
+    if(state == AL_PLAYING)
+        return;
+        
+    if(!stream(m_buffers[0]))
+        return;
+ 
+    if(!stream(m_buffers[1]))
+        return;
+    
+    alSourceQueueBuffers(m_source, 2, m_buffers);
+    alSourcePlay(m_source);
 }
 
 void SoundStream::pause()
@@ -177,4 +203,58 @@ void SoundStream::pause()
 void SoundStream::stop()
 {
     fprintf(stderr, "SoundStream::play is unimplemented!");
+}
+
+void SoundStream::update(float dt)
+{
+    if(!m_loaded)
+        return;
+    ALenum state;
+    alGetSourcei(m_source, AL_SOURCE_STATE, &state);
+    if(state != AL_PLAYING)
+        return;
+    fprintf(stderr, "Hey thewre!\n");
+    int processed;
+    bool active = true;
+ 
+    alGetSourcei(m_source, AL_BUFFERS_PROCESSED, &processed);
+ 
+    while(processed--)
+    {
+        ALuint buffer;
+        
+        alSourceUnqueueBuffers(m_source, 1, &buffer);
+ 
+        active = stream(buffer);
+ 
+        alSourceQueueBuffers(m_source, 1, &buffer);
+    }
+}
+
+bool SoundStream::stream(ALuint buffer)
+{
+    char data[STREAM_BUFFER_SIZE];
+    int  size = 0;
+    int  section;
+    int  result;
+ 
+    while(size < STREAM_BUFFER_SIZE)
+    {
+        result = ov_read(&oggStream, data + size, STREAM_BUFFER_SIZE - size, 0, 2, 1, & section);
+    
+        if(result > 0)
+            size += result;
+        else
+            if(result < 0)
+                throw "";
+            else
+                break;
+    }
+    
+    if(size == 0)
+        return false;
+ 
+    alBufferData(buffer, m_format, data, size, vorbisInfo->rate);
+ 
+    return true;
 }

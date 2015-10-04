@@ -314,26 +314,20 @@ void SoundEngine::play2DSound(std::string *path, float volume, float speed)
 //#endif
 //}
 
-//void SoundEngine::playMusic(std::string path, bool loop)
-//{
+void SoundEngine::playMusic(std::string path, bool loop)
+{
+    if(!mpMusic)
+        mpMusic = new SoundStream();
+    mpMusic->load(path.c_str(), SoundFile::OGG, true);
 
-	//if(mpMusic)
-	//{
-		//mpMusic->stop();
-		//mpMusic->drop();
-	//}
+    if(!mpMusic)
+        return;
 
-	//mpMusic = mpSoundEngine->play2D(path.c_str(),loop,false,true,ESM_AUTO_DETECT,true);
+    mpMusic->setVolume(mMusicVolume);
+    mpMusic->play();
 
-	//if(!mpMusic)
-		//return;
-
-	//mpMusic->setVolume(mMusicVolume);
-
-	////SoundEffectControl* fx = 0;
-
-	//return;
-//}
+    return;
+}
 
 void SoundEngine::think()
 {
@@ -351,6 +345,9 @@ void SoundEngine::think()
         alListener3f(AL_ORIENTATION, -mAngle.x, -mAngle.y, -mAngle.z);
         alListener3f(AL_VELOCITY, mVelocity.x, mVelocity.y, mVelocity.z);
 	}
+
+    if(mpMusic)
+        mpMusic->update(1.0f); // TODO: dt is unset
 } 
 
 

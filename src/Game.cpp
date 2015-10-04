@@ -125,7 +125,7 @@ void Game::cleanup()
 {
 	//mpDisplay->cleanup();
 
-	//delete mpAudio;
+    //delete mpAudio;
 	delete mpDisplay;
 	delete mpInput;
 	delete mpSoundEngine;
@@ -142,7 +142,7 @@ void Game::init()
 		shout(error);
 	}
 
-	//mpAudio = New AudioSystem();
+    //mpAudio = New AudioSystem();
 	mpDisplay = New Display();
 
 	//mpMusic = NULL;
@@ -706,11 +706,6 @@ void Game::initResources()
 	textureManager->add("normal_texture", new Texture(*game->getResourceManager()->get("normal_texture")));
 	textureManager->add("height_texture", new Texture(*game->getResourceManager()->get("height_texture")));
 
-	//shaderManager->add("shader", New Shader("vertexshader.txt","fragmentshader.txt"));
-
-	//cwc::glShader *shader = shaderManager->loadfromFile("SimpleLightShader.vsh", "SimpleLightShader.fsh");
-	//cwc::glShader *shader = shaderManager->loadfromFile("vertexshader.txt","fragmentshader.txt");
-
 
 	//Texture *puddle = textureManager->add("pee_puddle", New Texture(*game->getResourceManager()->get("puddle_texture")));
 
@@ -869,22 +864,22 @@ void Game::playMapMusic()
 	switch(mpMap[current_map]->getTheme())
 	{
 		case THEME_GRAVEYARD:
-			//mpSoundEngine->playMusic(*resourceManager->get("music_graveyard"));
+            mpSoundEngine->playMusic(*resourceManager->get("music_graveyard"));
 			break;
 		case THEME_DUNGEON:
-			//mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
+            mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
 			break;
 		case THEME_NAZI:
-			//if(rand() % 2)
-				//mpSoundEngine->playMusic(*resourceManager->get("music_nazi1"));
-			//else
-				//mpSoundEngine->playMusic(*resourceManager->get("music_nazi2"));
+            if(rand() % 2)
+                mpSoundEngine->playMusic(*resourceManager->get("music_nazi1"));
+            else
+                mpSoundEngine->playMusic(*resourceManager->get("music_nazi2"));
             break;
 		case THEME_TECH:
-			//if(rand() % 2)
-				//mpSoundEngine->playMusic(*resourceManager->get("music_tech1"));
-			//else
-				//mpSoundEngine->playMusic(*resourceManager->get("music_tech2"));
+            if(rand() % 2)
+                mpSoundEngine->playMusic(*resourceManager->get("music_tech1"));
+            else
+                mpSoundEngine->playMusic(*resourceManager->get("music_tech2"));
             break;
 	}
 }
@@ -1170,7 +1165,7 @@ void Game::createNewGame()
 
 	game->getPlayer()->speak(*resourceManager->get("player_intro"));
 
-	//mpSoundEngine->playMusic(*resourceManager->get("music_dungeon"));
+    mpSoundEngine->playMusic(*resourceManager->get(/*"music_dungeon"*/"music_tech1")); // TODO: Convert audio to ogg/wav format
 
 	mpPlayer->setPosition(Vec3d(mpMap[0]->getUpStairsX() + 0.5f, 0, mpMap[0]->getUpStairsY() + 0.5f));
 	if(mpMap[0]->getTile(mpMap[0]->getUpStairsX(), mpMap[0]->getUpStairsY()-1).type == TYPE_WALL)
