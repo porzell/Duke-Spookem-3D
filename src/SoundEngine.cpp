@@ -10,28 +10,23 @@ extern Game *game;
 
 SoundEngine::SoundEngine()
 {
-#if defined(_WIN32)
-	try
-	{
-		if(!(mpSoundEngine = createIrrKlangDevice()))
-			throw "Could not initialize IrrKlangDevice for sound engine!";
-	}
-	catch(const char *msg)
-	{
-		game->shout(msg);
-	}
-
+    mpDevice = alcOpenDevice(NULL);
+    mpContext = alcCreateContext(mpDevice, NULL);
+    alcMakeContextCurrent(mpContext);
+    alListener3f(AL_POSITION, 0, 0, 0);
+    alListener3f(AL_VELOCITY, 0, 0, 0);
+    alListener3f(AL_ORIENTATION, 0, 0, -1);
 	mpMusic = NULL;
 	mMusicVolume = 0.1f;
-#endif
 }
 
 SoundEngine::~SoundEngine()
 {
-#if defined(_WIN32)
-	if(mpSoundEngine)
-		mpSoundEngine->drop();
-#endif
+    alcMakeContextCurrent(NULL);
+    if(mpContext)
+        alcDestroyContext(mpContext);
+    if(mpDevice)
+        alcCloseDevice(mpDevice);
 }
 
 //Sound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed)
@@ -342,23 +337,20 @@ void SoundEngine::play2DSound(std::string *path, float volume, float speed)
 
 void SoundEngine::think()
 {
-#if defined(_WIN32)
 	//Update sound viewpoint.
-	//mpSoundEngine->setListenerPosition(game->getPlayer()->getPosition(), game->getPlayer()->getViewAngle(), game->getPlayer()->getVelocity());
-
-	//Vec3d pos = Vec3d(game->getInput()->getMouseX(),game->getInput()->getMouseY(),0)/100;
-
 	if(game->getPlayer())
 	{
 		Vec3d mAngle = game->getPlayer()->getAngle();
-		Vec3d angle;
+		Vec3d mPosition = game->getPlayer()->getPosition();
+		Vec3d mVelocity = game->getPlayer()->getVelocity();
 
-		angle.X = sin((mAngle.X * PI) / 180);
-		angle.Y = -sin((mAngle.Y * PI) / 180);
-		angle.Z = -cos((mAngle.X * PI) / 180);
-		mpSoundEngine->setListenerPosition(game->getPlayer()->getPosition(),-angle);
+		mAngle.x = sin((mAngle.x * PI) / 180);
+		mAngle.y = -sin((mAngle.y * PI) / 180);
+		mAngle.z = -cos((mAngle.x * PI) / 180);
+        alListener3f(AL_POSITION, mPosition.x, mPosition.y, mPosition.z);
+        alListener3f(AL_ORIENTATION, -mAngle.x, -mAngle.y, -mAngle.z);
+        alListener3f(AL_VELOCITY, mVelocity.x, mVelocity.y, mVelocity.z);
 	}
-#endif
 } 
 
 

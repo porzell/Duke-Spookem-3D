@@ -108,18 +108,73 @@ void SoundEffect::play()
     alSourcePlay(m_source);
 }
 
+void SoundEffect::pause()
+{
+    alSourcePause(m_source);
+}
+
+void SoundEffect::stop()
+{
+    alSourceStop(m_source);
+}
+
 bool SoundStream::load(const char* file, SoundFile format)
 {
-    fprintf(stderr, "SoundStream::load is unimplemented!");
-    return false;
+	alGenBuffers(2, m_buffers);
+    alGenSources(1, &m_source);
+    alSource3f(m_source, AL_POSITION,        0.0, 0.0, 0.0);
+    alSource3f(m_source, AL_VELOCITY,        0.0, 0.0, 0.0);
+    alSource3f(m_source, AL_DIRECTION,       0.0, 0.0, 0.0);
+    alSourcef (m_source, AL_ROLLOFF_FACTOR,  0.0          );
+    alSourcei (m_source, AL_SOURCE_RELATIVE, AL_TRUE      );
+
+    int result;
+    
+    if(!(oggFile = fopen(file, "rb"))) {
+        fprintf(stderr, "Error loading stream: File not found.");
+        alDeleteSources(1, &m_source);
+        alDeleteBuffers(2, m_buffers);
+        return false;
+    }
+ 
+    if((result = ov_open(oggFile, &oggStream, NULL, 0)) < 0)
+    {
+        fprintf(stderr, "Error loading the Ogg stream.");
+        fclose(oggFile);
+        alDeleteSources(1, &m_source);
+        alDeleteBuffers(2, m_buffers);
+    }
+    vorbisInfo = ov_info(&oggStream, -1);
+    vorbisComment = ov_comment(&oggStream, -1);
+ 
+    if(vorbisInfo->channels == 1)
+        m_format = AL_FORMAT_MONO16;
+    else
+        m_format = AL_FORMAT_STEREO16;
+    
+    return true;
 }
 
 void SoundStream::cleanup()
 {
-    fprintf(stderr, "SoundStream::cleanup is unimplemented!");
+    alSourceStop(m_source);
+    alDeleteSources(1, &m_source);
+    alDeleteBuffers(2, m_buffers);
+ 
+    ov_clear(&oggStream);
 }
 
 void SoundStream::play()
+{
+    fprintf(stderr, "SoundStream::play is unimplemented!");
+}
+
+void SoundStream::pause()
+{
+    fprintf(stderr, "SoundStream::play is unimplemented!");
+}
+
+void SoundStream::stop()
 {
     fprintf(stderr, "SoundStream::play is unimplemented!");
 }

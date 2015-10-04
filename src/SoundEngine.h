@@ -1,38 +1,23 @@
-#pragma once
 #ifndef _SOUND_ENGINE_H
 #define _SOUND_ENGINE_H
 
 #include "Trackable.h"
 #include <string>
+#include "Sound.h"
 
-//#if defined(_WIN32)
-
-// TODO: Replace everything
-
-//#include <irrKlang.h>
+#include <AL/al.h>
+#include <AL/alc.h>
 
 #include "VectorMath.h"
 
-//#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
-//using namespace irrklang;
-
-//#elif __GNUC__
-//class Vec3d;
-//#endif
-
-//typedef irrklang::ISound Sound;
-
 class SoundEngine : public Trackable
 {
-#if defined(_WIN32)
 	private:
-		//ISoundEngine *mpSoundEngine;
-
         ISound *mpMusic;
 
 		float mMusicVolume;
-
-#endif
+        ALCdevice* mpDevice;
+        ALCcontext* mpContext;
 	public:
 		SoundEngine();
 		~SoundEngine();
