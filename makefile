@@ -1,9 +1,9 @@
 PKGCONFIG=pkg-config
 OS=Linux
-CXXFLAGS=-std=c++11 -g -Wall -pedantic-errors `$(PKGCONFIG) --cflags glew glfw3 libpng`
+CXXFLAGS=-std=c++11 -g -Wall -pedantic-errors `$(PKGCONFIG) --cflags glew glfw3 libpng openal`
 WINFLAGS=-Wl,-subsystem,windows -static-libgcc -static-libstdc++ -DWINDOWS
 LINUXFLAGS=-DLINUX
-LIBS=`$(PKGCONFIG) --libs glew glfw3 libpng`
+LIBS=`$(PKGCONFIG) --libs glew glfw3 libpng openal`
 WINLIBS=
 LINUXLIBS=-Wl,-rpath -Wl,./lib
 SRCPATH=src/

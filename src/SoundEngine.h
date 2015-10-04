@@ -26,9 +26,9 @@ class SoundEngine : public Trackable
 {
 #if defined(_WIN32)
 	private:
-		ISoundEngine *mpSoundEngine;
+		//ISoundEngine *mpSoundEngine;
 
-		ISound *mpMusic;
+        ISound *mpMusic;
 
 		float mMusicVolume;
 
