@@ -85,7 +85,6 @@ protected:
     bool m_loaded = false;
     float m_volume = 1.0f;
 
-    FILE*           oggFile;       // file handle
     OggVorbis_File  oggStream;     // stream handle
     vorbis_info*    vorbisInfo;    // some formatting data
     vorbis_comment* vorbisComment; // user comments

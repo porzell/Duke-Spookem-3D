@@ -107,24 +107,24 @@ bool SoundEffect::load(const char* file, SoundFile format, bool relative)
         case SoundFile::OGG:
         {
             int result;
-            FILE*           oggFile;       // file handle
             OggVorbis_File  oggStream;     // stream handle
             vorbis_info*    vorbisInfo;    // some formatting data
             int bufsize = STREAM_BUFFER_SIZE;
             char* input_buffer = (char*)malloc(bufsize * sizeof(uint8_t));
             ALenum sound_format = AL_FORMAT_MONO8;
 
-            if(!(oggFile = fopen(file, "rb"))) {
-                fprintf(stderr, "Error loading stream: File not found.");
-                alDeleteSources(1, &m_source);
-                alDeleteBuffers(1, &m_buffer);
-                return false;
-            }
-
-            if((result = ov_open(oggFile, &oggStream, NULL, 0)) < 0)
+            if((result = ov_fopen(file, &oggStream)) < 0)
             {
-                fprintf(stderr, "Error loading the Ogg stream.");
-                fclose(oggFile);
+                const char* message = "Unknown Error";
+                switch(result) {
+                    case OV_EREAD: message = "Media read error"; break;
+                    case OV_ENOTVORBIS: message = "Media is not vorbis"; break;
+                    case OV_EVERSION: message = "Version mismatch"; break;
+                    case OV_EBADHEADER: message = "Invalid header"; break;
+                    case OV_EFAULT: message = "Logic Fault"; break;
+                    default: message = "Unknown Error"; break;
+                }
+                fprintf(stderr, "Error loading Ogg stream %s: %s\n", file, message);
                 alDeleteSources(1, &m_source);
                 alDeleteBuffers(1, &m_buffer);
             }
@@ -157,6 +157,7 @@ bool SoundEffect::load(const char* file, SoundFile format, bool relative)
             alBufferData(m_buffer, sound_format, input_buffer, size, vorbisInfo->rate);
             alSourcei(m_source, AL_BUFFER, m_buffer);
             free(input_buffer);
+            ov_clear(&oggStream);
 
             m_loaded = true;
         }
@@ -205,17 +206,18 @@ bool SoundStream::load(const char* file, SoundFile format, bool relative)
 
     int result;
     
-    if(!(oggFile = fopen(file, "rb"))) {
-        fprintf(stderr, "Error loading stream: File not found.");
-        alDeleteSources(1, &m_source);
-        alDeleteBuffers(2, m_buffers);
-        return false;
-    }
- 
-    if((result = ov_open(oggFile, &oggStream, NULL, 0)) < 0)
+    if((result = ov_fopen(file, &oggStream)) < 0)
     {
-        fprintf(stderr, "Error loading the Ogg stream.");
-        fclose(oggFile);
+        const char* message = "Unknown Error";
+        switch(result) {
+            case OV_EREAD: message = "Media read error"; break;
+            case OV_ENOTVORBIS: message = "Media is not vorbis"; break;
+            case OV_EVERSION: message = "Version mismatch"; break;
+            case OV_EBADHEADER: message = "Invalid header"; break;
+            case OV_EFAULT: message = "Logic Fault"; break;
+            default: message = "Unknown Error"; break;
+        }
+        fprintf(stderr, "Error loading Ogg stream %s: %s\n", file, message);
         alDeleteSources(1, &m_source);
         alDeleteBuffers(2, m_buffers);
     }

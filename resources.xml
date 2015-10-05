@@ -492,10 +492,10 @@
 <file name='zipup' path='sound/51175__rutgermuller__zipper-unzip-2.wav'></file>
 
 <!--Music-->
-<file name='music_graveyard' path='sound/music/horror.mod'></file>
-<file name='music_dungeon' path='sound/music/pip-dungeonsofsplendor.it'></file>
-<file name='music_nazi1' path='sound/music/spookem_boss2.s3m'></file>
-<file name='music_nazi2' path='sound/music/AHA3.s3m'></file>
+<file name='music_graveyard' path='sound/music/horror.ogg'></file>
+<file name='music_dungeon' path='sound/music/pip-dungeonsofsplendor.ogg'></file>
+<file name='music_nazi1' path='sound/music/spookem_boss2.ogg'></file>
+<file name='music_nazi2' path='sound/music/AHA3.ogg'></file>
 <file name='music_tech1' path='sound/music/Neon Streets.ogg'></file>
 <file name='music_tech2' path='sound/music/cyber.ogg'></file>
 
