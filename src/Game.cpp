@@ -1112,6 +1112,8 @@ void Game::drawHUD()
 
 	menuStack->draw();
 
+    fontManager->get("century_gothic")->print(asscover, 0, 0);
+
 	glEnable(GL_TEXTURE_2D);
 	glEnable( GL_DEPTH_TEST );
 

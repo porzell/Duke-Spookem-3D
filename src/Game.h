@@ -99,6 +99,8 @@ class Game : public EventListener, public ISaveWritable
 		AudioSystem *mpAudio;
 		Display *mpDisplay;
 
+        std::string asscover = "Pe-alpha footage. All assets are placeholders used under Fair Use, and are copyright to their respective owners";
+
 		//Initializes the game resources.
 		void initResources();
 

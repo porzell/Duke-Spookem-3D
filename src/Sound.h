@@ -4,7 +4,7 @@
 #include <AL/alc.h>
 #include <ogg/ogg.h>
 #include <vorbis/codec.h>
-#include <vorbis/vorbisenc.h>
+//#include <vorbis/vorbisenc.h>
 #include <vorbis/vorbisfile.h>
 #define STREAM_BUFFER_SIZE (4096 * 8)
 

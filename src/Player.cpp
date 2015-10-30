@@ -47,7 +47,8 @@ float Player::msHeight = 0.25f;
 
 const float HAND_SPEED = 40.0f;
 
-const float MAX_HP = 1000.0f;
+const float MAX_HP = 100.0f;
+const float MAX_MP = 100.0f;
 
 Player::Player() : Entity()
 {
@@ -83,7 +84,7 @@ Player::Player() : Entity()
 	mLegPosition = Vec2d(350, game->getDisplay()->getDimensions().Y() - mpLegAnim->getCurrentDimensions().Y());
 
 	mHealth = MAX_HP;
-	mp = 100;
+	mp = MAX_MP;
 	size = 2;
 
 	//mpSpeaking = nullptr;
@@ -307,13 +308,13 @@ void Player::handleMouse(const Vec2d &delta)
 
 void Player::think()
 {
-	if(mHealth < 100)
+	if(mHealth < MAX_HP)
 		mHealth += 0.01f;
 	else if(mHealth < 0)
 	{
 		mHealth = 0;
 	}
-	if(mp < 100)
+	if(mp < MAX_MP)
 		mp += .05f;
 	/*mVelocity.setLength(0);
 
@@ -680,8 +681,8 @@ void Player::drawHUD()
 		glVertex2f(w - 10, 10);
 		glColor3f(1 - (mp/100.0f), 0, mp/100.0f);
 		glVertex2f(w - 10, 60);
-		glVertex2f(w - 10 - (mp * 2), 60);
-		glVertex2f(w - 10 - (mp * 2), 10);
+		glVertex2f(w - 10 - ((mp / MAX_MP) * 200), 60);
+		glVertex2f(w - 10 - ((mp / MAX_MP) * 200), 10);
 		glVertex2f(w - 10, 10);
 		glEnd();
 		glColor3f(1,1,1);
