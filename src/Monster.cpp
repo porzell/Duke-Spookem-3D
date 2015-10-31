@@ -427,6 +427,7 @@ void Monster::removeAttachment(std::string key)
 void Monster::takeDamage(float hp)
 {
 	Entity::takeDamage(hp);
+
 	//makeMonsterNoise();
 }
 

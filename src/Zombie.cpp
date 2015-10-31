@@ -119,7 +119,7 @@ void Zombie::setFrozen(bool frozen)
 
 void Zombie::spawnGib(float velocity)
 {
-	if(!game->getAllowGibs())
+	if (!game->getAllowGibs() && !mIsDying)
 		return;
 
 	Animation *arm = game->getAnimationManager()->get("zombie_arm");
@@ -190,6 +190,9 @@ void Zombie::removeAttachment(std::string key)
 void Zombie::takeDamage(float hp)
 {
 	Monster::takeDamage(hp);
+
+	if (mHealth <= 0)
+		kill();
 	//makeMonsterNoise();
 }
 

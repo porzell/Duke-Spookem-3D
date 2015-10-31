@@ -172,7 +172,7 @@ void Nazi::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		//mDeathTimer.start();
+		mDeathTimer.start();
 
 		delete mpAnim;
 

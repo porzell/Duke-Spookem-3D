@@ -15,8 +15,8 @@ class Nazi : public Monster
 		static Animation *msTorsoGib;
 		static Animation *msLegGib;
 		static Animation *msArmGib;*/
-		//Timer mWeaponTimer;
-		//Timer mShotTimer;
+		Timer mWeaponTimer;
+		Timer mShotTimer;
 		
 		//Sound *mpWeaponSound;
 		

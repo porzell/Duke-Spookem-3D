@@ -204,9 +204,6 @@ void Player::handleKey(bool keyDown, int keycode)
 				mIsSnapchatting = true;
 
                 mSnapchatTimer.start();
-
-                //if(rand() % 2 == 0)
-                    //speak(getQuipSnapchat());
 			}
 			else
 			{
@@ -349,6 +346,7 @@ void Player::think()
 
 	Vec3d mnPosition = mPosition;
 
+	//Zero the velocity to start with
 	mVelocity = glm::vec3(0);
 
 	//Add velocity to position.
@@ -406,7 +404,7 @@ void Player::think()
                 mSnapchatTimer.stop();
             }
 
-            mIsSnapchatting = false;
+            //mIsSnapchatting = false;
 		}
 
 		//Make attack hand go down.
@@ -448,7 +446,7 @@ void Player::think()
 		mIsKicking = false;
 	}
 
-	if(mVelocity.length() > 0)
+	if (mVelocity.x > 0 || mVelocity.y > 0 || mVelocity.z > 0)
 	{
 		mViewBob += PI * speed;
 	}
@@ -610,6 +608,7 @@ void Player::drawHUD()
 
 		legdim.setX(legdim.X() / 2);
 
+		//Don't check if mKicking because then leg disappears sharply after kicking stops.
 		//if(mIsKicking)
 		{
 			
@@ -693,12 +692,12 @@ void Player::collide(Entity* other)
 	if(other->getType() == ENTITY_ATTACK_ENEMY)
 	{
 		Vec2d damage = ((Projectile*)other)->getDamageRange();
-		takeHit(randomFloat(damage.X(), damage.Y()) * game->getHardness());
+		takeHit(randomFloat(damage.X(), damage.Y()));
 		//game->getSoundEngine()->play2DSound(getQuipPain());
 		speak(getQuipPain());
 	}
-	//else if(other->getType() == ENTITY_ENEMY && !other->getFrozen())
-		//takeHit(0.05);
+	else if(other->getType() == ENTITY_ENEMY && !other->getFrozen())
+		takeHit(0.05);
 }
 
 void Player::takeHit(float hpAmount)
@@ -707,7 +706,8 @@ void Player::takeHit(float hpAmount)
 
 	float lastHP = mHealth;
 
-	mHealth -= hpAmount;
+	//Scale damage
+	mHealth -= hpAmount * game->getHardness();
 
 	if(mHealth <= 25 && lastHP > 25)
 		speak(getQuipPain25(), false, true);

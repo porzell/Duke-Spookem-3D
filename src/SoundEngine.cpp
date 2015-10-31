@@ -125,7 +125,7 @@ ISound* SoundEngine::play2DSoundKeep(std::string path, float volume, float speed
 
 void SoundEngine::play2DSound(std::string path, float volume, float speed)
 {
-#if defined(_WIN32)
+/*#if defined(_WIN32)
 	ISound *sound = mpSoundEngine->play2D(path.c_str(),false,true,true,ESM_AUTO_DETECT,true);
 
 	if(!sound)
@@ -146,19 +146,19 @@ void SoundEngine::play2DSound(std::string path, float volume, float speed)
 
 	//sound->setIsLooped(true);
 
-	/*Sound *out = New Sound();
+	Sound *out = New Sound();
 
-	out->setSoundPtr(sound);*/
+	out->setSoundPtr(sound);
 
 	sound = NULL;
 
 	return; //out;
-#endif
+#endif*/
 }
 
 void SoundEngine::play2DSound(std::string *path, float volume, float speed)
 {
-#if defined(_WIN32)
+/*#if defined(_WIN32)
 	ISound *sound = mpSoundEngine->play2D(path->c_str(),false,true,true,ESM_AUTO_DETECT,true);
 
 	if(!sound)
@@ -178,14 +178,14 @@ void SoundEngine::play2DSound(std::string *path, float volume, float speed)
 
 	//sound->setIsLooped(true);
 
-	/*Sound *out = New Sound();
+	Sound *out = New Sound();
 
-	out->setSoundPtr(sound);*/
+	out->setSoundPtr(sound);
 
 	sound = NULL;
 
 	return; //out;
-#endif
+#endif*/
 }
 
 //void SoundEngine::play3DSound(std::string path, Vec3d &vector, float volume, float speed)

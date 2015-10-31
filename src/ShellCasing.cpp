@@ -25,7 +25,7 @@ ShellCasing::ShellCasing(Vec3d position, Vec3d velocity) : Entity(game->getAnima
 	
 	//mpAnim->setScale(Vec2d(0.15f, 0.15f));
 
-	//mLifeTimer.start();
+	mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 }
@@ -39,7 +39,7 @@ ShellCasing::ShellCasing(Animation *anim, Vec3d position, Vec3d velocity) : Enti
 
 	mVelocity = velocity;
 
-	//mLifeTimer.start();
+	mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 }
@@ -55,10 +55,10 @@ void ShellCasing::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if ShellCasing lifetime is over.
-	//if(mLifeTimer.getElapsedTime() > mTimeToLive)
-	//{
+	if(mLifeTimer.getElapsedTime() > mTimeToLive)
+	{
 		//setShouldDelete(true);
-	//}
+	}
 
 	mVelocity.y -= 0.001;
 

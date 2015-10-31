@@ -100,7 +100,7 @@ void Minotaur::kill()
 		mAttachments.clear();
 
 		mIsDying = true;
-		//mDeathTimer.start();
+		mDeathTimer.start();
 
 		delete mpAnim;
 
@@ -120,7 +120,7 @@ void Minotaur::setFrozen(bool frozen)
 
 void Minotaur::spawnGib(float velocity)
 {
-	if(!game->getAllowGibs())
+	if(!game->getAllowGibs() && !mIsDying)
 		return;
 
 	Animation *arm = game->getAnimationManager()->get("minotaur_arm");
@@ -191,6 +191,9 @@ void Minotaur::removeAttachment(std::string key)
 void Minotaur::takeDamage(float hp)
 {
 	Monster::takeDamage(hp);
+	
+	if (mHealth <= 0)
+		kill();
 	//makeMonsterNoise();
 }
 

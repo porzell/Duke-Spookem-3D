@@ -29,7 +29,7 @@ Gib::Gib(Animation *anim, Vec3d &position, Vec3d velocity, bool frozen, GIB_TYPE
 	
 	mpAnim->setScale(Vec2d(0.15f, 0.15f));
 
-	//mLifeTimer.start();
+	mLifeTimer.start();
 
 	rotator = randomFloat(-20.0, 20.0);
 
@@ -52,10 +52,10 @@ void Gib::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Gib lifetime is over.
-	//if(mLifeTimer.getElapsedTime() > mTimeToLive)
-	//{
-		//setShouldDelete(true);
-	//}
+	if(mLifeTimer.getElapsedTime() > mTimeToLive)
+	{
+		setShouldDelete(true);
+	}
 
 	if(mPosition.y < -0.8f)
 	{
@@ -135,7 +135,7 @@ void Gib::collide(Entity* other)
 
 		mPosition = mPosition + mVelocity;
 
-		//mLifeTimer.start();
+		mLifeTimer.start();
 
 		mKicked = true;
 		
@@ -156,7 +156,7 @@ void Gib::collide(Entity* other)
 
 		mPosition = mPosition + mVelocity;
 
-		//mLifeTimer.start();
+		mLifeTimer.start();
 
 		//mKicked = true;
 

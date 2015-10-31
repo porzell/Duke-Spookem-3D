@@ -21,7 +21,7 @@ class ResourceManager : public Trackable
 		ResourceManager() { mKey = 0; };
 		~ResourceManager();
 
-		std::string* get(std::string key);
+		std::string* get(const std::string& key);
 
 		//Load resource paths from resource file.
 		bool load(std::string path);

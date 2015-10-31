@@ -40,19 +40,19 @@ void Puddle::think(const double elapsedTime)
 		return;
 	}*/
 
-	//if(mLifeTime - mLifeTimer.getElapsedTime() < 1000 && size > 0)
-	//{
-		//setSize(getSize() - 0.01f);
+	if(mLifeTime - mLifeTimer.getElapsedTime() < 1000 && size > 0)
+	{
+		setSize(getSize() - 0.01f);
 
-		//mpAnim->setScale(Vec2d(getSize(),getSize()));
-	//}
-	////else if(getSize() < 0.10f)
-	//else if(getSize() < 0.25f)
-	//{
-		//setSize(getSize() + 0.01f);
+		mpAnim->setScale(Vec2d(getSize(),getSize()));
+	}
+	//else if(getSize() < 0.10f)
+	else if(getSize() < 0.25f)
+	{
+		setSize(getSize() + 0.01f);
 
-		//mpAnim->setScale(Vec2d(getSize(),getSize()));
-	//}
+		mpAnim->setScale(Vec2d(getSize(),getSize()));
+	}
 }
 
 void Puddle::draw()

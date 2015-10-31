@@ -26,7 +26,7 @@ class TextureManager : public Trackable
 
 		Texture* get(std::string key);
 		void add(Texture *item);
-		Texture* add(std::string key, Texture *item);
+		Texture* add(const std::string& key, Texture *item);
 		void remove(std::string key);
 
 		Texture* findTextureByGLuint(GLuint id);

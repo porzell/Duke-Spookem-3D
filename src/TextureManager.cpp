@@ -32,7 +32,7 @@ void TextureManager::add(Texture *item)
 	itemMap[tmp] = item;
 }
 
-Texture* TextureManager::add(std::string key, Texture *item)
+Texture* TextureManager::add(const std::string& key, Texture *item)
 {
 	itemMap[key] = item;
 	return item;

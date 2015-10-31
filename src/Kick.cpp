@@ -20,7 +20,7 @@ extern Game *game;
 
 Kick::Kick(Vec3d &position) : Entity(NULL, position)
 {
-	//mLifeTimer.start();
+	mLifeTimer.start();
 
 	setSize(2);
 
@@ -48,8 +48,8 @@ void Kick::think(const double elapsedTime)
 	Entity::think(elapsedTime);
 
 	//Check if Kick lifetime is over.
-	//if(mLifeTimer.getElapsedTime() > 100)
-		//setShouldDelete(true);
+	if(mLifeTimer.getElapsedTime() > 100)
+		setShouldDelete(true);
 }
 
 void Kick::draw()

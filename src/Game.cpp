@@ -452,7 +452,7 @@ void Game::initResources()
 
 	swampmonsterAnim->advance();
 
-	swampmonsterAnim->setFrameTime(25);
+	swampmonsterAnim->setFrameTime(90);
 
 	Animation *minotaurAnim = New Animation();
 
@@ -463,7 +463,7 @@ void Game::initResources()
 
 	minotaurAnim->advance();
 
-	minotaurAnim->setFrameTime(25);
+	minotaurAnim->setFrameTime(90);
 
 	Animation *zombieAnim = New Animation();
 
@@ -474,7 +474,7 @@ void Game::initResources()
 
 	zombieAnim->advance();
 
-	zombieAnim->setFrameTime(25);
+	zombieAnim->setFrameTime(90);
 
 	animationManager->add("minotaurWalk",minotaurAnim);
 	animationManager->add("swampmonsterWalk",swampmonsterAnim);
@@ -635,7 +635,7 @@ void Game::initResources()
 	cyborg1Walk->addFrameToEnd(cyborg1_w3);
 	cyborg1Walk->addFrameToEnd(cyborg1_w4);
 
-	cyborg1Walk->setFrameTime(25);
+	cyborg1Walk->setFrameTime(90);
 
 	Animation *cyborg1Shoot = New Animation();
 
@@ -681,7 +681,7 @@ void Game::initResources()
 	hitlerWalk->addFrameToEnd(hitler_w3);
 	hitlerWalk->addFrameToEnd(hitler_w4);
 
-	hitlerWalk->setFrameTime(2);
+	hitlerWalk->setFrameTime(90);
 
 	Animation *hitlerShoot = New Animation();
 
@@ -689,7 +689,7 @@ void Game::initResources()
 	hitlerShoot->addFrameToEnd(hitler_s2);
 	hitlerShoot->addFrameToEnd(hitler_s3);
 
-	hitlerShoot->setFrameTime(0);
+	hitlerShoot->setFrameTime(25);
 
 	animationManager->add("hitler_walk", hitlerWalk);
 	animationManager->add("hitler_shoot", hitlerShoot);
@@ -703,8 +703,8 @@ void Game::initResources()
 
 	shellcasingAnim->setScale(Vec2d(0.05f,0.05f));
 
-	textureManager->add("normal_texture", new Texture(*game->getResourceManager()->get("normal_texture")));
-	textureManager->add("height_texture", new Texture(*game->getResourceManager()->get("height_texture")));
+	//textureManager->add("normal_texture", new Texture(*game->getResourceManager()->get("normal_texture")));
+	//textureManager->add("height_texture", new Texture(*game->getResourceManager()->get("height_texture")));
 
 
 	//Texture *puddle = textureManager->add("pee_puddle", New Texture(*game->getResourceManager()->get("puddle_texture")));
@@ -1260,8 +1260,7 @@ void Game::doLoop()
 
 	while(!mShouldEnd)
 	{
-        if(drawTimer.getElapsedTime() >= 30)
-			mShouldDraw = true;
+		mShouldDraw = true;
 
         gameTimer.start();
 

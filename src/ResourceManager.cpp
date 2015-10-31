@@ -105,7 +105,7 @@ bool ResourceManager::load(std::string path)
 	return true;
 }
 
-std::string* ResourceManager::get(std::string key)
+std::string* ResourceManager::get(const std::string& key)
 {
 	std::map<std::string,std::string*>::iterator it;
 

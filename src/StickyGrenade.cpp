@@ -27,26 +27,27 @@ void StickyGrenade::think(const double elapsedTime)
 	//Run entity think routines.
 	Entity::think(elapsedTime);
 
-	//if(mLifeTimer.getElapsedTime() > mLifeTime)
-	//{
-		//if(stuck)
-		//{
-			//stuck->removeAttachment(this);
+	if(mLifeTimer.getElapsedTime() > mLifeTime)
+	{
+		if(stuck)
+		{
+			stuck->removeAttachment(this);
 			////stuck->kill();
-		//}
-		//else
-		//{
-			//setShouldDelete(true);
-			//game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
-		//}
-	//}
+		}
+		else
+		{
+			setShouldDelete(true);
+			game->getEntityManager()->add(New Explosion(mPosition,1.0f,Vec2d(25,75)));
+		}
+	}
 
 	if(stuck)
 	{
-		//Vec3d tmp = stuck->getPosition();
-		//tmp.y = mPosition.y;
+		Vec3d tmp = stuck->getPosition();
+		tmp.y = mPosition.y;
 
 		//mPosition = (stuck->getPosition() + mOffset).getInterpolated(tmp, 0.85f); // TODO: Replace this
+		mPosition = stuck->getPosition() + mOffset;
 
 		stuck->takeDamage(0.1f);
 		return;

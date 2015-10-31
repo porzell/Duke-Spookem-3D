@@ -17,7 +17,7 @@ class Gib : public Entity
 {
 	protected:
 		double mTimeToLive;
-		//Timer mLifeTimer;
+		Timer mLifeTimer;
 
 		Vec3d mVelocity;
 

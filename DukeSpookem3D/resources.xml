@@ -1,0 +1,590 @@
+
+<!--Death quips-->
+<file name='player_death1' path='sound/spookum/death/player_death1.ogg'></file>
+
+<!--Burnt enemy quips-->
+
+<file name='player_burn1' path='sound/spookum/burn/player_burn1.ogg'></file>
+<file name='player_burn2' path='sound/spookum/burn/player_burn2.ogg'></file>
+<file name='player_burn3' path='sound/spookum/burn/player_burn3.ogg'></file>
+<file name='player_burn4' path='sound/spookum/burn/player_burn4.ogg'></file>
+<file name='player_burn5' path='sound/spookum/burn/player_toasty.ogg'></file>
+
+
+<!--Burnt enemies quips-->
+
+<file name='player_burnalot1' path='sound/spookum/burnalot/player_charredbodies1.ogg'></file>
+<file name='player_burnalot2' path='sound/spookum/burnalot/player_charredbodies2.ogg'></file>
+<file name='player_burnalot3' path='sound/spookum/burnalot/player_charredbodies3.ogg'></file>
+<file name='player_burnalot4' path='sound/spookum/burnalot/player_charredbodies4.ogg'></file>
+<file name='player_burnalot5' path='sound/spookum/burnalot/player_charredbodies5.ogg'></file>
+<file name='player_burnalot6' path='sound/spookum/burnalot/player_charredbodies6.ogg'></file>
+<file name='player_burnalot7' path='sound/spookum/burnalot/player_charredbodies7.ogg'></file>
+<file name='player_burnalot8' path='sound/spookum/burnalot/player_charredbodies8.ogg'></file>
+<file name='player_burnalot9' path='sound/spookum/burnalot/player_charredbodies9.ogg'></file>
+
+
+<!--Frozen enemy quips-->
+
+<file name='player_freeze1' path='sound/spookum/freeze/player_freeze1.ogg'></file>
+<file name='player_freeze2' path='sound/spookum/freeze/player_freeze2.ogg'></file>
+<file name='player_freeze3' path='sound/spookum/freeze/player_freeze3.ogg'></file>
+<file name='player_freeze4' path='sound/spookum/freeze/player_freeze4.ogg'></file>
+<file name='player_freeze5' path='sound/spookum/freeze/player_freeze5.ogg'></file>
+<file name='player_freeze6' path='sound/spookum/freeze/player_freeze6.ogg'></file>
+<file name='player_freeze7' path='sound/spookum/freeze/player_freeze7.ogg'></file>
+<file name='player_freeze8' path='sound/spookum/freeze/player_freeze8.ogg'></file>
+<file name='player_freeze9' path='sound/spookum/freeze/player_freeze9.ogg'></file>
+<file name='player_freeze10' path='sound/spookum/freeze/player_freeze10.ogg'></file>
+
+<!-- Thaw quips -->
+<file name='player_thaw1' path='sound/spookum/thaw/player_thaw1.ogg'></file>
+<file name='player_thaw2' path='sound/spookum/thaw/player_thaw2.ogg'></file>
+
+
+<!--Decapitation quips-->
+
+<file name='player_decap1' path='sound/spookum/decap/player_decapitate1.ogg'></file>
+<file name='player_decap2' path='sound/spookum/decap/player_decapitate2.ogg'></file>
+<file name='player_decap3' path='sound/spookum/decap/player_decapitate3.ogg'></file>
+<file name='player_decap4' path='sound/spookum/decap/player_decapitate4.ogg'></file>
+<file name='player_decap5' path='sound/spookum/decap/player_decapitate5.ogg'></file>
+<file name='player_decap6' path='sound/spookum/decap/player_decapitate6.ogg'></file>
+<file name='player_decap7' path='sound/spookum/decap/player_decapitate7.ogg'></file>
+<file name='player_decap8' path='sound/spookum/decap/player_decapitate8.ogg'></file>
+<file name='player_decap9' path='sound/spookum/decap/player_decapitate9.ogg'></file>
+<file name='player_decap10' path='sound/spookum/decap/player_decapitate10.ogg'></file>
+
+
+<!--Pain quips-->
+
+<file name='player_25health1' path='sound/spookum/pain/player_25_health1.ogg'></file>
+<file name='player_25health2' path='sound/spookum/pain/player_25_health2.ogg' ></file>
+<file name='player_25health3' path='sound/spookum/pain/player_25_health3.ogg'></file>
+<file name='player_25health4' path='sound/spookum/pain/player_25_health4.ogg'></file>
+<file name='player_25health5' path='sound/spookum/pain/player_25_health5.ogg'></file>
+
+<file name='player_50health1' path='sound/spookum/pain/player_50_health1.ogg'></file>
+<file name='player_50health2' path='sound/spookum/pain/player_50_health2.ogg' ></file>
+<file name='player_50health3' path='sound/spookum/pain/player_50_health3.ogg'></file>
+
+<file name='player_pain1' path='sound/spookum/pain/pain.ogg'></file>
+<file name='player_pain2' path='sound/spookum/pain/player_takehit.ogg' ></file>
+<file name='player_pain3' path='sound/spookum/pain/player_pain1.ogg'></file>
+<file name='player_pain4' path='sound/spookum/pain/player_pain2.ogg'></file>
+<file name='player_pain5' path='sound/spookum/pain/player_pain3.ogg'></file>
+<file name='player_pain6' path='sound/spookum/pain/player_pain4.ogg'></file>
+
+<!--Heal quips-->
+<file name='player_heal1' path='sound/spookum/heal/player_heal1.ogg'></file>
+<file name='player_heal2' path='sound/spookum/heal/player_heal2.ogg'></file>
+<file name='player_heal3' path='sound/spookum/heal/player_heal3.ogg'></file>
+<file name='player_heal4' path='sound/spookum/heal/player_heal4.ogg'></file>
+
+<!--New level quips-->
+
+<file name='player_newlevel1' path='sound/spookum/newlevel/player_newlevel1.ogg'></file>
+<file name='player_newlevel2' path='sound/spookum/newlevel/player_newlevel2.ogg'></file>
+<file name='player_newlevel3' path='sound/spookum/newlevel/player_newlevel3.ogg'></file>
+<file name='player_newlevel4' path='sound/spookum/newlevel/player_newlevel4.ogg'></file>
+<file name='player_newlevel5' path='sound/spookum/newlevel/player_newlevel5.ogg'></file>
+<file name='player_newlevel6' path='sound/spookum/newlevel/player_newlevel6.ogg'></file>
+<file name='player_newlevel7' path='sound/spookum/newlevel/player_newlevel7.ogg'></file>
+<file name='player_newlevel8' path='sound/spookum/newlevel/player_newlevel8.ogg'></file>
+<file name='player_newlevel9' path='sound/spookum/newlevel/player_newlevel9.ogg'></file>
+<file name='player_newlevel10' path='sound/spookum/newlevel/player_newlevel10.ogg'></file>
+
+<file name='player_intro' path='sound/spookum/player_intro.ogg'></file>
+
+<!--Leave level quips-->
+
+<file name='player_leavelevel1' path='sound/spookum/leavelevel/player_leavelevel1.ogg'></file>
+<file name='player_leavelevel2' path='sound/spookum/leavelevel/player_leavelevel2.ogg'></file>
+<file name='player_leavelevel3' path='sound/spookum/leavelevel/player_leavelevel3.ogg'></file>
+<file name='player_leavelevel4' path='sound/spookum/leavelevel/player_leavelevel4.ogg'></file>
+
+<!--Level clear quips-->
+<file name='player_levelclear1' path='sound/spookum/levelclear/player_levelclear1.ogg'></file>
+<file name='player_levelclear2' path='sound/spookum/levelclear/player_levelclear2.ogg'></file>
+<file name='player_levelclear3' path='sound/spookum/levelclear/player_levelclear3.ogg'></file>
+<file name='player_levelclear3' path='sound/spookum/levelclear/player_levelclear4.ogg'></file>
+
+<!--Return level quips-->
+
+<file name='player_returnlevel1' path='sound/spookum/returnlevel/player_returnlevel1.ogg'></file>
+<file name='player_returnlevel2' path='sound/spookum/returnlevel/player_returnlevel2.ogg'></file>
+<file name='player_returnlevel3' path='sound/spookum/returnlevel/player_returnlevel3.ogg'></file>
+
+<!--Old level quips-->
+<file name='player_oldlevel1' path='sound/spookum/oldlevel/player_oldlevel1.ogg'></file>
+
+
+<!--Kick quips-->
+
+<file name='player_kick1' path='sound/spookum/kick/player_kick1.ogg'></file>
+<file name='player_kick2' path='sound/spookum/kick/player_kick2.ogg'></file>
+<file name='player_kick3' path='sound/spookum/kick/player_kick3.ogg'></file>
+<file name='player_kick4' path='sound/spookum/kick/player_kick4.ogg'></file>
+<file name='player_kick5' path='sound/spookum/kick/player_kick5.ogg'></file>
+<file name='player_kick6' path='sound/spookum/kick/player_kick6.ogg'></file>
+<file name='player_kick7' path='sound/spookum/kick/player_kick7.ogg'></file>
+<file name='player_kick8' path='sound/spookum/kick/player_kick8.ogg'></file>
+<file name='player_kick9' path='sound/spookum/kick/player_kick9.ogg'></file>
+<file name='player_kick10' path='sound/spookum/kick/player_kick10.ogg'></file>
+<file name='player_kick11' path='sound/spookum/kick/player_kick11.ogg'></file>
+<file name='player_kick12' path='sound/spookum/kick/player_kick12.ogg'></file>
+<file name='player_kick13' path='sound/spookum/kick/player_kick13.ogg'></file>
+<file name='player_kick14' path='sound/spookum/kick/player_kick14.ogg'></file>
+<file name='player_kick15' path='sound/spookum/kick/player_kick15.ogg'></file>
+<file name='player_kick16' path='sound/spookum/kick/player_kick16.ogg'></file>
+<file name='player_kick17' path='sound/spookum/kick/player_kick17.ogg'></file>
+<file name='player_kick18' path='sound/spookum/kick/player_kick18.ogg'></file>
+<file name='player_kick19' path='sound/spookum/kick/player_kick19.ogg'></file>
+<file name='player_kick20' path='sound/spookum/kick/player_kick20.ogg'></file>
+
+
+<!--Selfie quips-->
+<file name='player_selfie1' path='sound/spookum/selfie/player_selfie1.ogg'></file>
+<file name='player_selfie2' path='sound/spookum/selfie/player_selfie2.ogg'></file>
+<file name='player_selfie3' path='sound/spookum/selfie/player_selfie3.ogg'></file>
+<file name='player_selfie4' path='sound/spookum/selfie/player_selfie4.ogg'></file>
+<file name='player_selfie5' path='sound/spookum/selfie/player_selfie5.ogg'></file>
+<file name='player_selfie6' path='sound/spookum/selfie/player_selfie6.ogg'></file>
+<file name='player_selfie7' path='sound/spookum/selfie/player_selfie7.ogg'></file>
+<file name='player_selfie8' path='sound/spookum/selfie/player_selfie8.ogg'></file>
+<file name='player_selfie9' path='sound/spookum/selfie/player_selfie9.ogg'></file>
+<file name='player_selfie10' path='sound/spookum/selfie/player_selfie10.ogg'></file>
+<file name='player_selfie11' path='sound/spookum/selfie/player_selfie11.ogg'></file>
+<file name='player_selfie12' path='sound/spookum/selfie/player_selfie12.ogg'></file>
+<file name='player_selfie13' path='sound/spookum/selfie/player_selfie13.ogg'></file>
+<file name='player_selfie14' path='sound/spookum/selfie/player_selfie14.ogg'></file>
+<file name='player_selfie15' path='sound/spookum/selfie/player_selfie15.ogg'></file>
+<file name='player_selfie16' path='sound/spookum/selfie/player_selfie16.ogg'></file>
+<file name='player_selfie17' path='sound/spookum/selfie/player_selfie17.ogg'></file>
+<file name='player_selfie18' path='sound/spookum/selfie/player_selfie18.ogg'></file>
+<file name='player_selfie19' path='sound/spookum/selfie/player_selfie19.ogg'></file>
+<file name='player_selfie20' path='sound/spookum/selfie/player_selfie20.ogg'></file>
+<file name='player_selfie21' path='sound/spookum/selfie/player_selfie21.ogg'></file>
+<file name='player_selfie22' path='sound/spookum/selfie/player_selfie22.ogg'></file>
+<file name='player_selfie23' path='sound/spookum/selfie/player_selfie23.ogg'></file>
+
+<!--Unzip quips-->
+
+<file name='player_unzip1' path='sound/spookum/unzip/spookem_unzip1.ogg'></file>
+<file name='player_unzip2' path='sound/spookum/unzip/spookem_unzip2.ogg'></file>
+<file name='player_unzip3' path='sound/spookum/unzip/spookem_unzip3.ogg'></file>
+<file name='player_unzip4' path='sound/spookum/unzip/spookem_unzip4.ogg'></file>
+<file name='player_unzip5' path='sound/spookum/unzip/spookem_unzip5.ogg'></file>
+<file name='player_unzip6' path='sound/spookum/unzip/spookem_unzip6.ogg'></file>
+<file name='player_unzip7' path='sound/spookum/unzip/spookem_unzip7.ogg'></file>
+<file name='player_unzip8' path='sound/spookum/unzip/spookem_unzip8.ogg'></file>
+<file name='player_unzip9' path='sound/spookum/unzip/spookem_unzip9.ogg'></file>
+
+<!--Kill quips-->
+
+<file name='player_kill1' path='sound/spookum/kill/player_kill1.ogg'></file>
+<file name='player_kill2' path='sound/spookum/kill/player_kill2.ogg'></file>
+<file name='player_kill3' path='sound/spookum/kill/player_kill3.ogg'></file>
+<file name='player_kill4' path='sound/spookum/kill/player_kill4.ogg'></file>
+<file name='player_kill5' path='sound/spookum/kill/player_kill5.ogg'></file>
+<file name='player_kill6' path='sound/spookum/kill/player_kill6.ogg'></file>
+<file name='player_kill7' path='sound/spookum/kill/player_kill7.ogg'></file>
+<file name='player_kill8' path='sound/spookum/kill/player_kill8.ogg'></file>
+<file name='player_kill9' path='sound/spookum/kill/player_kill9.ogg'></file>
+<file name='player_kill10' path='sound/spookum/kill/player_kill10.ogg'></file>
+<file name='player_kill11' path='sound/spookum/kill/player_kill11.ogg'></file>
+
+<file name='player_kill_cyborg1' path='sound/spookum/kill/player_killcyborg1.ogg'></file>
+<file name='player_kill_cyborg2' path='sound/spookum/kill/player_killcyborg2.ogg'></file>
+<file name='player_kill_cyborg3' path='sound/spookum/kill/player_killcyborg3.ogg'></file>
+<file name='player_kill_cyborg4' path='sound/spookum/bosses/spookem_robotboss_taunt1.ogg'></file>
+<file name='player_kill_cyborg5' path='sound/spookum/bosses/spookem_robotboss_taunt2.ogg'></file>
+<file name='player_kill_cyborg6' path='sound/spookum/bosses/spookem_robotboss_taunt3.ogg'></file>
+<file name='player_kill_cyborg7' path='sound/spookum/bosses/spookem_robotboss_taunt4.ogg'></file>
+<file name='player_kill_cyborg8' path='sound/spookum/bosses/spookem_robotboss_taunt5.ogg'></file>
+<file name='player_kill_cyborg9' path='sound/spookum/bosses/spookem_robotboss_taunt6.ogg'></file>
+<file name='player_kill_cyborg10' path='sound/spookum/bosses/spookem_robotboss_taunt7.ogg'></file>
+<file name='player_kill_cyborg11' path='sound/spookum/bosses/spookem_robotboss_taunt8.ogg'></file>
+<file name='player_kill_cyborg12' path='sound/spookum/bosses/spookem_robotboss_taunt9.ogg'></file>
+<file name='player_kill_cyborg13' path='sound/spookum/bosses/spookem_robotboss_taunt10.ogg'></file>
+
+<file name='player_kill_nazi1' path='sound/spookum/kill/spookem_killnazi1.ogg'></file>
+<file name='player_kill_nazi2' path='sound/spookum/kill/spookem_killnazi2.ogg'></file>
+<file name='player_kill_nazi3' path='sound/spookum/kill/player_killnazi3.ogg'></file>
+<file name='player_kill_nazi4' path='sound/hitler/spookem_killnazi3.ogg'></file>
+
+<file name='player_kill_hitler1' path='sound/hitler/player_naziboss_kill1.ogg'></file>
+<file name='player_kill_hitler2' path='sound/hitler/spookem_killnazi3.ogg'></file>
+
+<file name='player_taunt_hitler1' path='sound/hitler/player_naziboss_taunt1.ogg'></file>
+<file name='player_taunt_hitler2' path='sound/hitler/player_naziboss_taunt2.ogg'></file>
+<file name='player_taunt_hitler3' path='sound/hitler/player_naziboss_taunt3.ogg'></file>
+<file name='player_taunt_hitler4' path='sound/hitler/player_naziboss_taunt4.ogg'></file>
+
+<file name='player_kill_nazi1' path='sound/spookum/kill/spookem_killnazi1.ogg'></file>
+<file name='player_kill_nazi2' path='sound/spookum/kill/spookem_killnazi2.ogg'></file>
+<file name='player_kill_nazi3' path='sound/spookum/kill/player_killnazi3.ogg'></file>
+<file name='player_kill_nazi4' path='sound/spookum/kill/spookem_killnazi3.ogg'></file>
+
+<file name='player_kill_minotaur1' path='sound/spookum/kill/player_killminotaur1.ogg'></file>
+<file name='player_kill_minotaur2' path='sound/spookum/kill/player_killminotaur2.ogg'></file>
+<file name='player_kill_minotaur3' path='sound/spookum/kill/player_killminotaur3.ogg'></file>
+<file name='player_kill_minotaur4' path='sound/spookum/kill/player_killminotaur4.ogg'></file>
+<file name='player_kill_minotaur5' path='sound/spookum/kill/player_killminotaur5.ogg'></file>
+
+<file name='player_kill_zombie1' path='sound/spookum/kill/player_killzombie1.ogg'></file>
+<file name='player_kill_zombie2' path='sound/spookum/kill/player_killzombie2.ogg'></file>
+<file name='player_kill_zombie3' path='sound/spookum/kill/player_killzombie3.ogg'></file>
+<file name='player_kill_zombie4' path='sound/spookum/kill/player_killzombie4.ogg'></file>
+<file name='player_kill_zombie5' path='sound/spookum/kill/player_killzombie5.ogg'></file>
+<file name='player_kill_zombie6' path='sound/spookum/kill/player_killzombie6.ogg'></file>
+<file name='player_kill_zombie7' path='sound/spookum/kill/player_killzombie7.ogg'></file>
+<file name='player_kill_zombie8' path='sound/spookum/kill/player_killzombie8.ogg'></file>
+<file name='player_kill_zombie9' path='sound/spookum/kill/player_killzombie9.ogg'></file>
+<file name='player_kill_zombie10' path='sound/spookum/kill/player_killzombie10.ogg'></file>
+
+<file name='player_kill_swampmonster1' path='sound/spookum/kill/player_killswampmonster1.ogg'></file>
+<file name='player_kill_swampmonster2' path='sound/spookum/kill/player_killswampmonster2.ogg'></file>
+<file name='player_kill_swampmonster3' path='sound/spookum/kill/player_killswampmonster3.ogg'></file>
+<file name='player_kill_swampmonster4' path='sound/spookum/kill/player_killswampmonster4.ogg'></file>
+<file name='player_kill_swampmonster5' path='sound/spookum/kill/player_fishy.ogg'></file>
+<file name='player_kill_swampmonster6' path='sound/spookum/kill/player_killswampmonster5.ogg'></file>
+<file name='player_kill_swampmonster7' path='sound/spookum/kill/player_killswampmonster6.ogg'></file>
+<file name='player_kill_swampmonster8' path='sound/spookum/kill/player_killswampmonster7.ogg'></file>
+
+
+<!--Head golf quips-->
+
+<file name='player_headgolf1' path='sound/spookum/headgolf/player_headgolf1.ogg'></file>
+<file name='player_headgolf2' path='sound/spookum/headgolf/player_headgolf2.ogg'></file>
+<file name='player_headgolf3' path='sound/spookum/headgolf/player_headgolf3.ogg'></file>
+<file name='player_headgolf4' path='sound/spookum/headgolf/player_headgolf4.ogg'></file>
+<file name='player_headgolf5' path='sound/spookum/headgolf/player_headgolf5.ogg'></file>
+<file name='player_headgolf6' path='sound/spookum/headgolf/player_headgolf6.ogg'></file>
+<file name='player_headgolf7' path='sound/spookum/headgolf/player_headgolf7.ogg'></file>
+<file name='player_headgolf8' path='sound/spookum/decap/player_decapitate10.ogg'></file>
+
+<!--Explosion quips-->
+
+<file name='player_explosion1' path='sound/spookum/explosion/player_explosion1.ogg'></file>
+<file name='player_explosion2' path='sound/spookum/explosion/player_explosion2.ogg'></file>
+<file name='player_explosion3' path='sound/spookum/explosion/player_explosion3.ogg'></file>
+<file name='player_explosion4' path='sound/spookum/explosion/player_explosion4.ogg'></file>
+<file name='player_explosion5' path='sound/spookum/explosion/player_explosion5.ogg'></file>
+<file name='player_explosion6' path='sound/spookum/explosion/player_explosion6.ogg'></file>
+<file name='player_explosion7' path='sound/spookum/explosion/player_explosion7.ogg'></file>
+<file name='player_explosion8' path='sound/spookum/explosion/player_explosion8.ogg'></file>
+<file name='player_explosion9' path='sound/spookum/explosion/player_explosion9.ogg'></file>
+<file name='player_explosion10' path='sound/spookum/explosion/player_explosion10.ogg'></file>
+<file name='player_explosion11' path='sound/spookum/explosion/player_explosion11.ogg'></file>
+<file name='player_explosion12' path='sound/spookum/explosion/player_explosion12.ogg'></file>
+<file name='player_explosion13' path='sound/spookum/explosion/player_explosion13.ogg'></file>
+<file name='player_explosion14' path='sound/spookum/explosion/player_explosion14.ogg'></file>
+
+
+<!--Shatter quotes-->
+
+<file name='player_shatter1' path='sound/spookum/shatter/player_shatter1.ogg'></file>
+<file name='player_shatter2' path='sound/spookum/shatter/player_shatter2.ogg'></file>
+<file name='player_shatter3' path='sound/spookum/shatter/player_shatter3.ogg'></file>
+<file name='player_shatter4' path='sound/spookum/shatter/player_shatter4.ogg'></file>
+<file name='player_shatter5' path='sound/spookum/shatter/player_shatter5.ogg'></file>
+<file name='player_shatter6' path='sound/spookum/shatter/player_shatter6.ogg'></file>
+<file name='player_shatter7' path='sound/spookum/shatter/player_shatter7.ogg'></file>
+
+<!--Set on fire quotes-->
+
+<file name='player_setonfire1' path='sound/spookum/setonfire/player_setonfire1.ogg'></file>
+<file name='player_setonfire2' path='sound/spookum/setonfire/player_setonfire2.ogg'></file>
+<file name='player_setonfire3' path='sound/spookum/setonfire/player_setonfire3.ogg'></file>
+<file name='player_setonfire4' path='sound/spookum/setonfire/player_setonfire4.ogg'></file>
+<file name='player_setonfire5' path='sound/spookum/burnalot/player_charredbodies1.ogg'></file>
+<file name='player_setonfire6' path='sound/spookum/burnalot/player_charredbodies2.ogg'></file>
+<file name='player_setonfire7' path='sound/spookum/burnalot/player_charredbodies3.ogg'></file>
+<file name='player_setonfire8' path='sound/spookum/burnalot/player_charredbodies4.ogg'></file>
+<file name='player_setonfire9' path='sound/spookum/burnalot/player_charredbodies5.ogg'></file>
+<file name='player_setonfire10' path='sound/spookum/burnalot/player_charredbodies6.ogg'></file>
+<file name='player_setonfire11' path='sound/spookum/burnalot/player_charredbodies7.ogg'></file>
+<file name='player_setonfire12' path='sound/spookum/setonfire/player_setonfire5.ogg'></file>
+
+<!--Respond to screams quips-->
+<file name='player_respond_screams1' path='sound/spookum/respond_screams/player_respond_screams1.ogg'></file>
+<file name='player_respond_screams2' path='sound/spookum/respond_screams/player_respond_screams2.ogg'></file>
+<file name='player_respond_screams3' path='sound/spookum/respond_screams/player_respond_screams3.ogg'></file>
+
+<!--Respond to nazi level-->
+<file name='player_enternazi1' path='sound/spookum/newlevel/player_enternazi1.ogg'></file>
+<file name='player_enternazi2' path='sound/spookum/newlevel/player_enternazi2.ogg'></file>
+<file name='player_enternazi3' path='sound/spookum/newlevel/player_enternazi3.ogg'></file>
+
+<!--Respond to tech level-->
+<file name='player_entertech1' path='sound/spookum/newlevel/player_entertech1.ogg'></file>
+
+<!--Enemy sounds-->
+<file name='monster_grunt1' path='sound/minotaur/minotaur.ogg'></file>
+
+<file name='monster_scream1' path='sound/minotaur/94585__thanvannispen__cell-screams-8.ogg'></file>
+<file name='monster_scream2' path='sound/minotaur/onfire1.ogg'></file>
+
+<file name='minotaur_die1' path='sound/minotaur/minotaur.ogg'></file>
+
+<file name='swampmonster_die1' path='sound/swamp_monster/swampdie.ogg'></file>
+
+<file name='zombie_die1' path='sound/zombie/zombdie.ogg'></file>
+
+<file name='monster_fireloop' path='sound/monster/monster_onfireloop1.ogg'></file>
+
+<!--Weapon sounds-->
+<file name='flame_attack' path='sound/weapons/flame_attack.ogg'></file>
+<file name='throw_bomb' path='sound/weapons/throwbomb.ogg'></file>
+<file name='grenade_explode' path='sound/weapons/155790__roper1911__shipboard-railgun.ogg'></file>
+<file name='grenade_clink' path='sound/weapons/59317__vibe-crc__metal-clank.ogg'></file>
+<file name='grenade_fuse' path='sound/weapons/102264__rytmenpinnen__onesparkler_01_peteredit.ogg'></file>
+
+<file name='plasma_fire1' path='sound/cyborg/plasma_fire1.ogg'></file>
+<file name='laser_beam' path='sound/weapons/laser_beam.ogg'></file>
+
+<!--Environment sounds-->
+<file name='squishsound' path='sound/env/squish.ogg'></file>
+
+<file name='freeze1' path='sound/weapons/freeze1.ogg'></file>
+<file name='freeze2' path='sound/weapons/freeze2.ogg'></file>
+<file name='freeze3' path='sound/weapons/freeze3.ogg'></file>
+<file name='freeze4' path='sound/weapons/freeze4.ogg'></file>
+<file name='freeze5' path='sound/weapons/freeze5.ogg'></file>
+
+<file name='shatter1' path='sound/env/shatter1.ogg'></file>
+<file name='shatter2' path='sound/env/shatter2.ogg'></file>
+<file name='shatter3' path='sound/env/shatter3.ogg'></file>
+<file name='shatter4' path='sound/env/shatter4.ogg'></file>
+<file name='shatter5' path='sound/env/shatter5.ogg'></file>
+<file name='shatter6' path='sound/env/shatter6.ogg'></file>
+<file name='shatter7' path='sound/env/shatter7.ogg'></file>
+<file name='shatter8' path='sound/env/shatter8.ogg'></file>
+<file name='shatter9' path='sound/env/shatter9.ogg'></file>
+<file name='shatter10' path='sound/env/shatter10.ogg'></file>
+
+<file name='glass_impact1' path='sound/env/glass_impact1.ogg'></file>
+<file name='glass_impact2' path='sound/env/glass_impact2.ogg'></file>
+<file name='glass_impact3' path='sound/env/glass_impact3.ogg'></file>
+<file name='glass_impact4' path='sound/env/glass_impact4.ogg'></file>
+<file name='glass_impact5' path='sound/env/glass_impact5.ogg'></file>
+<file name='glass_impact6' path='sound/env/glass_impact6.ogg'></file>
+
+<file name='ricochet1' path='sound/env/ricochet1.ogg'></file>
+<file name='ricochet2' path='sound/env/ricochet2.ogg'></file>
+<file name='ricochet3' path='sound/env/ricochet3.ogg'></file>
+<file name='ricochet4' path='sound/env/ricochet4.ogg'></file>
+<file name='ricochet5' path='sound/env/ricochet5.ogg'></file>
+<file name='ricochet6' path='sound/env/ricochet6.ogg'></file>
+<file name='ricochet7' path='sound/env/ricochet7.ogg'></file>
+<file name='ricochet8' path='sound/env/ricochet8.ogg'></file>
+<file name='ricochet9' path='sound/env/ricochet9.ogg'></file>
+<file name='ricochet10' path='sound/env/ricochet10.ogg'></file>
+<file name='ricochet11' path='sound/env/ricochet11.ogg'></file>
+<file name='ricochet12' path='sound/env/ricochet12.ogg'></file>
+<file name='ricochet13' path='sound/env/ricochet13.ogg'></file>
+<file name='ricochet14' path='sound/env/ricochet14.ogg'></file>
+<file name='ricochet15' path='sound/env/ricochet15.ogg'></file>
+<file name='ricochet16' path='sound/env/ricochet16.ogg'></file>
+<file name='ricochet17' path='sound/env/ricochet17.ogg'></file>
+<file name='ricochet18' path='sound/env/ricochet18.ogg'></file>
+<file name='ricochet19' path='sound/env/ricochet19.ogg'></file>
+<file name='ricochet20' path='sound/env/ricochet20.ogg'></file>
+<file name='ricochet21' path='sound/env/ricochet21.ogg'></file>
+<file name='ricochet22' path='sound/env/ricochet22.ogg'></file>
+<file name='ricochet23' path='sound/env/ricochet23.ogg'></file>
+
+<file name='nazi_chat1' path='sound/waffen/waffen_chatter1.ogg'></file>
+<file name='nazi_chat2' path='sound/waffen/waffen_chatter2.ogg'></file>
+
+<file name='nazi_die1' path='sound/waffen/56901__syna-max__wilhelm-scream-outtake.ogg'></file>
+<file name='nazi_die2' path='sound/waffen/84353__creativeheroes__helmutscream-short.ogg'></file>
+<file name='nazi_die3' path='sound/waffen/171844__oliroches__deathscream.ogg'></file>
+<file name='nazi_die4' path='sound/waffen/220623__adriancalzon__scream-05.ogg'></file>
+<file name='nazi_die5' path='sound/waffen/203594__insanity54__man-scream.ogg'></file>
+<file name='nazi_die6' path='sound/waffen/180351__jorickhoofd__shriek-male.ogg'></file>
+
+<file name='nazi_attack1' path='sound/waffen/waffen_attack1.ogg'></file>
+<file name='nazi_attack2' path='sound/waffen/waffen_attack2.ogg'></file>
+<file name='nazi_attack3' path='sound/waffen/waffen_attack3.ogg'></file>
+<file name='nazi_attack4' path='sound/waffen/waffen_attack4.ogg'></file>
+<file name='nazi_attack5' path='sound/waffen/waffen_attack5.ogg'></file>
+
+<file name='nazi_freeze1' path='sound/waffen/waffen_freeze1.ogg'></file>
+<file name='nazi_freeze2' path='sound/waffen/waffen_freeze2.ogg'></file>
+<file name='nazi_freeze3' path='sound/waffen/waffen_freeze3.ogg'></file>
+<file name='nazi_freeze4' path='sound/waffen/waffen_freeze4.ogg'></file>
+
+<file name='mp40_beginfire' path='sound/waffen/mp40_beginfire.ogg'></file>
+<file name='mp40_fireloop' path='sound/waffen/mp40_fireloop.ogg'></file>
+<file name='mp40_tail' path='sound/waffen/mp40_tail.ogg'></file>
+
+<file name='cyborg_chat1' path='sound/cyborg/cyborg_chat1.ogg'></file>
+<file name='cyborg_chat2' path='sound/cyborg/cyborg_chat2.ogg'></file>
+<file name='cyborg_chat3' path='sound/cyborg/cyborg_chat3.ogg'></file>
+<file name='cyborg_chat4' path='sound/cyborg/cyborg_chat4.ogg'></file>
+<file name='cyborg_chat5' path='sound/cyborg/cyborg_chat5.ogg'></file>
+
+<file name='cyborg_die1' path='sound/cyborg/cyborg_die1.ogg'></file>
+<file name='cyborg_die2' path='sound/cyborg/cyborg_die2.ogg'></file>
+<file name='cyborg_die3' path='sound/cyborg/cyborg_die3.ogg'></file>
+<file name='cyborg_die4' path='sound/cyborg/cyborg_die4.ogg'></file>
+<file name='cyborg_die5' path='sound/cyborg/cyborg_die5.ogg'></file>
+<file name='cyborg_die6' path='sound/cyborg/cyborg_die6.ogg'></file>
+
+<file name='cyborg_attack1' path='sound/cyborg/cyborg_attack1.ogg'></file>
+<file name='cyborg_attack2' path='sound/cyborg/cyborg_attack2.ogg'></file>
+<file name='cyborg_attack3' path='sound/cyborg/cyborg_attack3.ogg'></file>
+<file name='cyborg_attack4' path='sound/cyborg/cyborg_attack4.ogg'></file>
+<file name='cyborg_attack5' path='sound/cyborg/cyborg_attack5.ogg'></file>
+<file name='cyborg_attack6' path='sound/cyborg/cyborg_attack6.ogg'></file>
+<file name='cyborg_attack7' path='sound/cyborg/cyborg_attack7.ogg'></file>
+<file name='cyborg_attack8' path='sound/cyborg/cyborg_attack8.ogg'></file>
+
+<file name='cyborg_freeze1' path='sound/cyborg/cyborg_freeze1.ogg'></file>
+<file name='cyborg_freeze2' path='sound/cyborg/cyborg_freeze2.ogg'></file>
+
+<file name='cyborg_onfire1' path='sound/cyborg/cyborg_onfire1.ogg'></file>
+<file name='cyborg_onfire2' path='sound/cyborg/cyborg_onfire2.ogg'></file>
+
+
+<file name='mjboss_attack1' path='sound/mjboss/mjboss_attack1.ogg'></file>
+<file name='mjboss_attack2' path='sound/mjboss/mjboss_attack2.ogg'></file>
+<file name='mjboss_attack3' path='sound/mjboss/mjboss_attack3.ogg'></file>
+<file name='mjboss_attack4' path='sound/mjboss/mjboss_attack4.ogg'></file>
+<file name='mjboss_attack5' path='sound/mjboss/mjboss_attack5.ogg'></file>
+
+<file name='mjboss_die1' path='sound/mjboss/mjboss_die1.ogg'></file>
+
+<file name='hitler_attack1' path='sound/hitler/hitler_attack1.ogg'></file>
+<file name='hitler_attack2' path='sound/hitler/hitler_attack2.ogg'></file>
+<file name='hitler_attack3' path='sound/hitler/hitler_attack3.ogg'></file>
+<file name='hitler_attack4' path='sound/hitler/hitler_attack4.ogg'></file>
+
+<file name='hitler_die1' path='sound/hitler/hitler_die1.ogg'></file>
+<file name='hitler_die2' path='sound/hitler/hitler_die2.ogg'></file>
+<file name='hitler_die3' path='sound/hitler/hitler_die3.ogg'></file>
+<file name='hitler_die4' path='sound/hitler/hitler_die4.ogg'></file>
+<file name='hitler_die5' path='sound/hitler/hitler_die5.ogg'></file>
+<file name='hitler_die6' path='sound/hitler/hitler_die6.ogg'></file>
+
+<file name='hitler_yell1' path='sound/hitler/hitler_yell1.ogg'></file>
+<file name='hitler_yell2' path='sound/hitler/hitler_yell2.ogg'></file>
+<file name='hitler_yell3' path='sound/hitler/hitler_yell3.ogg'></file>
+<file name='hitler_yell4' path='sound/hitler/hitler_yell4.ogg'></file>
+<file name='hitler_yell5' path='sound/hitler/hitler_yell5.ogg'></file>
+
+<file name='player_hitler_spawn1' path='sound/hitler/player_naziboss_spawn1.ogg'></file>
+
+<file name='kick' path='sound/weapons/86019__nextmaking__kung-fu-punch.ogg'></file>
+<file name='frost' path='sound/weapons/146932__crashoverride61088__wind-gust_edited.ogg'></file>
+
+<file name='camera_shutter' path='sound/weapons/camera.ogg'></file>
+
+<file name='metal_bump' path='sound/env/147660__qubodup__two-karts-bumping-into-each-other.ogg'></file>
+
+<file name='UI_hoversound' path='sound/ui/213148__radiy__click.ogg'></file>
+<file name='UI_selectsound' path='sound/ui/80921__justinbw__buttonchime02up.ogg'></file>
+
+<file name='spookem_peeing' path='sound/piss.ogg'></file>
+<file name='zipdown' path='sound/51174__rutgermuller__zipper-unzip-1.wav'></file>
+<file name='zipup' path='sound/51175__rutgermuller__zipper-unzip-2.wav'></file>
+
+<!--Music-->
+<file name='music_graveyard' path='sound/music/horror.ogg'></file>
+<file name='music_dungeon' path='sound/music/pip-dungeonsofsplendor.ogg'></file>
+<file name='music_nazi1' path='sound/music/spookem_boss2.ogg'></file>
+<file name='music_nazi2' path='sound/music/AHA3.ogg'></file>
+<file name='music_tech1' path='sound/music/Neon Streets.ogg'></file>
+<file name='music_tech2' path='sound/music/cyber.ogg'></file>
+
+
+<!--Fonts-->
+<file name='impact_font' path='impact.ttf'></file>
+<file name='century_gothic_font' path='GOTHIC.ttf'></file>
+<file name='pacifico_font' path='Pacifico.ttf'></file>
+
+<!--Textures-->
+<!--<file name='floor_texture' path='textures/brick.png'></file>-->
+<!--<file name='wall_texture' path='textures/tile.png'></file>-->
+<file name='stair_down_texture' path='textures/stairsdown.png'></file>
+<file name='stair_up_texture' path='textures/stairsup.png'></file>
+
+<file name='redbrick_texture' path='textures/seamless_red_brick_texture_by_hhh316-d4hojd0.png'></file>
+<file name='grass_texture' path='textures/Seamless long green grass ground texture.png'></file>
+<file name='bluebrick_texture' path='textures/Texlibnubrick2.png'></file>
+<file name='brownbrick_texture' path='textures/BrownbrickL.png'></file>
+<file name='whitebrick_texture' path='textures/whitebrick.png'></file>
+<file name='railwall_texture' path='textures/railwall.png'></file>
+<file name='metalrivetwall_texture' path='textures/metalrivet_wall.png'></file>
+<file name='dirt_texture' path='textures/bubblydirt.png'></file>
+
+<file name='tile1_texture' path='textures/tile.png'></file>
+<file name='tile2_texture' path='textures/brick.png'></file>
+<file name='wolftile_texture' path='textures/wolftile.png'></file>
+
+<file name='cobblestone_texture' path='textures/Sidewalk005.png'></file>
+
+<file name='sunset_sky' path='textures/sky_redsunset.png'></file>
+<file name='tech_sky' path='textures/wave.png'></file>
+
+<file name='legs_texture' path='textures/hercules_legs.png'></file>
+
+
+<file name='swampmonster_texture' path='textures/swampmonster.png'></file>
+<file name='minotaur_texture' path='textures/minotaur.png'></file>
+<file name='zombie_texture' path='textures/zombie5r.png'></file>
+
+<file name='guard_texture' path='textures/naziguard_spritesheet.png'></file>
+<file name='officer_texture' path='textures/naziofficer_spritesheet.png'></file>
+
+<file name='hitler_texture' path='textures/hitler_boss.png'></file>
+
+<file name='minotaur_head_texture' path='textures/minotaur_head.png'></file>
+<file name='minotaur_torso_texture' path='textures/minotaur_torso.png'></file>
+<file name='minotaur_arm_texture' path='textures/minotaur_arm.png'></file>
+<file name='minotaur_leg_texture' path='textures/minotaur_leg.png'></file>
+
+<file name='swampmonster_head_texture' path='textures/swampmonster_head.png'></file>
+<file name='swampmonster_arm_texture' path='textures/swampmonster_arm.png'></file>
+<file name='swampmonster_leg_texture' path='textures/swampmonster_leg.png'></file>
+
+<file name='zombie_head_texture' path='textures/zombie_head.png'></file>
+<file name='zombie_arm_texture' path='textures/zombie_arm.png'></file>
+<file name='zombie_leg_texture' path='textures/zombie_leg.png'></file>
+
+<file name='cyborg1_texture' path='textures/cyborg1.png'></file>
+
+<file name='vaporize_texture' path='textures/vaporize.png'></file>
+
+<file name='fireball_texture' path='textures/explosion_transparent.png'></file>
+<file name='shot_texture' path='textures/shot.png'></file>
+<file name='bomb_texture' path='textures/bomb.png'></file>
+<file name='stick_grenade_texture' path='textures/stick_grenade.png'></file>
+<file name='iceball_texture' path='textures/Ice Ball.png'></file>
+
+<file name='spellhand_texture' path='textures/spellhand.png'></file>
+<file name='kick_texture' path='textures/kick_animation.png'></file>
+<file name='sunglasses_texture' path='textures/sunglasses.png'></file>
+
+<file name='health_potion_texture' path='textures/RedPotion.png'></file>
+<file name='cell_phone_texture' path='textures/selfie.png'></file>
+
+<file name='normal_texture' path='normal.png'></file>
+<file name='height_texture' path='height.png'></file>
+
+<file name='puddle_texture' path='textures/puddle.png'></file>
+
+<file name='city' path='textures/city.png'></file>
+<file name='circuit' path='textures/wave.png'></file>
+<file name='grid' path='textures/grid.png'></file>
+
+<file name='circuit_board' path='textures/circuit.png'></file>
+
+<file name='shell_casing' path='textures/brass_shell.png'></file>
+
+<file name='century_gothic' path='TextureDOS.png'></file>
+<file name='century_gothic_metrics' path='MetricsDOS.xml'></file>
+
+<file name='dukespookem' path='textures/DukeSpookem.png'></file>

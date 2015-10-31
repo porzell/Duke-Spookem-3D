@@ -16,7 +16,7 @@ class Kick : public Entity
 	private:
 		bool mHasHitHeadGib;
 
-		//Timer mLifeTimer;
+		Timer mLifeTimer;
 		//Sound *mVoice;
 
 	public:

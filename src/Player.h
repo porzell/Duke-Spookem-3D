@@ -175,7 +175,7 @@ class Player : public Entity, public EventListener
 		inline float getVoiceVolume() { return mVoiceVolume; }
         inline void setVoiceVolume(float volume) { mVoiceVolume = volume; if(mpSpeaking) mpSpeaking->setVolume(mVoiceVolume); }
 
-        inline bool isSpeaking() { return mpSpeaking; };
+        inline bool isSpeaking() { return mpSpeaking != nullptr; };
 
 		friend class InputManager;
 

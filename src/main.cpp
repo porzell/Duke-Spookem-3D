@@ -34,7 +34,7 @@ Game *game;
 
 extern EventSystem* gpEventSystem;
 
-#ifdef WINDOWS
+/*#ifdef WINDOWS
 int CALLBACK WinMain(
   _In_  HINSTANCE hInstance,
   _In_  HINSTANCE hPrevInstance,
@@ -68,7 +68,7 @@ int CALLBACK WinMain(
 
 	return 0;
 }
-#endif
+#endif*/
 
 
 int main(int argc, char** argv)

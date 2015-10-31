@@ -121,7 +121,7 @@ void SwampMonster::setFrozen(bool frozen)
 
 void SwampMonster::spawnGib(float velocity)
 {
-	if(!game->getAllowGibs())
+	if (!game->getAllowGibs() && !mIsDying)
 		return;
 
 	Animation *arm = game->getAnimationManager()->get("swampmonster_arm");
@@ -193,6 +193,9 @@ void SwampMonster::removeAttachment(std::string key)
 void SwampMonster::takeDamage(float hp)
 {
 	Monster::takeDamage(hp);
+
+	if (mHealth <= 0)
+		kill();
 	//makeMonsterNoise();
 }
 
